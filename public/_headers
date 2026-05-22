@@ -1,0 +1,5 @@
+# Used when enabling threaded Godot web export (variant/thread_support=true).
+# Copy to build/web/_headers in the deploy workflow when needed.
+/*
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Embedder-Policy: require-corp

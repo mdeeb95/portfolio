@@ -21,19 +21,12 @@ config/icon="res://icon.svg"
 ResumeData="*res://scripts/resume_data.gd"
 Dialogue="*res://scenes/ui/dialogue_ui.tscn"
 GameUI="*res://scenes/ui/game_ui.tscn"
-MCPScreenshot="*res://addons/godot_mcp/mcp_screenshot_service.gd"
-MCPInputService="*res://addons/godot_mcp/mcp_input_service.gd"
-MCPGameInspector="*res://addons/godot_mcp/mcp_game_inspector_service.gd"
 
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
 window/stretch/mode="canvas_items"
-
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/godot_mcp/plugin.cfg")
 
 [input]
 

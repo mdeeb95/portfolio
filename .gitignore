@@ -6,3 +6,9 @@ export/
 
 # Web export output
 build/web/
+
+# Dev-only (paid Godot MCP Pro — install locally from your zip)
+addons/godot_mcp/
+
+# Local Cursor MCP config (paths are machine-specific)
+.cursor/mcp.json
