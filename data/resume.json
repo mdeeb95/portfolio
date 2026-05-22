@@ -1,0 +1,129 @@
+{
+  "name": "Mathew Deeb",
+  "title": "Senior Full-Stack Software Engineer",
+  "tagline": "10+ years building payments, observability, and developer tooling at scale.",
+  "intro": "Hey — I'm Mathew. Walk around town to see where I've worked, what I've shipped, and what I do outside of work.",
+  "contact": {
+    "email": "mdeeb95@gmail.com",
+    "phone": "678-906-5036",
+    "github": "https://github.com/mdeeb95",
+    "linkedin": "https://linkedin.com/in/mathew-deeb-3768a689"
+  },
+  "summary": "Senior Software Engineer at Intuit Mailchimp with 10+ years of experience building end-to-end product features across payments infrastructure, observability, and developer tooling. Georgia Tech CS grad with deep full-stack experience spanning TypeScript, Python, React, Node, and cloud infrastructure (GCP/AWS). Passionate about building powerful developer tools and shipping fast with high ownership.",
+  "zones": {
+    "work": {
+      "title": "Work",
+      "entries": [
+        {
+          "role": "Senior Software Engineer",
+          "company": "Intuit Mailchimp — FinOps Team",
+          "period": "2022 – Present",
+          "location": "Atlanta, GA",
+          "highlights": [
+            "Unified payment reconciliation across 5 PSPs (Adyen, Chase, PayPal, Amex, internal) — 500+ accounting hours saved annually",
+            "Real-time tax ID verification via FONOA for hundreds of thousands of customers across 200+ countries",
+            "Taiwan e-invoicing compliance system with full Slack observability",
+            "AI adoption: semi-autonomous E2E testing workflows and team code review agent",
+            "ETL microservices (Python) with legacy bank APIs, S3 staging, webhooks",
+            "Growth experimentation scoping — 20% experiment success rate",
+            "Mentored 3 engineers + 1 intern; championed microservice deployment tooling org-wide"
+          ]
+        },
+        {
+          "role": "Software Engineer",
+          "company": "KollaCode — IBM Events Contractor",
+          "period": "Mar 2020 – 2022",
+          "highlights": [
+            "Greenfield app design and architecture end-to-end on IBM-contracted projects",
+            "CI/CD on IBM Hybrid Cloud — replaced manual VM deploys with containerized delivery",
+            "Full-stack event dashboards (Vue, Node, Express) for hundreds of IBM events",
+            "Established Git workflows, PR reviews, and code quality standards"
+          ]
+        },
+        {
+          "role": "Software Engineer",
+          "company": "Virtustream (Dell subsidiary)",
+          "period": "May 2014 – Feb 2020",
+          "location": "Alpharetta, GA",
+          "highlights": [
+            "Cloud infrastructure apps for enterprise resource and usage analytics",
+            "In-house React component library adopted across the engineering team",
+            "CI/CD across dev, staging, and production for multiple applications"
+          ]
+        }
+      ]
+    },
+    "hobbies": {
+      "title": "Hobbies",
+      "items": [
+        {
+          "name": "Rock climbing",
+          "detail": "Outdoor bouldering and sport climbing. Notable sends: Super Mario V4, Rage V5, Sternum V5."
+        },
+        {
+          "name": "Game dev",
+          "detail": "Solo indie game in Godot with AI-assisted workflow; procedural gen via MarkovJunior port to GDScript."
+        },
+        {
+          "name": "3D printing",
+          "detail": "Enthusiast — always iterating on the next print."
+        },
+        {
+          "name": "FPV drones",
+          "detail": "Retired pilot — still loves the hobby from the sidelines."
+        },
+        {
+          "name": "Gaming",
+          "detail": "Getting back into Path of Exile 2 and exploring agentic coding for games."
+        }
+      ]
+    },
+    "accomplishments": {
+      "title": "Accomplishments",
+      "items": [
+        {
+          "name": "Intuit Hackathon Winner",
+          "detail": "Natural Language SQL Interface — LLM chatbot for PMs/analysts to query terabytes of BigQuery BI data with custom tool calling and churn detection. Adopted internally."
+        },
+        {
+          "name": "Payment reconciliation at scale",
+          "detail": "Consolidated 5 payment providers into one automated pipeline processing millions daily."
+        },
+        {
+          "name": "Global tax & compliance",
+          "detail": "Real-time tax verification and Taiwan e-invoicing — unlocked operations across 200+ regions."
+        },
+        {
+          "name": "Engineering leadership",
+          "detail": "Mentored engineers, drove AI tooling adoption, and standardized deployment practices org-wide."
+        },
+        {
+          "name": "This portfolio town",
+          "detail": "You're playing it — a walkable resume built in Godot for the web."
+        }
+      ]
+    },
+    "about": {
+      "title": "About",
+      "bio": "I'm Mathew Deeb, a senior full-stack engineer based in Atlanta. I ship high-impact systems with strong ownership — from payments and observability at Mailchimp to greenfield apps and CI/CD for enterprise clients. Georgia Tech CS (People & UX concentration). Always building: whether it's reconciliation pipelines, AI dev tools, or an indie game in Godot.",
+      "education": {
+        "school": "Georgia Institute of Technology",
+        "degree": "B.S. Computer Science",
+        "concentration": "People & User Experiences",
+        "period": "2013 – 2017"
+      },
+      "skills": {
+        "languages": ["TypeScript", "JavaScript", "Python", "PHP", "SQL", "GDScript"],
+        "frontend": ["React", "Vue.js", "HTML/CSS/SCSS", "component libraries"],
+        "backend": ["Node.js", "Express", "REST", "GraphQL", "microservices"],
+        "infrastructure": ["GCP", "AWS", "Kubernetes", "CI/CD", "Docker", "S3", "BigQuery"],
+        "ai": ["Claude Code", "MCP integrations", "agentic workflows"]
+      },
+      "links": [
+        { "label": "Email", "url": "mailto:mdeeb95@gmail.com" },
+        { "label": "GitHub", "url": "https://github.com/mdeeb95" },
+        { "label": "LinkedIn", "url": "https://linkedin.com/in/mathew-deeb-3768a689" }
+      ]
+    }
+  }
+}

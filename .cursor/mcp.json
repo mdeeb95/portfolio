@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "godot-mcp-pro": {
+      "command": "/home/mathewd/.local/node/bin/node",
+      "args": [
+        "/home/mathewd/Downloads/godot-mcp-pro-v1.13.2/server/build/index.js"
+      ]
+    }
+  }
+}

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmain01greybox"]
+
+[ext_resource type="PackedScene" uid="uid://ctown01greybox" path="res://scenes/town/town_square.tscn" id="1_town"]
+[ext_resource type="PackedScene" uid="uid://cplayer01greybox" path="res://scenes/player/player.tscn" id="2_player"]
+
+[node name="Main" type="Node3D"]
+
+[node name="TownSquare" parent="." instance=ExtResource("1_town")]
+
+[node name="Player" parent="." instance=ExtResource("2_player")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 5)
