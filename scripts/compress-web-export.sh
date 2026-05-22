@@ -24,14 +24,15 @@ gzip -9 -k -f index.wasm
 WASM_GZ_SIZE=$(stat -c%s index.wasm.gz)
 rm -f index.wasm
 
-python3 << PY
+WASM_GZ_SIZE="$WASM_GZ_SIZE" python3 << 'PY'
+import os
 import pathlib
 import re
 
 root = pathlib.Path(".")
 html = root / "index.html"
 js = root / "index.js"
-gz_size = int("${WASM_GZ_SIZE}")
+gz_size = int(os.environ["WASM_GZ_SIZE"])
 
 html_text = html.read_text()
 html_text = re.sub(
@@ -51,6 +52,38 @@ js_text = js_text.replace(
     "this.config.fileSizes[\`\${basePath}.wasm\`]",
     "this.config.fileSizes[\`\${basePath}.wasm.gz\`]",
 )
+# Cloudflare Pages may not set Content-Encoding on .wasm.gz; decompress in the loader.
+old_fetch = """\t\treturn fetch(file).then(function (response) {
+\t\t\tif (!response.ok) {
+\t\t\t\treturn Promise.reject(new Error(`Failed loading file '${file}'`));
+\t\t\t}
+\t\t\tconst tr = getTrackedResponse(response, tracker[file]);
+\t\t\tif (raw) {
+\t\t\t\treturn Promise.resolve(tr);
+\t\t\t}
+\t\t\treturn tr.arrayBuffer();
+\t\t});"""
+new_fetch = """\t\treturn fetch(file).then(function (response) {
+\t\t\tif (!response.ok) {
+\t\t\t\treturn Promise.reject(new Error(`Failed loading file '${file}'`));
+\t\t\t}
+\t\t\tconst tr = getTrackedResponse(response, tracker[file]);
+\t\t\tif (file.endsWith('.gz')) {
+\t\t\t\tconst stream = tr.body.pipeThrough(new DecompressionStream('gzip'));
+\t\t\t\tconst decompressed = new Response(stream, { headers: response.headers });
+\t\t\t\tif (raw) {
+\t\t\t\t\treturn Promise.resolve(decompressed);
+\t\t\t\t}
+\t\t\t\treturn decompressed.arrayBuffer();
+\t\t\t}
+\t\t\tif (raw) {
+\t\t\t\treturn Promise.resolve(tr);
+\t\t\t}
+\t\t\treturn tr.arrayBuffer();
+\t\t});"""
+if old_fetch not in js_text:
+    raise SystemExit("compress-web-export: could not patch index.js fetch handler")
+js_text = js_text.replace(old_fetch, new_fetch)
 js.write_text(js_text)
 print(f"Compressed wasm -> index.wasm.gz ({gz_size} bytes)")
 PY

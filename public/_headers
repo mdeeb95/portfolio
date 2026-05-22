@@ -1,6 +1,5 @@
 /index.wasm.gz
-  Content-Type: application/wasm
-  Content-Encoding: gzip
+  Content-Type: application/octet-stream
 
 /index.pck
   Content-Type: application/octet-stream
