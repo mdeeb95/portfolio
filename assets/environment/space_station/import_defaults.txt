@@ -1,0 +1,4 @@
+All FBX models use nodes/root_scale=2.5 in their .fbx.import files so they match
+Kenney character scale at 1:1 placement — no parent-node scaling required.
+
+After changing import settings: Project > Reload Current Project (or reimport the models folder).

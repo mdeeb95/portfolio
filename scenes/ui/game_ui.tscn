@@ -4,52 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://ctouchjoystick01" path="res://scenes/ui/touch_joystick.tscn" id="2_joystick"]
 
 [node name="GameUI" type="CanvasLayer"]
+layer = 10
 script = ExtResource("1_ui")
 
 [node name="TouchJoystick" parent="." instance=ExtResource("2_joystick")]
 layout_mode = 3
-
-[node name="Margin" type="MarginContainer" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 12
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 12
-mouse_filter = 2
-
-[node name="VBox" type="VBoxContainer" parent="Margin"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/separation = 0
-
-[node name="ControlsHint" type="Label" parent="Margin/VBox"]
-layout_mode = 2
-size_flags_vertical = 0
-theme_override_colors/font_color = Color(1, 1, 1, 0.9)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 0.85)
-theme_override_constants/outline_size = 4
-theme_override_font_sizes/font_size = 16
-text = "WASD to move"
-horizontal_alignment = 1
-
-[node name="Spacer" type="Control" parent="Margin/VBox"]
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 1.0
-mouse_filter = 2
-
-[node name="PromptLabel" type="Label" parent="Margin/VBox"]
-layout_mode = 2
-size_flags_vertical = 8
-theme_override_colors/font_color = Color(1, 0.95, 0.7, 1)
-theme_override_colors/font_outline_color = Color(0.1, 0.1, 0.1, 1)
-theme_override_constants/outline_size = 5
-theme_override_font_sizes/font_size = 22
-text = "Tap to interact"
-horizontal_alignment = 1
-vertical_alignment = 2

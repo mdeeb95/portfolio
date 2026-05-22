@@ -8,12 +8,14 @@ const TAP_MOVE_STOP_DIST := 0.35
 
 @onready var model: Node3D = $Model
 @onready var spring_arm: SpringArm3D = $SpringArm3D
+@onready var _animator: CharacterAnimator = $Model/KenneyCharacter
 
 var _tap_target: Vector3 = Vector3.ZERO
 var _has_tap_target: bool = false
 
 
 func _physics_process(delta: float) -> void:
+	var just_jumped := false
 	if _is_movement_locked():
 		velocity.x = 0.0
 		velocity.z = 0.0
@@ -22,11 +24,13 @@ func _physics_process(delta: float) -> void:
 		else:
 			velocity.y -= GRAVITY * delta
 		move_and_slide()
+		_update_animation(false)
 		return
 
 	if is_on_floor():
 		if Input.is_action_just_pressed("jump"):
 			velocity.y = JUMP_VELOCITY
+			just_jumped = true
 		elif velocity.y < 0.0:
 			velocity.y = 0.0
 	else:
@@ -64,6 +68,7 @@ func _physics_process(delta: float) -> void:
 		velocity.z = 0.0
 
 	move_and_slide()
+	_update_animation(just_jumped)
 
 
 func set_tap_target(world_pos: Vector3) -> void:
@@ -72,7 +77,13 @@ func set_tap_target(world_pos: Vector3) -> void:
 	_has_tap_target = true
 
 
+func _update_animation(just_jumped: bool) -> void:
+	if _animator == null:
+		return
+	var horizontal_speed := Vector2(velocity.x, velocity.z).length()
+	_animator.update_locomotion(horizontal_speed, is_on_floor(), just_jumped)
+
+
 func _is_movement_locked() -> bool:
 	var mgr := get_node_or_null("InteractionManager")
 	return mgr != null and mgr.movement_locked
-

@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://ctn6vgptkp7b6"]
+
+[ext_resource type="Script" path="res://scripts/town_environment.gd" id="1_env"]
+
+[node name="TownEnvironment" type="Node3D" unique_id=448443585]
+script = ExtResource("1_env")
+
+[node name="Floor" type="Node3D" parent="." unique_id=130460403]
+
+[node name="Decorations" type="Node3D" parent="." unique_id=666426639]
+
+[node name="Structures" type="Node3D" parent="." unique_id=1625494651]
+
+[node name="Walls" type="Node3D" parent="." unique_id=1655529515]

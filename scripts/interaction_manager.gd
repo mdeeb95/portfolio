@@ -7,6 +7,7 @@ var movement_locked: bool = false
 var _player: CharacterBody3D
 var _camera: Camera3D
 var _focused: Interactable = null
+var _dialogue_target: Interactable = null
 var _interactables: Array[Interactable] = []
 
 
@@ -50,6 +51,9 @@ func _on_dialogue_started() -> void:
 
 func _on_dialogue_ended() -> void:
 	movement_locked = false
+	if _dialogue_target:
+		_dialogue_target.set_dialogue_active(false)
+		_dialogue_target = null
 
 
 func _update_focus() -> void:
@@ -70,7 +74,6 @@ func _update_focus() -> void:
 		_focused = best
 		if _focused:
 			_focused.set_focused(true)
-	GameUI.set_interact_target(_focused)
 
 
 func _can_interact_with(target: Interactable) -> bool:
@@ -78,6 +81,8 @@ func _can_interact_with(target: Interactable) -> bool:
 
 
 func _start_interaction(target: Interactable) -> void:
+	_dialogue_target = target
+	target.set_dialogue_active(true)
 	var pages := ResumeData.get_dialogue_pages(target.zone_key)
 	Dialogue.start_dialogue(pages)
 

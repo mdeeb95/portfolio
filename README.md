@@ -48,10 +48,21 @@ The paid [Godot MCP Pro](https://godot-mcp.abyo.net) addon is **not** in this re
 ## Project structure
 
 ```
-scenes/          Main, player, town, UI
-scripts/         Movement, dialogue, interactables
+assets/          Kenney character models, animations, skins
+scenes/          Main, player, town, UI, characters
+scripts/         Movement, dialogue, interactables, animation
 data/resume.json In-game copy (work, hobbies, about, etc.)
 ```
+
+## Assets
+
+Character models and animations from [Kenney Animated Characters Bundle](https://kenney.nl/assets) (CC0).
+
+Environment art from Kenney Space Station Kit (CC0). Models import at **2.5×** baked into each FBX (`nodes/root_scale=2.5` in `models/*.fbx.import`) so props match characters at any parent. Use [Godot Asset Placer](https://godotengine.org/asset-library/asset/4244) on `town_square.tscn` — Plane mode **Y = 0.2**, grid snap **2.5 m**. `Environment/Floor` etc. are optional folders for organization.
+
+**WYSIWYG:** `town_square.tscn` is the source of truth — what you see in the editor is what runs in game. The player lives under `PlayerSpawn`; move that marker to reposition spawn. No runtime reparenting, scaling, or visibility toggles.
+
+**Grid Fill (Asset Placer):** In the Asset Placer options, choose **Grid Fill** placement mode. Set plane origin **Y = 0.2**, then **click and drag** across the floor to fill a rectangle of tiles in one undo step. Spacing is derived automatically from each asset's size (e.g. 2.5 m for floor tiles). Grid snap settings only affect single-tile placement, not fill spacing. Cycle modes with the plane-mode shortcut (default `Q`): Surface → Plane → Grid Fill → Surface.
 
 ## License
 

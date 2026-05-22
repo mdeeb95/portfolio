@@ -1,11 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cmain01greybox"]
+[gd_scene format=3 uid="uid://cyc87v2p3wsjn"]
 
-[ext_resource type="PackedScene" uid="uid://ctown01greybox" path="res://scenes/town/town_square.tscn" id="1_town"]
-[ext_resource type="PackedScene" uid="uid://cplayer01greybox" path="res://scenes/player/player.tscn" id="2_player"]
+[ext_resource type="PackedScene" uid="uid://cnxi1r77yi104" path="res://scenes/town/town_square.tscn" id="1_town"]
 
-[node name="Main" type="Node3D"]
+[node name="Main" type="Node3D" unique_id=1144537991]
 
-[node name="TownSquare" parent="." instance=ExtResource("1_town")]
-
-[node name="Player" parent="." instance=ExtResource("2_player")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 5)
+[node name="TownSquare" parent="." unique_id=1111028863 instance=ExtResource("1_town")]
