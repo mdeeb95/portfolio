@@ -38,12 +38,16 @@ wrangler pages project create portfolio --production-branch main
 
 ## 3. Custom domains
 
-In **Cloudflare → Workers & Pages → portfolio → Custom domains**:
+Custom domains are registered on the **`portfolio`** Pages project. Finish DNS in the **mdeeb.dev** zone (Cloudflare dashboard → DNS):
 
-1. Add `mdeeb.dev`
-2. Add `www.mdeeb.dev`
+| Type | Name | Content | Proxy |
+|------|------|---------|-------|
+| CNAME | `@` | `portfolio-7fw.pages.dev` | Proxied |
+| CNAME | `www` | `portfolio-7fw.pages.dev` | Proxied |
 
-Cloudflare will add the required DNS records to the `mdeeb.dev` zone.
+Until those records exist, the game is live at **https://portfolio-7fw.pages.dev** (and each deployment preview URL).
+
+Check domain status: **Workers & Pages → portfolio → Custom domains** (should move from *Pending* to *Active*).
 
 ## 4. Redirect www → apex (canonical)
 

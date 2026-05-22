@@ -1,6 +1,6 @@
-# Cloudflare Pages headers (copied into build/web/ on deploy).
-# For threaded export, also add COOP/COEP on /* — see docs/DEPLOYMENT.md.
-
-/*.wasm.gz
+/index.wasm.gz
   Content-Type: application/wasm
   Content-Encoding: gzip
+
+/index.pck
+  Content-Type: application/octet-stream
