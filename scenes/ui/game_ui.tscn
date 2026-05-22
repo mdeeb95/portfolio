@@ -1,9 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://cgameui01"]
+[gd_scene load_steps=3 format=3 uid="uid://cgameui01"]
 
 [ext_resource type="Script" path="res://scripts/game_ui.gd" id="1_ui"]
+[ext_resource type="PackedScene" uid="uid://ctouchjoystick01" path="res://scenes/ui/touch_joystick.tscn" id="2_joystick"]
 
 [node name="GameUI" type="CanvasLayer"]
 script = ExtResource("1_ui")
+
+[node name="TouchJoystick" parent="." instance=ExtResource("2_joystick")]
+layout_mode = 3
 
 [node name="Margin" type="MarginContainer" parent="."]
 anchors_preset = 15
@@ -11,6 +15,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 16

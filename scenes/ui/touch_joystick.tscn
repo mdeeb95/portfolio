@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://d00biycrbn7oq"]
+
+[ext_resource type="Script" path="res://scripts/virtual_joystick.gd" id="1_stick"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_base"]
+bg_color = Color(1, 1, 1, 0.12)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 0.35)
+corner_radius_top_left = 90
+corner_radius_top_right = 90
+corner_radius_bottom_right = 90
+corner_radius_bottom_left = 90
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_knob"]
+bg_color = Color(1, 1, 1, 0.45)
+corner_radius_top_left = 28
+corner_radius_top_right = 28
+corner_radius_bottom_right = 28
+corner_radius_bottom_left = 28
+
+[node name="TouchJoystick" type="Control"]
+layout_mode = 3
+anchors_preset = 9
+anchor_bottom = 1.0
+anchor_right = 0.42
+offset_right = 0.0
+grow_vertical = 2
+mouse_filter = 0
+script = ExtResource("1_stick")
+
+[node name="Base" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 180.0
+offset_bottom = 180.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_base")
+
+[node name="Knob" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 56.0
+offset_bottom = 56.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_knob")

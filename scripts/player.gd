@@ -33,6 +33,10 @@ func _physics_process(delta: float) -> void:
 		velocity.y -= GRAVITY * delta
 
 	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_back")
+	var touch_dir := GameUI.get_move_vector()
+	if touch_dir.length_squared() > 0.01:
+		input_dir = touch_dir
+		_has_tap_target = false
 	var cam_basis := spring_arm.global_transform.basis
 	var cam_forward := Vector3(-cam_basis.z.x, 0.0, -cam_basis.z.z).normalized()
 	var cam_right := Vector3(cam_basis.x.x, 0.0, cam_basis.x.z).normalized()

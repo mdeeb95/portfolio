@@ -21,12 +21,15 @@ config/icon="res://icon.svg"
 ResumeData="*res://scripts/resume_data.gd"
 Dialogue="*res://scenes/ui/dialogue_ui.tscn"
 GameUI="*res://scenes/ui/game_ui.tscn"
+DisplaySetup="*res://scripts/display_setup.gd"
 
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+window/size/resizable=true
 window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [input]
 

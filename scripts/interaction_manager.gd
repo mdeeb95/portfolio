@@ -117,9 +117,12 @@ func _is_interact_event(event: InputEvent) -> bool:
 		return true
 	if event is InputEventMouseButton:
 		var mb := event as InputEventMouseButton
-		return mb.pressed and mb.button_index == MOUSE_BUTTON_LEFT
+		if not mb.pressed or mb.button_index != MOUSE_BUTTON_LEFT:
+			return false
+		return not GameUI.is_joystick_zone(mb.position)
 	if event is InputEventScreenTouch:
-		return (event as InputEventScreenTouch).pressed
+		var touch := event as InputEventScreenTouch
+		return touch.pressed and not GameUI.is_joystick_zone(touch.position)
 	return false
 
 
@@ -150,6 +153,8 @@ func _gather_interactables() -> void:
 
 func _try_tap_move(event: InputEvent) -> void:
 	if _camera == null or _player == null:
+		return
+	if GameUI.is_mobile_controls():
 		return
 	var pos: Vector2 = Vector2.ZERO
 	if event is InputEventMouseButton:

@@ -10,19 +10,19 @@ border_width_top = 4
 border_width_right = 4
 border_width_bottom = 4
 border_color = Color(0.45, 0.38, 0.28, 1)
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
-shadow_color = Color(0, 0, 0, 0.25)
-shadow_size = 6
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_color = Color(0, 0, 0, 0.3)
+shadow_size = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_header"]
 bg_color = Color(0.55, 0.72, 0.88, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="Dialogue" type="CanvasLayer"]
 script = ExtResource("1_dialogue")
@@ -31,29 +31,31 @@ script = ExtResource("1_dialogue")
 script = ExtResource("2_babble")
 
 [node name="DialoguePanel" type="PanelContainer" parent="."]
-anchors_preset = 7
-anchor_left = 0.5
+anchors_preset = 12
 anchor_top = 1.0
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -420.0
+offset_left = 16.0
 offset_top = -220.0
-offset_right = 420.0
-offset_bottom = -24.0
+offset_right = -16.0
+offset_bottom = -16.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
 
 [node name="Margin" type="MarginContainer" parent="DialoguePanel"]
+layout_mode = 2
 theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 12
+theme_override_constants/margin_top = 14
 theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 12
+theme_override_constants/margin_bottom = 14
 
 [node name="VBox" type="VBoxContainer" parent="DialoguePanel/Margin"]
-theme_override_constants/separation = 10
+layout_mode = 2
+theme_override_constants/separation = 12
 
 [node name="Header" type="PanelContainer" parent="DialoguePanel/Margin/VBox"]
+layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_header")
 
 [node name="SpeakerLabel" type="Label" parent="DialoguePanel/Margin/VBox/Header"]
@@ -63,13 +65,16 @@ theme_override_font_sizes/font_size = 22
 text = "Speaker"
 
 [node name="BodyLabel" type="Label" parent="DialoguePanel/Margin/VBox"]
-custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+size_flags_vertical = 3
+custom_minimum_size = Vector2(0, 100)
 theme_override_colors/font_color = Color(0.15, 0.12, 0.1, 1)
 theme_override_font_sizes/font_size = 18
 text = "..."
 autowrap_mode = 3
 
 [node name="ContinueHint" type="Label" parent="DialoguePanel/Margin/VBox"]
+layout_mode = 2
 visible = false
 theme_override_colors/font_color = Color(0.35, 0.3, 0.22, 1)
 theme_override_font_sizes/font_size = 16

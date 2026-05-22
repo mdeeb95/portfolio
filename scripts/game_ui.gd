@@ -2,6 +2,7 @@ extends CanvasLayer
 
 @onready var _prompt: Label = $Margin/VBox/PromptLabel
 @onready var _controls_hint: Label = $Margin/VBox/ControlsHint
+@onready var _joystick: VirtualJoystick = $TouchJoystick
 
 
 func _ready() -> void:
@@ -24,9 +25,26 @@ func set_interact_target(target: Interactable) -> void:
 		_prompt.text = "Click %s  ·  [E]" % target.display_name
 
 
+func get_move_vector() -> Vector2:
+	if _joystick == null or not _joystick.visible:
+		return Vector2.ZERO
+	return _joystick.vector
+
+
+func is_joystick_zone(screen_pos: Vector2) -> bool:
+	if _joystick == null or not _joystick.visible:
+		return false
+	return _joystick.is_point_in_zone(screen_pos)
+
+
+func is_mobile_controls() -> bool:
+	return _joystick != null and _joystick.visible
+
+
 func _refresh_hints() -> void:
-	if _is_touch_device():
-		_controls_hint.text = "Drag to move  ·  Tap buildings or Mathew to talk"
+	if is_mobile_controls():
+		var suffix := " (editor sim)" if _joystick.is_simulating_mobile() else ""
+		_controls_hint.text = "Drag left side to move  ·  Tap to interact%s" % suffix
 	else:
 		_controls_hint.text = "WASD to move  ·  Space to jump  ·  Click or [E] to interact"
 
