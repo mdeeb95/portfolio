@@ -4,12 +4,21 @@
 set -euo pipefail
 
 ROOT="${1:-build/web}"
-cd "$ROOT"
 
-if [[ ! -f index.wasm ]]; then
-  echo "compress-web-export: index.wasm not found in $ROOT" >&2
+if [[ ! -d "$ROOT" ]]; then
+  echo "compress-web-export: directory not found: $ROOT" >&2
   exit 1
 fi
+
+# godot-export may place files directly in build/web or one level deeper.
+WASM_PATH="$(find "$ROOT" -name 'index.wasm' -print -quit)"
+if [[ -z "$WASM_PATH" ]]; then
+  echo "compress-web-export: index.wasm not found under $ROOT" >&2
+  find "$ROOT" -maxdepth 3 -type f | head -30 >&2 || true
+  exit 1
+fi
+
+cd "$(dirname "$WASM_PATH")"
 
 gzip -9 -k -f index.wasm
 WASM_GZ_SIZE=$(stat -c%s index.wasm.gz)

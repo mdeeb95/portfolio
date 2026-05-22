@@ -31,6 +31,15 @@ jobs:
           archive_output: false
           use_preset_export_path: true
 
+      - name: Normalize export output path
+        run: |
+          if [[ -f build/web/Web/index.html ]]; then
+            shopt -s dotglob
+            mv build/web/Web/* build/web/
+            rmdir build/web/Web
+          fi
+          ls -la build/web/
+
       - name: Compress wasm for Cloudflare Pages (25 MiB limit)
         run: |
           chmod +x scripts/compress-web-export.sh
