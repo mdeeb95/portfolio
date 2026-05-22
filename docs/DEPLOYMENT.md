@@ -14,7 +14,7 @@ In **GitHub → mdeeb95/portfolio → Settings → Secrets and variables → Act
 
 | Secret | How to get it |
 |--------|----------------|
-| `CLOUDFLARE_API_TOKEN` | [Cloudflare Dashboard](https://dash.cloudflare.com/profile/api-tokens) → Create Token → use **Edit Cloudflare Workers** template, or custom token with **Account → Cloudflare Pages → Edit** |
+| `CLOUDFLARE_API_TOKEN` | [Cloudflare Dashboard](https://dash.cloudflare.com/profile/api-tokens) → Create Token → use **Edit Cloudflare Workers** template, or custom token with **Account → Cloudflare Pages → Edit**. Use a dedicated token (not a short-lived OAuth token from `wrangler login`). |
 | `CLOUDFLARE_ACCOUNT_ID` | Cloudflare dashboard → any zone → right sidebar **Account ID** |
 
 Set secrets via CLI (replace values):
