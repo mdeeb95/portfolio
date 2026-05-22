@@ -7,6 +7,9 @@ export/
 # Web export output
 build/web/
 
+# Wrangler local state
+.wrangler/
+
 # Dev-only (paid Godot MCP Pro — install locally from your zip)
 addons/godot_mcp/
 

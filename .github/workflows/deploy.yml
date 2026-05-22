@@ -29,11 +29,19 @@ jobs:
           presets_to_export: Web
           relative_export_path: ./
           archive_output: false
-          use_godot_4: true
+          use_preset_export_path: true
+
+      - name: Compress wasm for Cloudflare Pages (25 MiB limit)
+        run: |
+          chmod +x scripts/compress-web-export.sh
+          ./scripts/compress-web-export.sh build/web
+          cp public/_headers build/web/_headers
 
       - name: Verify web export output
         run: |
           test -f build/web/index.html
+          test -f build/web/index.wasm.gz
+          test ! -f build/web/index.wasm
           ls -la build/web/
 
       - name: Deploy to Cloudflare Pages

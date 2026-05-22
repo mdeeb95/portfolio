@@ -68,8 +68,9 @@ After a green Actions run:
 
 | Issue | Fix |
 |-------|-----|
-| Action fails on export | Open repo in Godot 4.6 locally; confirm **Web** preset exports to `build/web/index.html` |
+| Action fails on export | Open repo in Godot 4.6 locally; confirm **Web** preset exports to `build/web/index.html`. Keep `vram_texture_compression/for_mobile=false` unless the project imports ETC2/ASTC. |
 | Deploy fails: missing secrets | Add both Cloudflare secrets (step 1) |
+| Deploy fails: file too large | CI runs `scripts/compress-web-export.sh` to gzip `index.wasm` (Pages 25 MiB limit) |
 | Blank page in browser | Check browser console; if using threads later, add COOP/COEP via `public/_headers` |
 | MCP missing locally | Copy addon from your zip to `addons/godot_mcp/`; not required for production |
 

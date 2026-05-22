@@ -1,5 +1,6 @@
-# Used when enabling threaded Godot web export (variant/thread_support=true).
-# Copy to build/web/_headers in the deploy workflow when needed.
-/*
-  Cross-Origin-Opener-Policy: same-origin
-  Cross-Origin-Embedder-Policy: require-corp
+# Cloudflare Pages headers (copied into build/web/ on deploy).
+# For threaded export, also add COOP/COEP on /* — see docs/DEPLOYMENT.md.
+
+/*.wasm.gz
+  Content-Type: application/wasm
+  Content-Encoding: gzip
