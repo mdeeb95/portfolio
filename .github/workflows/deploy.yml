@@ -51,6 +51,9 @@ jobs:
           test -f build/web/index.html
           test -f build/web/index.wasm.gz
           test ! -f build/web/index.wasm
+          grep -q 'wasm.gz' build/web/index.js
+          ! grep -q 'loadPath}.wasm`, size, true);' build/web/index.js
+          grep -q "index.wasm.gz" build/web/index.html
           ls -la build/web/
 
       - name: Deploy to Cloudflare Pages
