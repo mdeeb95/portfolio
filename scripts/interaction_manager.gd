@@ -110,6 +110,12 @@ func is_interactable_at_screen(screen_pos: Vector2) -> bool:
 	return target != null and _can_interact_with(target) and target.can_start_dialogue()
 
 
+func should_block_joystick_at(screen_pos: Vector2) -> bool:
+	if is_interactable_at_screen(screen_pos):
+		return true
+	return _focused != null and _can_interact_with(_focused) and _focused.can_start_dialogue()
+
+
 func _interactable_from_ray(event: InputEvent) -> Interactable:
 	var pos := _screen_pos_from_event(event)
 	if pos.x < 0.0:
@@ -174,14 +180,14 @@ func _is_interact_event(event: InputEvent) -> bool:
 		if not mb.pressed or mb.button_index != MOUSE_BUTTON_LEFT:
 			return false
 		if GameUI.is_joystick_zone(mb.position):
-			return is_interactable_at_screen(mb.position)
+			return should_block_joystick_at(mb.position)
 		return true
 	if event is InputEventScreenTouch:
 		var touch := event as InputEventScreenTouch
 		if not touch.pressed:
 			return false
 		if GameUI.is_joystick_zone(touch.position):
-			return is_interactable_at_screen(touch.position)
+			return should_block_joystick_at(touch.position)
 		return true
 	return false
 

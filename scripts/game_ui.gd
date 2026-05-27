@@ -44,6 +44,6 @@ func blocks_joystick_at(screen_pos: Vector2) -> bool:
 	if player == null:
 		return false
 	var mgr := player.get_node_or_null("InteractionManager")
-	if mgr == null or not mgr.has_method("is_interactable_at_screen"):
+	if mgr == null or not mgr.has_method("should_block_joystick_at"):
 		return false
-	return mgr.is_interactable_at_screen(screen_pos)
+	return mgr.should_block_joystick_at(screen_pos)
