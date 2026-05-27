@@ -113,7 +113,9 @@ func is_interactable_at_screen(screen_pos: Vector2) -> bool:
 func should_block_joystick_at(screen_pos: Vector2) -> bool:
 	if is_interactable_at_screen(screen_pos):
 		return true
-	return _focused != null and _can_interact_with(_focused) and _focused.can_start_dialogue()
+	if _focused == null or not _can_interact_with(_focused) or not _focused.can_start_dialogue():
+		return false
+	return _screen_rect_for_interactable(_focused).has_point(screen_pos)
 
 
 func _interactable_from_ray(event: InputEvent) -> Interactable:
@@ -152,6 +154,39 @@ func _interactable_at_screen(screen_pos: Vector2) -> Interactable:
 		if blocked == null and _can_interact_with(target):
 			blocked = target
 	return blocked
+
+
+func _screen_rect_for_interactable(target: Interactable) -> Rect2:
+	if _camera == null:
+		return Rect2()
+	var collision := target.get_node_or_null("CollisionShape3D") as CollisionShape3D
+	var world_corners: Array[Vector3] = []
+	if collision != null and collision.shape is BoxShape3D:
+		var box := collision.shape as BoxShape3D
+		var half := box.size * 0.5
+		for sx in [-1.0, 1.0]:
+			for sy in [-1.0, 1.0]:
+				for sz in [-1.0, 1.0]:
+					var local := collision.position + Vector3(sx, sy, sz) * half
+					world_corners.append(target.to_global(local))
+	else:
+		world_corners.append(target.get_interact_point())
+	var min_pos := Vector2(INF, INF)
+	var max_pos := Vector2(-INF, -INF)
+	var cam_forward := -_camera.global_transform.basis.z
+	var cam_origin := _camera.global_position
+	for world_pos: Vector3 in world_corners:
+		if cam_forward.dot(world_pos - cam_origin) <= 0.0:
+			continue
+		var screen := _camera.unproject_position(world_pos)
+		min_pos.x = minf(min_pos.x, screen.x)
+		min_pos.y = minf(min_pos.y, screen.y)
+		max_pos.x = maxf(max_pos.x, screen.x)
+		max_pos.y = maxf(max_pos.y, screen.y)
+	if min_pos.x == INF:
+		return Rect2()
+	const PADDING := 32.0
+	return Rect2(min_pos - Vector2(PADDING, PADDING), max_pos - min_pos + Vector2(PADDING * 2.0, PADDING * 2.0))
 
 
 func _interactable_from_collider(collider: Object) -> Interactable:
