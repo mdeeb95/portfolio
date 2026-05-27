@@ -1611,7 +1611,8 @@ interact_range = 4.0
 zone_color = Color(1, 0.95, 0.8, 1)
 face_player_during_dialogue = true
 allow_repeat = true
-click_to_interact = false
+click_hitbox_size = Vector3(2.5, 3, 2.5)
+click_hitbox_center = Vector3(0, 1.5, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MathewDeeb" unique_id=433706470]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
