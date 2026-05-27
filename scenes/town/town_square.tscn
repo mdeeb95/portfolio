@@ -1242,6 +1242,74 @@ metadata/asset_placer_res_id = "uid://bvlefxo0ivgss"
 transform = Transform3D(0.6427879, 0, 0.7660446, 0, 1, 0, -0.7660446, 0, 0.6427879, -15.999808, 0.13210249, -11.993282)
 metadata/asset_placer_res_id = "uid://c1mpvxxst7qcj"
 
+[node name="table-display" parent="Environment/Decorations" unique_id=1244249990 instance=ExtResource("46_8psgo")]
+transform = Transform3D(1.4349645, 0, 0, 0, 1.4349645, 0, 0, 0, 1.4349645, -2.492055, 0.39999914, -17.104622)
+metadata/asset_placer_res_id = "uid://babl8untpcadh"
+
+[node name="structure-barrier-high" parent="Environment/Decorations" unique_id=2038797304 instance=ExtResource("47_vgn05")]
+transform = Transform3D(1.4641001, 0, 0, 0, 1.4641001, 0, 0, 0, 1.4641001, -0.012278914, 0.39999914, -2.1267438)
+metadata/asset_placer_res_id = "uid://b8ixlq6tmi078"
+
+[node name="table-display-planet2" parent="Environment/Decorations" unique_id=1637810265 instance=ExtResource("18_wf7uy")]
+transform = Transform3D(3.7974987, 0, 0, 0, 3.7974987, 0, 0, 0, 3.7974987, 2.319121, 3.9999998, -4.7417126)
+metadata/asset_placer_res_id = "uid://buaair17eym3r"
+
+[node name="floor-detail2" parent="Environment/Decorations" unique_id=250933910 instance=ExtResource("6_anhuk")]
+transform = Transform3D(0.94148016, 0, 0, 0, 0.94148016, 0, 0, 0, 0.94148016, -5.064219, -0.40000105, 5.9831057)
+metadata/asset_placer_res_id = "uid://dvigoh2mwkmuw"
+
+[node name="floor-detail (1)" parent="Environment/Decorations" unique_id=228254470 instance=ExtResource("6_anhuk")]
+transform = Transform3D(0.94148016, 0, 0, 0, 0.94148016, 0, 0, 0, 0.94148016, -2.781804, -0.40000057, 7.3682976)
+metadata/asset_placer_res_id = "uid://dvigoh2mwkmuw"
+
+[node name="floor-detail (2)" parent="Environment/Decorations" unique_id=692553356 instance=ExtResource("6_anhuk")]
+transform = Transform3D(1.7136335e-07, 0, 0.94148093, 0, 0.94148016, 0, -0.94148093, 0, 1.7136335e-07, -5.0696335, -0.40000057, 8.302268)
+metadata/asset_placer_res_id = "uid://dvigoh2mwkmuw"
+
+[node name="pipe-bend" parent="Environment/Decorations" unique_id=669263602 instance=ExtResource("48_k7seo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8504918, -9.536743e-07, -0.5666466)
+metadata/asset_placer_res_id = "uid://cm2xe74oowpk6"
+
+[node name="pipe-bend (1)" parent="Environment/Decorations" unique_id=920236306 instance=ExtResource("48_k7seo")]
+transform = Transform3D(1.8626451e-07, 0, 1.0000004, 0, 1, 0, -1.0000004, 0, 1.8626451e-07, -1.6372342, -9.536743e-07, 0.6293049)
+metadata/asset_placer_res_id = "uid://cm2xe74oowpk6"
+
+[node name="container-wide" parent="Environment/Decorations" unique_id=44527226 instance=ExtResource("49_d2dty")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0238738, -9.536743e-07, -2.338296)
+metadata/asset_placer_res_id = "uid://dx5iwio4vlxn1"
+
+[node name="display-wall-wide" parent="Environment/Decorations" unique_id=984879020 instance=ExtResource("50_loal5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6359615, 1.9999995, -0.1721735)
+metadata/asset_placer_res_id = "uid://dqspi5hdrc3bt"
+
+[node name="display-wall-wide (1)" parent="Environment/Decorations" unique_id=1871850100 instance=ExtResource("50_loal5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6480346, 1.999999, -0.10389137)
+metadata/asset_placer_res_id = "uid://dqspi5hdrc3bt"
+
+[node name="floor-panel2" parent="Environment/Decorations" unique_id=1293489713 instance=ExtResource("5_nmnfq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.2682266, -0.40000105, 1.4030771)
+metadata/asset_placer_res_id = "uid://dfs1p2jc7lwgq"
+
+[node name="floor-panel (1)" parent="Environment/Decorations" unique_id=2106155488 instance=ExtResource("5_nmnfq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10785365, -0.40000057, 5.086346)
+metadata/asset_placer_res_id = "uid://dfs1p2jc7lwgq"
+
+[node name="structure-panel2" parent="Environment/Decorations" unique_id=911844906 instance=ExtResource("34_k7seo")]
+transform = Transform3D(2.5937426, 0, 0, 0, 2.5937426, 0, 0, 0, 2.5937426, 15.172845, 0, 14.671381)
+metadata/asset_placer_res_id = "uid://8oym1goa3sgx"
+
+[node name="structure-panel (1)2" parent="Environment/Decorations" unique_id=375863086 instance=ExtResource("34_k7seo")]
+transform = Transform3D(2.5937426, 0, 0, 0, 2.5937426, 0, 0, 0, 2.5937426, 8.891499, 0, 14.771009)
+metadata/asset_placer_res_id = "uid://8oym1goa3sgx"
+
+[node name="structure" parent="Environment/Decorations" unique_id=505882824 instance=ExtResource("51_d2dty")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.906376, -9.536743e-07, 14.859775)
+metadata/asset_placer_res_id = "uid://d13klosyuix85"
+
+[node name="structure (1)" parent="Environment/Decorations" unique_id=926691955 instance=ExtResource("51_d2dty")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.77383, -9.536743e-07, 14.823989)
+metadata/asset_placer_res_id = "uid://d13klosyuix85"
+
 [node name="Structures" type="Node3D" parent="Environment" unique_id=865258361]
 
 [node name="Walls" type="Node3D" parent="Environment" unique_id=1631701970]
@@ -1752,8 +1820,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5926037, 0, 0.28959656)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.519674, 4.6396675, -47.37313)
 
 [node name="Ship" parent="SpaceShipPatrol3/Waypoints/Spawn" index="0"]
-transform = Transform3D(0.9995679, -0.0018876797, -0.029333137, 5.614301e-09, 0.99793583, -0.064220116, 0.029393813, 0.06419237, 0.9975046, -2.4118023, -5.2797565, 82.00659)
-visible = false
+transform = Transform3D(0.9995678, -0.0018879272, -0.029336378, 5.614416e-09, 0.9979357, -0.064221434, 0.029397063, 0.06419368, 0.9975044, 0, 0, 0)
 
 [node name="Exit" parent="SpaceShipPatrol3/Waypoints" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.107874, -0.64008904, 34.633465)
@@ -1775,8 +1842,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5926037, 0, 0.28959656)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.519674, 4.6396675, -47.37313)
 
 [node name="Ship" parent="SpaceShipPatrol4/Waypoints/Spawn" index="0"]
-transform = Transform3D(0.9995679, -0.0018876797, -0.029333137, 5.614301e-09, 0.99793583, -0.064220116, 0.029393813, 0.06419237, 0.9975046, -2.4118004, -5.2797565, 82.00659)
-visible = false
+transform = Transform3D(0.9995678, -0.0018879257, -0.029336354, 5.614416e-09, 0.9979357, -0.064221434, 0.029397039, 0.06419368, 0.9975044, 0, 0, 0)
 
 [node name="Exit" parent="SpaceShipPatrol4/Waypoints" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.107874, -0.64008904, 34.633465)
@@ -1798,7 +1864,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5926037, 0, 0.28959656)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.519674, 4.6396675, -47.37313)
 
 [node name="Ship" parent="SpaceShipPatrol5/Waypoints/Spawn" index="0"]
-transform = Transform3D(0.8594459, 0.029170908, 0.5103937, 4.9883986e-09, 0.99837077, -0.05706063, -0.5112266, 0.04904053, 0.8580457, 16.274204, -1.8194122, 27.359299)
+transform = Transform3D(0.8594459, 0.029170908, 0.5103937, 4.9883986e-09, 0.99837077, -0.05706063, -0.5112266, 0.04904053, 0.8580457, 0.6542797, -0.07314682, 1.0999413)
 
 [node name="Exit" parent="SpaceShipPatrol5/Waypoints" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.74583, -0.64008904, 32.020885)
@@ -1816,7 +1882,7 @@ spin_speed_min_deg = 80.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.311077, 20, -39.210304)
 
 [node name="Ship" parent="Asteroid/Waypoints/Spawn" index="0"]
-transform = Transform3D(0.35847068, -0.26833317, -0.8941455, 0.82039994, -0.36649558, 0.43889076, -0.44546932, -0.8908862, 0.08876264, -76.3051, 3.0669203, 31.814322)
+transform = Transform3D(0.76348424, -0.6066536, -0.22150208, 0.31564528, 0.64973664, -0.69152755, 0.56343573, 0.45805433, 0.6875511, -62.572807, 2.5149803, 26.088839)
 
 [node name="Exit" parent="Asteroid/Waypoints" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.20908, 24, 2.2832012)
@@ -1835,7 +1901,7 @@ spin_speed_min_deg = 80.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.311077, 20, -39.210304)
 
 [node name="Ship" parent="Asteroid2/Waypoints/Spawn" index="0"]
-transform = Transform3D(0.53737265, 0.2549575, 0.80388266, 0.47182667, -0.88095605, -0.03600076, 0.69900656, 0.39863905, -0.5936975, -99.52016, 4, 41.493507)
+transform = Transform3D(0.5422344, 0.2547351, 0.80068207, 0.46792716, -0.8830354, -0.03595198, 0.6978724, 0.3941553, -0.5980097, -99.52016, 4, 41.493507)
 visible = false
 
 [node name="Exit" parent="Asteroid2/Waypoints" index="1"]
@@ -1854,7 +1920,7 @@ spin_speed_min_deg = 80.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.875744, 20, -27.103481)
 
 [node name="Ship" parent="Asteroid3/Waypoints/Spawn" index="0"]
-transform = Transform3D(0.34209755, -0.87714964, 0.33701304, 0.9209978, 0.38412696, 0.06488104, -0.18636617, 0.28819257, 0.93926185, 20.776917, 4, 57.90587)
+transform = Transform3D(0.34790087, -0.874876, 0.33698216, 0.91843486, 0.39021444, 0.06488466, -0.18826133, 0.28692275, 0.93927264, 20.776917, 4, 57.90587)
 visible = false
 
 [node name="Exit" parent="Asteroid3/Waypoints" index="1"]
@@ -1873,78 +1939,11 @@ spin_speed_min_deg = 80.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.875744, 20, -27.103481)
 
 [node name="Ship" parent="Asteroid4/Waypoints/Spawn" index="0"]
-transform = Transform3D(0.54521334, -0.6401679, 0.54122776, -0.7826496, -0.6200239, 0.05504443, 0.30033648, -0.45360264, -0.8390725, 29.850021, 3.035833, -46.276875)
+transform = Transform3D(-0.3520481, 0.7636266, 0.5412361, 0.92102313, 0.38559917, 0.05504194, -0.1666687, 0.51786834, -0.8390673, 39.929863, 4.0609818, -61.90378)
+visible = false
 
 [node name="Exit" parent="Asteroid4/Waypoints" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.05412, 24.060982, -89.00726)
-
-[node name="table-display" parent="." unique_id=1244249990 instance=ExtResource("46_8psgo")]
-transform = Transform3D(1.4349645, 0, 0, 0, 1.4349645, 0, 0, 0, 1.4349645, -2.492055, 0.39999914, -17.104622)
-metadata/asset_placer_res_id = "uid://babl8untpcadh"
-
-[node name="structure-barrier-high" parent="." unique_id=2038797304 instance=ExtResource("47_vgn05")]
-transform = Transform3D(1.4641001, 0, 0, 0, 1.4641001, 0, 0, 0, 1.4641001, -0.012278914, 0.39999914, -2.1267438)
-metadata/asset_placer_res_id = "uid://b8ixlq6tmi078"
-
-[node name="table-display-planet" parent="." unique_id=1637810265 instance=ExtResource("18_wf7uy")]
-transform = Transform3D(3.7974987, 0, 0, 0, 3.7974987, 0, 0, 0, 3.7974987, 2.319121, 3.9999998, -4.7417126)
-metadata/asset_placer_res_id = "uid://buaair17eym3r"
-
-[node name="floor-detail" parent="." unique_id=250933910 instance=ExtResource("6_anhuk")]
-transform = Transform3D(0.94148016, 0, 0, 0, 0.94148016, 0, 0, 0, 0.94148016, -5.064219, -0.40000105, 5.9831057)
-metadata/asset_placer_res_id = "uid://dvigoh2mwkmuw"
-
-[node name="floor-detail (1)" parent="." unique_id=228254470 instance=ExtResource("6_anhuk")]
-transform = Transform3D(0.94148016, 0, 0, 0, 0.94148016, 0, 0, 0, 0.94148016, -2.781804, -0.40000057, 7.3682976)
-metadata/asset_placer_res_id = "uid://dvigoh2mwkmuw"
-
-[node name="floor-detail (2)" parent="." unique_id=692553356 instance=ExtResource("6_anhuk")]
-transform = Transform3D(1.7136335e-07, 0, 0.94148093, 0, 0.94148016, 0, -0.94148093, 0, 1.7136335e-07, -5.0696335, -0.40000057, 8.302268)
-metadata/asset_placer_res_id = "uid://dvigoh2mwkmuw"
-
-[node name="pipe-bend" parent="." unique_id=669263602 instance=ExtResource("48_k7seo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8504918, -9.536743e-07, -0.5666466)
-metadata/asset_placer_res_id = "uid://cm2xe74oowpk6"
-
-[node name="pipe-bend (1)" parent="." unique_id=920236306 instance=ExtResource("48_k7seo")]
-transform = Transform3D(1.8626451e-07, 0, 1.0000004, 0, 1, 0, -1.0000004, 0, 1.8626451e-07, -1.6372342, -9.536743e-07, 0.6293049)
-metadata/asset_placer_res_id = "uid://cm2xe74oowpk6"
-
-[node name="container-wide" parent="." unique_id=44527226 instance=ExtResource("49_d2dty")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0238738, -9.536743e-07, -2.338296)
-metadata/asset_placer_res_id = "uid://dx5iwio4vlxn1"
-
-[node name="display-wall-wide" parent="." unique_id=984879020 instance=ExtResource("50_loal5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6359615, 1.9999995, -0.1721735)
-metadata/asset_placer_res_id = "uid://dqspi5hdrc3bt"
-
-[node name="display-wall-wide (1)" parent="." unique_id=1871850100 instance=ExtResource("50_loal5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6480346, 1.999999, -0.10389137)
-metadata/asset_placer_res_id = "uid://dqspi5hdrc3bt"
-
-[node name="floor-panel" parent="." unique_id=1293489713 instance=ExtResource("5_nmnfq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.2682266, -0.40000105, 1.4030771)
-metadata/asset_placer_res_id = "uid://dfs1p2jc7lwgq"
-
-[node name="floor-panel (1)" parent="." unique_id=2106155488 instance=ExtResource("5_nmnfq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10785365, -0.40000057, 5.086346)
-metadata/asset_placer_res_id = "uid://dfs1p2jc7lwgq"
-
-[node name="structure-panel" parent="." unique_id=911844906 instance=ExtResource("34_k7seo")]
-transform = Transform3D(2.5937426, 0, 0, 0, 2.5937426, 0, 0, 0, 2.5937426, 15.172845, 0, 14.671381)
-metadata/asset_placer_res_id = "uid://8oym1goa3sgx"
-
-[node name="structure-panel (1)" parent="." unique_id=375863086 instance=ExtResource("34_k7seo")]
-transform = Transform3D(2.5937426, 0, 0, 0, 2.5937426, 0, 0, 0, 2.5937426, 8.891499, 0, 14.771009)
-metadata/asset_placer_res_id = "uid://8oym1goa3sgx"
-
-[node name="structure" parent="." unique_id=505882824 instance=ExtResource("51_d2dty")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.906376, -9.536743e-07, 14.859775)
-metadata/asset_placer_res_id = "uid://d13klosyuix85"
-
-[node name="structure (1)" parent="." unique_id=926691955 instance=ExtResource("51_d2dty")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.77383, -9.536743e-07, 14.823989)
-metadata/asset_placer_res_id = "uid://d13klosyuix85"
 
 [editable path="SpaceShipPatrol3"]
 [editable path="SpaceShipPatrol4"]
