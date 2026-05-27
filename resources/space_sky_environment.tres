@@ -1,0 +1,36 @@
+[gd_resource type="Environment" format=3 uid="uid://boa6fkdfx7nc7"]
+
+[ext_resource type="Texture2D" uid="uid://blepcuo4qbqvg" path="res://assets/environment/space_skybox/panorama.png" id="1_pano"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_space"]
+panorama = ExtResource("1_pano")
+energy_multiplier = 1.4
+
+[sub_resource type="Sky" id="Sky_wwwtyro"]
+sky_material = SubResource("PanoramaSkyMaterial_space")
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_wwwtyro")
+ambient_light_source = 2
+ambient_light_color = Color(0.12, 0.13, 0.18, 1)
+ambient_light_sky_contribution = 0.08
+ambient_light_energy = 0.1
+tonemap_mode = 2
+tonemap_exposure = 0.72
+tonemap_white = 1.05
+glow_enabled = true
+glow_intensity = 0.16
+glow_strength = 0.48
+glow_bloom = 0.07
+glow_blend_mode = 0
+glow_hdr_threshold = 1.05
+fog_enabled = true
+fog_light_color = Color(0.1, 0.11, 0.16, 1)
+fog_light_energy = 0.35
+fog_density = 0.012
+fog_aerial_perspective = 0.18
+fog_sky_affect = 0.25
+adjustment_enabled = true
+adjustment_contrast = 1.06
+adjustment_saturation = 1.1

@@ -2,6 +2,7 @@ extends CanvasLayer
 
 signal dialogue_started
 signal dialogue_ended
+signal dialogue_completed_fully
 
 const CHAR_INTERVAL := 0.028
 const PUNCTUATION_PAUSE := 0.12
@@ -25,6 +26,7 @@ var _visible_chars: int = 0
 var _char_timer: float = 0.0
 var _waiting_continue: bool = false
 var _skip_to_end: bool = false
+var _closing_after_full_read: bool = false
 
 @onready var _panel: PanelContainer = $DialoguePanel
 @onready var _margin: MarginContainer = $DialoguePanel/Margin
@@ -62,10 +64,20 @@ func start_dialogue(pages: Array[Dictionary]) -> void:
 
 
 func close_dialogue() -> void:
+	var completed_all := _closing_after_full_read
+	_closing_after_full_read = false
 	is_active = false
 	_panel.visible = false
 	_pages.clear()
+	if completed_all:
+		dialogue_completed_fully.emit()
 	dialogue_ended.emit()
+
+
+func cancel_dialogue() -> void:
+	if not is_active:
+		return
+	close_dialogue()
 
 
 func try_advance() -> void:
@@ -81,6 +93,7 @@ func try_advance() -> void:
 
 func _show_page() -> void:
 	if _page_index >= _pages.size():
+		_closing_after_full_read = true
 		close_dialogue()
 		return
 	var page: Dictionary = _pages[_page_index]
@@ -92,6 +105,7 @@ func _show_page() -> void:
 	_skip_to_end = false
 	_body_label.text = ""
 	_continue_hint.visible = false
+	_update_continue_hint()
 
 
 func _next_page() -> void:
@@ -139,10 +153,14 @@ func _tick_typewriter(delta: float) -> void:
 
 
 func _update_continue_hint() -> void:
+	var on_last_page := _page_index >= _pages.size() - 1
 	if _is_mobile_layout():
-		_continue_hint.text = "▼  Tap to continue"
+		_continue_hint.text = "▼  Tap to close" if on_last_page else "▼  Tap to continue"
 	else:
-		_continue_hint.text = "▼  Click or [E] to continue"
+		if on_last_page:
+			_continue_hint.text = "▼  Click or [E] to close  ·  Esc to exit"
+		else:
+			_continue_hint.text = "▼  Click or [E] to continue  ·  Esc to exit"
 
 
 func _is_mobile_layout() -> bool:

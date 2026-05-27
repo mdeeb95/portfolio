@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://c1iejsafy45ce"]
+
+[ext_resource type="Texture2D" uid="uid://w38ul6kttf2d" path="res://assets/environment/space_station/textures/colormap.png" id="1_colormap"]
+
+[resource]
+albedo_color = Color(0.9, 0.92, 0.96, 1)
+albedo_texture = ExtResource("1_colormap")
+metallic = 0.62
+metallic_specular = 0.35
+roughness = 0.59
+texture_filter = 4

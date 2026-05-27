@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1jvq74bnjobx"]
+
+[ext_resource type="Script" path="res://scripts/space_patrol.gd" id="1_patrol"]
+[ext_resource type="PackedScene" uid="uid://rn5pnds5pqkk" path="res://assets/environment/space/craft_speederA.fbx" id="2_craft"]
+
+[node name="SpaceShipPatrol" type="Node3D"]
+script = ExtResource("1_patrol")
+craft_scene = ExtResource("2_craft")
+speed = 18.0
+ship_scale = 2.2
+model_rotation_fix_degrees = Vector3(0, 180, 0)
+loop = false
+respawn_delay = 3.0
+destroy_when_finished = true
+preview_patrol_in_editor = true
+
+[node name="Waypoints" type="Node3D" parent="."]
+
+[node name="Spawn" type="Marker3D" parent="Waypoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 20, -28)
+
+[node name="Ship" type="Node3D" parent="Waypoints/Spawn"]
+
+[node name="Exit" type="Marker3D" parent="Waypoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55, 24, 12)

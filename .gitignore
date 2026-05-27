@@ -10,6 +10,9 @@ build/web/
 # Wrangler local state
 .wrangler/
 
+# Full Kenney asset library (local reference — copy into assets/ for commits)
+Kenney/
+
 # Dev-only (paid Godot MCP Pro — install locally from your zip)
 addons/godot_mcp/
 

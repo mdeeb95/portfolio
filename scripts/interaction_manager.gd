@@ -9,6 +9,7 @@ var _camera: Camera3D
 var _focused: Interactable = null
 var _dialogue_target: Interactable = null
 var _interactables: Array[Interactable] = []
+var _interact_cooldown: float = 0.0
 
 
 func _ready() -> void:
@@ -18,9 +19,12 @@ func _ready() -> void:
 	_gather_interactables()
 	Dialogue.dialogue_started.connect(_on_dialogue_started)
 	Dialogue.dialogue_ended.connect(_on_dialogue_ended)
+	Dialogue.dialogue_completed_fully.connect(_on_dialogue_completed_fully)
 
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
+	if _interact_cooldown > 0.0:
+		_interact_cooldown = maxf(0.0, _interact_cooldown - delta)
 	if Dialogue.is_active:
 		return
 	_update_focus()
@@ -28,6 +32,10 @@ func _physics_process(_delta: float) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if Dialogue.is_active:
+		if _is_cancel_event(event):
+			Dialogue.cancel_dialogue()
+			get_viewport().set_input_as_handled()
+			return
 		if _is_continue_event(event):
 			Dialogue.try_advance()
 			get_viewport().set_input_as_handled()
@@ -38,7 +46,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		if target == null:
 			target = _focused
 		if target != null and _can_interact_with(target):
-			_start_interaction(target)
+			if target.can_start_dialogue():
+				_start_interaction(target)
 			get_viewport().set_input_as_handled()
 		else:
 			_try_tap_move(event)
@@ -51,9 +60,16 @@ func _on_dialogue_started() -> void:
 
 func _on_dialogue_ended() -> void:
 	movement_locked = false
+	_interact_cooldown = 0.4
 	if _dialogue_target:
 		_dialogue_target.set_dialogue_active(false)
 		_dialogue_target = null
+	_update_focus()
+
+
+func _on_dialogue_completed_fully() -> void:
+	if _dialogue_target:
+		_dialogue_target.mark_dialogue_completed()
 
 
 func _update_focus() -> void:
@@ -81,6 +97,8 @@ func _can_interact_with(target: Interactable) -> bool:
 
 
 func _start_interaction(target: Interactable) -> void:
+	if _interact_cooldown > 0.0 or not target.can_start_dialogue():
+		return
 	_dialogue_target = target
 	target.set_dialogue_active(true)
 	var pages := ResumeData.get_dialogue_pages(target.zone_key)
@@ -140,6 +158,12 @@ func _is_continue_event(event: InputEvent) -> bool:
 	if event is InputEventScreenTouch:
 		return (event as InputEventScreenTouch).pressed
 	return false
+
+
+func _is_cancel_event(event: InputEvent) -> bool:
+	if event.is_action_pressed("ui_cancel"):
+		return true
+	return event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_ESCAPE
 
 
 func _find_camera() -> Camera3D:

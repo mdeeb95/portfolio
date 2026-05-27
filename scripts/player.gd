@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+const _CharacterStep = preload("res://scripts/character_step.gd")
+
 const WALK_SPEED := 6.5
 const TURN_SPEED := 18.0
 const GRAVITY := 20.0
@@ -67,7 +69,11 @@ func _physics_process(delta: float) -> void:
 		velocity.x = 0.0
 		velocity.z = 0.0
 
+	if is_on_floor():
+		_CharacterStep.try_step_up(self)
 	move_and_slide()
+	if not is_on_floor() and velocity.y <= 0.0:
+		apply_floor_snap()
 	_update_animation(just_jumped)
 
 

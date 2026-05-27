@@ -43,6 +43,10 @@ window/stretch/aspect="expand"
 
 enabled=PackedStringArray("res://addons/asset_placer/plugin.cfg", "res://addons/godot_mcp/plugin.cfg")
 
+[filesystem]
+
+import/blender/enabled=false
+
 [input]
 
 move_forward={

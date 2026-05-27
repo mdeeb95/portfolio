@@ -10,7 +10,48 @@
 [ext_resource type="PackedScene" uid="uid://bn8l6pdud6eqt" path="res://assets/environment/space_station/models/wall-banner.fbx" id="8_l6ntw"]
 [ext_resource type="PackedScene" uid="uid://kixhp6lu4fed" path="res://assets/environment/space_station/models/container-flat-open.fbx" id="9_l6ntw"]
 [ext_resource type="PackedScene" uid="uid://fmy5o3bve7l7" path="res://assets/environment/space_station/models/container-tall.fbx" id="10_xiia2"]
-[ext_resource type="PackedScene" uid="uid://dbfdf7yrqgyqh" path="res://assets/environment/space_station/models/bed-double.fbx" id="11_sn65u"]
+[ext_resource type="Environment" uid="uid://boa6fkdfx7nc7" path="res://resources/space_sky_environment.tres" id="12_sky_env"]
+[ext_resource type="PackedScene" uid="uid://ouuqagu2jghk" path="res://assets/environment/space_station/models/computer-wide.fbx" id="13_ytcwe"]
+[ext_resource type="PackedScene" uid="uid://cbfb1fxaiu1j3" path="res://assets/environment/space_station/models/chair-headrest.fbx" id="14_ya1m6"]
+[ext_resource type="PackedScene" uid="uid://cc8dw3ffhvixr" path="res://assets/environment/space_station/models/bed-double-cover.fbx" id="15_41oom"]
+[ext_resource type="PackedScene" uid="uid://h2w4kiojxhp" path="res://assets/environment/space_station/models/bed-single-cover.fbx" id="16_843kx"]
+[ext_resource type="PackedScene" uid="uid://c1mpvxxst7qcj" path="res://assets/environment/space_station/models/skip.fbx" id="17_6mida"]
+[ext_resource type="PackedScene" uid="uid://buaair17eym3r" path="res://assets/environment/space_station/models/table-display-planet.fbx" id="18_wf7uy"]
+[ext_resource type="PackedScene" uid="uid://3tn0cn8grsvo" path="res://assets/environment/space_station/models/wall-detail.fbx" id="19_5ccqi"]
+[ext_resource type="PackedScene" uid="uid://b6qytrimqtdn4" path="res://assets/environment/space/hangar_largeB.fbx" id="19_rb1t3"]
+[ext_resource type="PackedScene" uid="uid://dibp20b7b2ipd" path="res://assets/environment/space_station/models/wall-window-banner.fbx" id="20_ndoqv"]
+[ext_resource type="PackedScene" uid="uid://cr4imwt74plac" path="res://assets/environment/space/hangar_roundA.fbx" id="20_yhpfb"]
+[ext_resource type="PackedScene" uid="uid://d0wne0lo6hbe0" path="res://assets/environment/space_station/models/wall-window-shutters.fbx" id="21_vqh7g"]
+[ext_resource type="PackedScene" uid="uid://bj2wluj5e27yr" path="res://assets/environment/space_station/models/wall-switch.fbx" id="22_6a05e"]
+[ext_resource type="PackedScene" uid="uid://c1jvq74bnjobx" path="res://scenes/town/space_ship_patrol.tscn" id="23_patrol"]
+[ext_resource type="PackedScene" uid="uid://eme1vpl0c355" path="res://assets/environment/space/craft_cargoB.fbx" id="24_41oom"]
+[ext_resource type="PackedScene" uid="uid://cltmitb58i2a5" path="res://assets/environment/space/craft_speederC.fbx" id="25_6mida"]
+[ext_resource type="PackedScene" uid="uid://i2c1xbhrwvnm" path="res://assets/environment/space/meteor_detailed.fbx" id="25_843kx"]
+[ext_resource type="PackedScene" uid="uid://4hsbrcnhbnl2" path="res://assets/environment/space/rock_crystalsLargeA.fbx" id="27_wf7uy"]
+[ext_resource type="Script" uid="uid://csg5ysluchojv" path="res://scripts/mesh_collision_baker.gd" id="28_collision_baker"]
+[ext_resource type="Script" uid="uid://b1ymfp7i2jkwx" path="res://scripts/space_station_floor_materials.gd" id="29_floor_materials"]
+[ext_resource type="PackedScene" uid="uid://bdqohsr5i7pa8" path="res://assets/environment/space/machine_generatorLarge.fbx" id="30_qkk60"]
+[ext_resource type="PackedScene" uid="uid://gwxcm8sij7tq" path="res://assets/environment/space/machine_barrel.fbx" id="31_4c54t"]
+[ext_resource type="PackedScene" uid="uid://be27evmgtpvqc" path="res://assets/environment/space/turret_double.fbx" id="31_vvisg"]
+[ext_resource type="PackedScene" uid="uid://bcymckqcecw7e" path="res://assets/environment/space/machine_wirelessCable.fbx" id="32_jucxq"]
+[ext_resource type="PackedScene" uid="uid://b8wait0617bgg" path="res://assets/environment/space/supports_high.fbx" id="32_pnggt"]
+[ext_resource type="PackedScene" uid="uid://bu4lv51vnnuj1" path="res://assets/environment/space/structure_detailed.fbx" id="33_cwymy"]
+[ext_resource type="PackedScene" uid="uid://dkly8v5wa88dg" path="res://assets/environment/space/machine_generator.fbx" id="33_uvjo1"]
+[ext_resource type="PackedScene" uid="uid://cphso713xbq2d" path="res://assets/environment/space/rocket_baseB.fbx" id="34_4od4m"]
+[ext_resource type="PackedScene" uid="uid://8oym1goa3sgx" path="res://assets/environment/space_station/models/structure-panel.fbx" id="34_k7seo"]
+[ext_resource type="PackedScene" uid="uid://bfj6o6c4acmo0" path="res://assets/environment/space_station/models/rail.fbx" id="35_d2dty"]
+[ext_resource type="PackedScene" uid="uid://cpyaprcj0c645" path="res://assets/environment/space/craft_cargoA.fbx" id="35_gfv0x"]
+[ext_resource type="PackedScene" uid="uid://bvlefxo0ivgss" path="res://assets/environment/space_station/models/skip-rocks.fbx" id="36_loal5"]
+[ext_resource type="PackedScene" uid="uid://ytagajil6qn2" path="res://assets/environment/space/pipe_ringHighEnd.fbx" id="36_qew70"]
+[ext_resource type="PackedScene" uid="uid://bl3vw3cm0tld8" path="res://assets/environment/space/pipe_ringHigh.fbx" id="37_vvisg"]
+[ext_resource type="PackedScene" uid="uid://c5iitxxpbkv74" path="res://assets/environment/space/pipe_ringSupport.fbx" id="38_pnggt"]
+[ext_resource type="PackedScene" uid="uid://b0c3mqd2xdby5" path="res://assets/environment/space/satelliteDish_large.fbx" id="39_yhpfb"]
+[ext_resource type="PackedScene" uid="uid://babl8untpcadh" path="res://assets/environment/space_station/models/table-display.fbx" id="46_8psgo"]
+[ext_resource type="PackedScene" uid="uid://b8ixlq6tmi078" path="res://assets/environment/space_station/models/structure-barrier-high.fbx" id="47_vgn05"]
+[ext_resource type="PackedScene" uid="uid://cm2xe74oowpk6" path="res://assets/environment/space_station/models/pipe-bend.fbx" id="48_k7seo"]
+[ext_resource type="PackedScene" uid="uid://dx5iwio4vlxn1" path="res://assets/environment/space_station/models/container-wide.fbx" id="49_d2dty"]
+[ext_resource type="PackedScene" uid="uid://dqspi5hdrc3bt" path="res://assets/environment/space_station/models/display-wall-wide.fbx" id="50_loal5"]
+[ext_resource type="PackedScene" uid="uid://d13klosyuix85" path="res://assets/environment/space_station/models/structure.fbx" id="51_d2dty"]
 
 [sub_resource type="BoxMesh" id="Mesh_ground"]
 size = Vector3(36, 0.4, 36)
@@ -60,1281 +101,1398 @@ size = Vector3(0.5, 2.2, 36)
 [node name="TownSquare" type="Node3D" unique_id=322493475]
 
 [node name="Environment" type="Node3D" parent="." unique_id=1411809007]
+script = ExtResource("28_collision_baker")
+
+[node name="FloorMaterials" type="Node" parent="Environment" unique_id=1425916832]
+script = ExtResource("29_floor_materials")
 
 [node name="Floor" type="Node3D" parent="Environment" unique_id=1140035489]
 
-[node name="floor" type="Node3D" parent="Environment/Floor" unique_id=921544159 instance=ExtResource("4_4q3pq")]
+[node name="floor" parent="Environment/Floor" unique_id=921544159 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, -0.5, -17.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (1)" type="Node3D" parent="Environment/Floor" unique_id=1393582776 instance=ExtResource("4_4q3pq")]
+[node name="floor (1)" parent="Environment/Floor" unique_id=1393582776 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, -0.5, -17.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (2)" type="Node3D" parent="Environment/Floor" unique_id=951037656 instance=ExtResource("4_4q3pq")]
+[node name="floor (2)" parent="Environment/Floor" unique_id=951037656 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, -0.5, -17.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (3)" type="Node3D" parent="Environment/Floor" unique_id=1837385060 instance=ExtResource("4_4q3pq")]
+[node name="floor (3)" parent="Environment/Floor" unique_id=1837385060 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, -0.5, -17.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (4)" type="Node3D" parent="Environment/Floor" unique_id=1898678036 instance=ExtResource("4_4q3pq")]
+[node name="floor (4)" parent="Environment/Floor" unique_id=1898678036 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, -0.5, -17.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (5)" type="Node3D" parent="Environment/Floor" unique_id=2076734529 instance=ExtResource("4_4q3pq")]
+[node name="floor (5)" parent="Environment/Floor" unique_id=2076734529 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -0.5, -17.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (6)" type="Node3D" parent="Environment/Floor" unique_id=1340805125 instance=ExtResource("4_4q3pq")]
+[node name="floor (6)" parent="Environment/Floor" unique_id=1340805125 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, -0.5, -17.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (7)" type="Node3D" parent="Environment/Floor" unique_id=418065967 instance=ExtResource("4_4q3pq")]
+[node name="floor (7)" parent="Environment/Floor" unique_id=418065967 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -17.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (8)" type="Node3D" parent="Environment/Floor" unique_id=263352294 instance=ExtResource("4_4q3pq")]
+[node name="floor (8)" parent="Environment/Floor" unique_id=263352294 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, -0.5, -17.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (9)" type="Node3D" parent="Environment/Floor" unique_id=998933193 instance=ExtResource("4_4q3pq")]
+[node name="floor (9)" parent="Environment/Floor" unique_id=998933193 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -0.5, -17.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (10)" type="Node3D" parent="Environment/Floor" unique_id=302411257 instance=ExtResource("4_4q3pq")]
+[node name="floor (10)" parent="Environment/Floor" unique_id=302411257 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, -0.5, -17.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (11)" type="Node3D" parent="Environment/Floor" unique_id=18466418 instance=ExtResource("4_4q3pq")]
+[node name="floor (11)" parent="Environment/Floor" unique_id=18466418 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -0.5, -17.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (12)" type="Node3D" parent="Environment/Floor" unique_id=1764459684 instance=ExtResource("4_4q3pq")]
+[node name="floor (12)" parent="Environment/Floor" unique_id=1764459684 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, -0.5, -17.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (13)" type="Node3D" parent="Environment/Floor" unique_id=1559735680 instance=ExtResource("4_4q3pq")]
+[node name="floor (13)" parent="Environment/Floor" unique_id=1559735680 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, -0.5, -17.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (14)" type="Node3D" parent="Environment/Floor" unique_id=1988924027 instance=ExtResource("4_4q3pq")]
+[node name="floor (14)" parent="Environment/Floor" unique_id=1988924027 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, -0.5, -17.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (15)" type="Node3D" parent="Environment/Floor" unique_id=348715965 instance=ExtResource("4_4q3pq")]
+[node name="floor (15)" parent="Environment/Floor" unique_id=348715965 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, -0.5, -15)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (16)" type="Node3D" parent="Environment/Floor" unique_id=17577957 instance=ExtResource("4_4q3pq")]
+[node name="floor (16)" parent="Environment/Floor" unique_id=17577957 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, -0.5, -15)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (17)" type="Node3D" parent="Environment/Floor" unique_id=946921392 instance=ExtResource("4_4q3pq")]
+[node name="floor (17)" parent="Environment/Floor" unique_id=946921392 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, -0.5, -15)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (18)" type="Node3D" parent="Environment/Floor" unique_id=1735163088 instance=ExtResource("4_4q3pq")]
+[node name="floor (18)" parent="Environment/Floor" unique_id=1735163088 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, -0.5, -15)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (19)" type="Node3D" parent="Environment/Floor" unique_id=679303109 instance=ExtResource("4_4q3pq")]
+[node name="floor (19)" parent="Environment/Floor" unique_id=679303109 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, -0.5, -15)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (20)" type="Node3D" parent="Environment/Floor" unique_id=412763623 instance=ExtResource("4_4q3pq")]
+[node name="floor (20)" parent="Environment/Floor" unique_id=412763623 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -0.5, -15)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (21)" type="Node3D" parent="Environment/Floor" unique_id=28773990 instance=ExtResource("4_4q3pq")]
+[node name="floor (21)" parent="Environment/Floor" unique_id=28773990 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, -0.5, -15)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (22)" type="Node3D" parent="Environment/Floor" unique_id=1863292955 instance=ExtResource("4_4q3pq")]
+[node name="floor (22)" parent="Environment/Floor" unique_id=1863292955 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -15)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (23)" type="Node3D" parent="Environment/Floor" unique_id=2136302955 instance=ExtResource("4_4q3pq")]
+[node name="floor (23)" parent="Environment/Floor" unique_id=2136302955 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, -0.5, -15)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (24)" type="Node3D" parent="Environment/Floor" unique_id=774902001 instance=ExtResource("4_4q3pq")]
+[node name="floor (24)" parent="Environment/Floor" unique_id=774902001 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -0.5, -15)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (25)" type="Node3D" parent="Environment/Floor" unique_id=1956659957 instance=ExtResource("4_4q3pq")]
+[node name="floor (25)" parent="Environment/Floor" unique_id=1956659957 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, -0.5, -15)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (26)" type="Node3D" parent="Environment/Floor" unique_id=630662988 instance=ExtResource("4_4q3pq")]
+[node name="floor (26)" parent="Environment/Floor" unique_id=630662988 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -0.5, -15)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (27)" type="Node3D" parent="Environment/Floor" unique_id=940194398 instance=ExtResource("4_4q3pq")]
+[node name="floor (27)" parent="Environment/Floor" unique_id=940194398 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, -0.5, -15)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (28)" type="Node3D" parent="Environment/Floor" unique_id=1972181093 instance=ExtResource("4_4q3pq")]
+[node name="floor (28)" parent="Environment/Floor" unique_id=1972181093 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, -0.5, -15)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (29)" type="Node3D" parent="Environment/Floor" unique_id=33500109 instance=ExtResource("4_4q3pq")]
+[node name="floor (29)" parent="Environment/Floor" unique_id=33500109 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, -0.5, -15)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (30)" type="Node3D" parent="Environment/Floor" unique_id=1747613264 instance=ExtResource("4_4q3pq")]
+[node name="floor (30)" parent="Environment/Floor" unique_id=1747613264 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, -0.5, -12.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (31)" type="Node3D" parent="Environment/Floor" unique_id=172831941 instance=ExtResource("4_4q3pq")]
+[node name="floor (31)" parent="Environment/Floor" unique_id=172831941 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, -0.5, -12.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (32)" type="Node3D" parent="Environment/Floor" unique_id=1052060056 instance=ExtResource("4_4q3pq")]
+[node name="floor (32)" parent="Environment/Floor" unique_id=1052060056 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, -0.5, -12.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (33)" type="Node3D" parent="Environment/Floor" unique_id=352871689 instance=ExtResource("4_4q3pq")]
+[node name="floor (33)" parent="Environment/Floor" unique_id=352871689 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, -0.5, -12.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (34)" type="Node3D" parent="Environment/Floor" unique_id=1889102053 instance=ExtResource("4_4q3pq")]
+[node name="floor (34)" parent="Environment/Floor" unique_id=1889102053 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, -0.5, -12.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (35)" type="Node3D" parent="Environment/Floor" unique_id=164108361 instance=ExtResource("4_4q3pq")]
+[node name="floor (35)" parent="Environment/Floor" unique_id=164108361 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -0.5, -12.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (36)" type="Node3D" parent="Environment/Floor" unique_id=2102308303 instance=ExtResource("4_4q3pq")]
+[node name="floor (36)" parent="Environment/Floor" unique_id=2102308303 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, -0.5, -12.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (37)" type="Node3D" parent="Environment/Floor" unique_id=1993246443 instance=ExtResource("4_4q3pq")]
+[node name="floor (37)" parent="Environment/Floor" unique_id=1993246443 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -12.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (38)" type="Node3D" parent="Environment/Floor" unique_id=1256168691 instance=ExtResource("4_4q3pq")]
+[node name="floor (38)" parent="Environment/Floor" unique_id=1256168691 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, -0.5, -12.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (39)" type="Node3D" parent="Environment/Floor" unique_id=611036058 instance=ExtResource("4_4q3pq")]
+[node name="floor (39)" parent="Environment/Floor" unique_id=611036058 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -0.5, -12.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (40)" type="Node3D" parent="Environment/Floor" unique_id=341335329 instance=ExtResource("4_4q3pq")]
+[node name="floor (40)" parent="Environment/Floor" unique_id=341335329 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, -0.5, -12.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (41)" type="Node3D" parent="Environment/Floor" unique_id=1877362148 instance=ExtResource("4_4q3pq")]
+[node name="floor (41)" parent="Environment/Floor" unique_id=1877362148 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -0.5, -12.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (42)" type="Node3D" parent="Environment/Floor" unique_id=493003918 instance=ExtResource("4_4q3pq")]
+[node name="floor (42)" parent="Environment/Floor" unique_id=493003918 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, -0.5, -12.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (43)" type="Node3D" parent="Environment/Floor" unique_id=1286451135 instance=ExtResource("4_4q3pq")]
+[node name="floor (43)" parent="Environment/Floor" unique_id=1286451135 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, -0.5, -12.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (44)" type="Node3D" parent="Environment/Floor" unique_id=53707075 instance=ExtResource("4_4q3pq")]
+[node name="floor (44)" parent="Environment/Floor" unique_id=53707075 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, -0.5, -12.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (45)" type="Node3D" parent="Environment/Floor" unique_id=1986289116 instance=ExtResource("4_4q3pq")]
+[node name="floor (45)" parent="Environment/Floor" unique_id=1986289116 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, -0.5, -10)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (46)" type="Node3D" parent="Environment/Floor" unique_id=732568755 instance=ExtResource("4_4q3pq")]
+[node name="floor (46)" parent="Environment/Floor" unique_id=732568755 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, -0.5, -10)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (47)" type="Node3D" parent="Environment/Floor" unique_id=579826118 instance=ExtResource("4_4q3pq")]
+[node name="floor (47)" parent="Environment/Floor" unique_id=579826118 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, -0.5, -10)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (48)" type="Node3D" parent="Environment/Floor" unique_id=116916280 instance=ExtResource("4_4q3pq")]
+[node name="floor (48)" parent="Environment/Floor" unique_id=116916280 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, -0.5, -10)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (49)" type="Node3D" parent="Environment/Floor" unique_id=1827495710 instance=ExtResource("4_4q3pq")]
+[node name="floor (49)" parent="Environment/Floor" unique_id=1827495710 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, -0.5, -10)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (50)" type="Node3D" parent="Environment/Floor" unique_id=557680056 instance=ExtResource("4_4q3pq")]
+[node name="floor (50)" parent="Environment/Floor" unique_id=557680056 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -0.5, -10)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (51)" type="Node3D" parent="Environment/Floor" unique_id=1426644092 instance=ExtResource("4_4q3pq")]
+[node name="floor (51)" parent="Environment/Floor" unique_id=1426644092 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, -0.5, -10)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (52)" type="Node3D" parent="Environment/Floor" unique_id=97836402 instance=ExtResource("4_4q3pq")]
+[node name="floor (52)" parent="Environment/Floor" unique_id=97836402 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -10)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (53)" type="Node3D" parent="Environment/Floor" unique_id=659112083 instance=ExtResource("4_4q3pq")]
+[node name="floor (53)" parent="Environment/Floor" unique_id=659112083 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, -0.5, -10)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (54)" type="Node3D" parent="Environment/Floor" unique_id=1907451083 instance=ExtResource("4_4q3pq")]
+[node name="floor (54)" parent="Environment/Floor" unique_id=1907451083 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -0.5, -10)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (55)" type="Node3D" parent="Environment/Floor" unique_id=324852905 instance=ExtResource("4_4q3pq")]
+[node name="floor (55)" parent="Environment/Floor" unique_id=324852905 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, -0.5, -10)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (56)" type="Node3D" parent="Environment/Floor" unique_id=1303206538 instance=ExtResource("4_4q3pq")]
+[node name="floor (56)" parent="Environment/Floor" unique_id=1303206538 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -0.5, -10)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (57)" type="Node3D" parent="Environment/Floor" unique_id=225526967 instance=ExtResource("4_4q3pq")]
+[node name="floor (57)" parent="Environment/Floor" unique_id=225526967 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, -0.5, -10)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (58)" type="Node3D" parent="Environment/Floor" unique_id=502770633 instance=ExtResource("4_4q3pq")]
+[node name="floor (58)" parent="Environment/Floor" unique_id=502770633 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, -0.5, -10)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (59)" type="Node3D" parent="Environment/Floor" unique_id=2040772323 instance=ExtResource("4_4q3pq")]
+[node name="floor (59)" parent="Environment/Floor" unique_id=2040772323 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, -0.5, -10)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (60)" type="Node3D" parent="Environment/Floor" unique_id=412030946 instance=ExtResource("4_4q3pq")]
+[node name="floor (60)" parent="Environment/Floor" unique_id=412030946 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, -0.5, -7.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (61)" type="Node3D" parent="Environment/Floor" unique_id=390386999 instance=ExtResource("4_4q3pq")]
+[node name="floor (61)" parent="Environment/Floor" unique_id=390386999 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, -0.5, -7.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (62)" type="Node3D" parent="Environment/Floor" unique_id=1075142934 instance=ExtResource("4_4q3pq")]
+[node name="floor (62)" parent="Environment/Floor" unique_id=1075142934 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, -0.5, -7.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (63)" type="Node3D" parent="Environment/Floor" unique_id=475810794 instance=ExtResource("4_4q3pq")]
+[node name="floor (63)" parent="Environment/Floor" unique_id=475810794 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, -0.5, -7.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (64)" type="Node3D" parent="Environment/Floor" unique_id=503254250 instance=ExtResource("4_4q3pq")]
+[node name="floor (64)" parent="Environment/Floor" unique_id=503254250 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, -0.5, -7.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (66)" type="Node3D" parent="Environment/Floor" unique_id=617902380 instance=ExtResource("4_4q3pq")]
+[node name="floor (66)" parent="Environment/Floor" unique_id=617902380 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, -0.5, -7.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (67)" type="Node3D" parent="Environment/Floor" unique_id=569828510 instance=ExtResource("4_4q3pq")]
+[node name="floor (67)" parent="Environment/Floor" unique_id=569828510 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -7.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (69)" type="Node3D" parent="Environment/Floor" unique_id=1702266872 instance=ExtResource("4_4q3pq")]
+[node name="floor (69)" parent="Environment/Floor" unique_id=1702266872 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -0.5, -7.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (70)" type="Node3D" parent="Environment/Floor" unique_id=361189605 instance=ExtResource("4_4q3pq")]
+[node name="floor (70)" parent="Environment/Floor" unique_id=361189605 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, -0.5, -7.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (71)" type="Node3D" parent="Environment/Floor" unique_id=1588387588 instance=ExtResource("4_4q3pq")]
+[node name="floor (71)" parent="Environment/Floor" unique_id=1588387588 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -0.5, -7.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (72)" type="Node3D" parent="Environment/Floor" unique_id=1883516301 instance=ExtResource("4_4q3pq")]
+[node name="floor (72)" parent="Environment/Floor" unique_id=1883516301 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, -0.5, -7.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (73)" type="Node3D" parent="Environment/Floor" unique_id=1138505655 instance=ExtResource("4_4q3pq")]
+[node name="floor (73)" parent="Environment/Floor" unique_id=1138505655 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, -0.5, -7.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (74)" type="Node3D" parent="Environment/Floor" unique_id=849736844 instance=ExtResource("4_4q3pq")]
+[node name="floor (74)" parent="Environment/Floor" unique_id=849736844 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, -0.5, -7.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (75)" type="Node3D" parent="Environment/Floor" unique_id=477466870 instance=ExtResource("4_4q3pq")]
+[node name="floor (75)" parent="Environment/Floor" unique_id=477466870 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, -0.5, -5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (76)" type="Node3D" parent="Environment/Floor" unique_id=1027771075 instance=ExtResource("4_4q3pq")]
+[node name="floor (76)" parent="Environment/Floor" unique_id=1027771075 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, -0.5, -5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (77)" type="Node3D" parent="Environment/Floor" unique_id=2078855644 instance=ExtResource("4_4q3pq")]
+[node name="floor (77)" parent="Environment/Floor" unique_id=2078855644 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, -0.5, -5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (78)" type="Node3D" parent="Environment/Floor" unique_id=1430846430 instance=ExtResource("4_4q3pq")]
+[node name="floor (78)" parent="Environment/Floor" unique_id=1430846430 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, -0.5, -5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (79)" type="Node3D" parent="Environment/Floor" unique_id=1560954777 instance=ExtResource("4_4q3pq")]
+[node name="floor (79)" parent="Environment/Floor" unique_id=1560954777 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, -0.5, -5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (80)" type="Node3D" parent="Environment/Floor" unique_id=512293292 instance=ExtResource("4_4q3pq")]
+[node name="floor (80)" parent="Environment/Floor" unique_id=512293292 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -0.5, -5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (81)" type="Node3D" parent="Environment/Floor" unique_id=1594096222 instance=ExtResource("4_4q3pq")]
+[node name="floor (81)" parent="Environment/Floor" unique_id=1594096222 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, -0.5, -5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (82)" type="Node3D" parent="Environment/Floor" unique_id=1883049432 instance=ExtResource("4_4q3pq")]
+[node name="floor (82)" parent="Environment/Floor" unique_id=1883049432 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (83)" type="Node3D" parent="Environment/Floor" unique_id=112533813 instance=ExtResource("4_4q3pq")]
+[node name="floor (83)" parent="Environment/Floor" unique_id=112533813 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, -0.5, -5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (84)" type="Node3D" parent="Environment/Floor" unique_id=233809795 instance=ExtResource("4_4q3pq")]
+[node name="floor (84)" parent="Environment/Floor" unique_id=233809795 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -0.5, -5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (85)" type="Node3D" parent="Environment/Floor" unique_id=739997034 instance=ExtResource("4_4q3pq")]
+[node name="floor (85)" parent="Environment/Floor" unique_id=739997034 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, -0.5, -5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (86)" type="Node3D" parent="Environment/Floor" unique_id=241545862 instance=ExtResource("4_4q3pq")]
+[node name="floor (86)" parent="Environment/Floor" unique_id=241545862 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -0.5, -5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (87)" type="Node3D" parent="Environment/Floor" unique_id=365610400 instance=ExtResource("4_4q3pq")]
+[node name="floor (87)" parent="Environment/Floor" unique_id=365610400 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, -0.5, -5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (88)" type="Node3D" parent="Environment/Floor" unique_id=899116870 instance=ExtResource("4_4q3pq")]
+[node name="floor (88)" parent="Environment/Floor" unique_id=899116870 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, -0.5, -5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (89)" type="Node3D" parent="Environment/Floor" unique_id=1844136967 instance=ExtResource("4_4q3pq")]
+[node name="floor (89)" parent="Environment/Floor" unique_id=1844136967 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, -0.5, -5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (90)" type="Node3D" parent="Environment/Floor" unique_id=1109091480 instance=ExtResource("4_4q3pq")]
+[node name="floor (90)" parent="Environment/Floor" unique_id=1109091480 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, -0.5, -2.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (91)" type="Node3D" parent="Environment/Floor" unique_id=1342563785 instance=ExtResource("4_4q3pq")]
+[node name="floor (91)" parent="Environment/Floor" unique_id=1342563785 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, -0.5, -2.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (92)" type="Node3D" parent="Environment/Floor" unique_id=1985713629 instance=ExtResource("4_4q3pq")]
+[node name="floor (92)" parent="Environment/Floor" unique_id=1985713629 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, -0.5, -2.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (93)" type="Node3D" parent="Environment/Floor" unique_id=8724458 instance=ExtResource("4_4q3pq")]
+[node name="floor (93)" parent="Environment/Floor" unique_id=8724458 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, -0.5, -2.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (95)" type="Node3D" parent="Environment/Floor" unique_id=1524046245 instance=ExtResource("4_4q3pq")]
+[node name="floor (95)" parent="Environment/Floor" unique_id=1524046245 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -0.5, -2.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (96)" type="Node3D" parent="Environment/Floor" unique_id=1013202206 instance=ExtResource("4_4q3pq")]
+[node name="floor (96)" parent="Environment/Floor" unique_id=1013202206 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, -0.5, -2.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (97)" type="Node3D" parent="Environment/Floor" unique_id=69858523 instance=ExtResource("4_4q3pq")]
+[node name="floor (97)" parent="Environment/Floor" unique_id=69858523 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -2.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (98)" type="Node3D" parent="Environment/Floor" unique_id=1545745780 instance=ExtResource("4_4q3pq")]
+[node name="floor (98)" parent="Environment/Floor" unique_id=1545745780 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, -0.5, -2.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (99)" type="Node3D" parent="Environment/Floor" unique_id=2055473276 instance=ExtResource("4_4q3pq")]
+[node name="floor (99)" parent="Environment/Floor" unique_id=2055473276 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -0.5, -2.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (100)" type="Node3D" parent="Environment/Floor" unique_id=1677768583 instance=ExtResource("4_4q3pq")]
+[node name="floor (100)" parent="Environment/Floor" unique_id=1677768583 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, -0.5, -2.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (101)" type="Node3D" parent="Environment/Floor" unique_id=769781149 instance=ExtResource("4_4q3pq")]
+[node name="floor (101)" parent="Environment/Floor" unique_id=769781149 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -0.5, -2.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (102)" type="Node3D" parent="Environment/Floor" unique_id=1084370995 instance=ExtResource("4_4q3pq")]
+[node name="floor (102)" parent="Environment/Floor" unique_id=1084370995 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, -0.5, -2.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (103)" type="Node3D" parent="Environment/Floor" unique_id=1070226573 instance=ExtResource("4_4q3pq")]
+[node name="floor (103)" parent="Environment/Floor" unique_id=1070226573 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, -0.5, -2.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (104)" type="Node3D" parent="Environment/Floor" unique_id=464037745 instance=ExtResource("4_4q3pq")]
+[node name="floor (104)" parent="Environment/Floor" unique_id=464037745 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, -0.5, -2.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (105)" type="Node3D" parent="Environment/Floor" unique_id=376175418 instance=ExtResource("4_4q3pq")]
+[node name="floor (105)" parent="Environment/Floor" unique_id=376175418 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, -0.5, 0)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (106)" type="Node3D" parent="Environment/Floor" unique_id=2119670357 instance=ExtResource("4_4q3pq")]
+[node name="floor (106)" parent="Environment/Floor" unique_id=2119670357 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, -0.5, 0)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (107)" type="Node3D" parent="Environment/Floor" unique_id=1173003144 instance=ExtResource("4_4q3pq")]
+[node name="floor (107)" parent="Environment/Floor" unique_id=1173003144 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, -0.5, 0)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (108)" type="Node3D" parent="Environment/Floor" unique_id=1887327949 instance=ExtResource("4_4q3pq")]
+[node name="floor (108)" parent="Environment/Floor" unique_id=1887327949 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, -0.5, 0)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (109)" type="Node3D" parent="Environment/Floor" unique_id=280307906 instance=ExtResource("4_4q3pq")]
+[node name="floor (109)" parent="Environment/Floor" unique_id=280307906 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, -0.5, 0)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (110)" type="Node3D" parent="Environment/Floor" unique_id=1907850708 instance=ExtResource("4_4q3pq")]
+[node name="floor (110)" parent="Environment/Floor" unique_id=1907850708 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -0.5, 0)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (111)" type="Node3D" parent="Environment/Floor" unique_id=1259243330 instance=ExtResource("4_4q3pq")]
+[node name="floor (111)" parent="Environment/Floor" unique_id=1259243330 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, -0.5, 0)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (112)" type="Node3D" parent="Environment/Floor" unique_id=1078295798 instance=ExtResource("4_4q3pq")]
+[node name="floor (112)" parent="Environment/Floor" unique_id=1078295798 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (113)" type="Node3D" parent="Environment/Floor" unique_id=1789947344 instance=ExtResource("4_4q3pq")]
+[node name="floor (113)" parent="Environment/Floor" unique_id=1789947344 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, -0.5, 0)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (114)" type="Node3D" parent="Environment/Floor" unique_id=1962659480 instance=ExtResource("4_4q3pq")]
+[node name="floor (114)" parent="Environment/Floor" unique_id=1962659480 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -0.5, 0)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (115)" type="Node3D" parent="Environment/Floor" unique_id=612164523 instance=ExtResource("4_4q3pq")]
+[node name="floor (115)" parent="Environment/Floor" unique_id=612164523 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, -0.5, 0)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (116)" type="Node3D" parent="Environment/Floor" unique_id=2042078849 instance=ExtResource("4_4q3pq")]
+[node name="floor (116)" parent="Environment/Floor" unique_id=2042078849 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -0.5, 0)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (117)" type="Node3D" parent="Environment/Floor" unique_id=1698959233 instance=ExtResource("4_4q3pq")]
+[node name="floor (117)" parent="Environment/Floor" unique_id=1698959233 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, -0.5, 0)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (118)" type="Node3D" parent="Environment/Floor" unique_id=1110316853 instance=ExtResource("4_4q3pq")]
+[node name="floor (118)" parent="Environment/Floor" unique_id=1110316853 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, -0.5, 0)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (119)" type="Node3D" parent="Environment/Floor" unique_id=1506585688 instance=ExtResource("4_4q3pq")]
+[node name="floor (119)" parent="Environment/Floor" unique_id=1506585688 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, -0.5, 0)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (120)" type="Node3D" parent="Environment/Floor" unique_id=329290746 instance=ExtResource("4_4q3pq")]
+[node name="floor (120)" parent="Environment/Floor" unique_id=329290746 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, -0.5, 2.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (121)" type="Node3D" parent="Environment/Floor" unique_id=2035808866 instance=ExtResource("4_4q3pq")]
+[node name="floor (121)" parent="Environment/Floor" unique_id=2035808866 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, -0.5, 2.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (122)" type="Node3D" parent="Environment/Floor" unique_id=1453998351 instance=ExtResource("4_4q3pq")]
+[node name="floor (122)" parent="Environment/Floor" unique_id=1453998351 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, -0.5, 2.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (123)" type="Node3D" parent="Environment/Floor" unique_id=656316544 instance=ExtResource("4_4q3pq")]
+[node name="floor (123)" parent="Environment/Floor" unique_id=656316544 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, -0.5, 2.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (124)" type="Node3D" parent="Environment/Floor" unique_id=1433706660 instance=ExtResource("4_4q3pq")]
+[node name="floor (124)" parent="Environment/Floor" unique_id=1433706660 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, -0.5, 2.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (125)" type="Node3D" parent="Environment/Floor" unique_id=794141099 instance=ExtResource("4_4q3pq")]
+[node name="floor (125)" parent="Environment/Floor" unique_id=794141099 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -0.5, 2.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (126)" type="Node3D" parent="Environment/Floor" unique_id=1169527241 instance=ExtResource("4_4q3pq")]
+[node name="floor (126)" parent="Environment/Floor" unique_id=1169527241 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, -0.5, 2.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (127)" type="Node3D" parent="Environment/Floor" unique_id=1794227996 instance=ExtResource("4_4q3pq")]
+[node name="floor (127)" parent="Environment/Floor" unique_id=1794227996 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 2.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (128)" type="Node3D" parent="Environment/Floor" unique_id=1221615234 instance=ExtResource("4_4q3pq")]
+[node name="floor (128)" parent="Environment/Floor" unique_id=1221615234 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, -0.5, 2.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (129)" type="Node3D" parent="Environment/Floor" unique_id=1593867562 instance=ExtResource("4_4q3pq")]
+[node name="floor (129)" parent="Environment/Floor" unique_id=1593867562 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -0.5, 2.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (130)" type="Node3D" parent="Environment/Floor" unique_id=687161238 instance=ExtResource("4_4q3pq")]
+[node name="floor (130)" parent="Environment/Floor" unique_id=687161238 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, -0.5, 2.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (131)" type="Node3D" parent="Environment/Floor" unique_id=466535653 instance=ExtResource("4_4q3pq")]
+[node name="floor (131)" parent="Environment/Floor" unique_id=466535653 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -0.5, 2.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (132)" type="Node3D" parent="Environment/Floor" unique_id=1559676063 instance=ExtResource("4_4q3pq")]
+[node name="floor (132)" parent="Environment/Floor" unique_id=1559676063 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, -0.5, 2.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (133)" type="Node3D" parent="Environment/Floor" unique_id=1829892301 instance=ExtResource("4_4q3pq")]
+[node name="floor (133)" parent="Environment/Floor" unique_id=1829892301 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, -0.5, 2.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (134)" type="Node3D" parent="Environment/Floor" unique_id=689311626 instance=ExtResource("4_4q3pq")]
+[node name="floor (134)" parent="Environment/Floor" unique_id=689311626 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, -0.5, 2.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (135)" type="Node3D" parent="Environment/Floor" unique_id=799584368 instance=ExtResource("4_4q3pq")]
+[node name="floor (135)" parent="Environment/Floor" unique_id=799584368 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, -0.5, 5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (136)" type="Node3D" parent="Environment/Floor" unique_id=427655154 instance=ExtResource("4_4q3pq")]
+[node name="floor (136)" parent="Environment/Floor" unique_id=427655154 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, -0.5, 5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (137)" type="Node3D" parent="Environment/Floor" unique_id=554789182 instance=ExtResource("4_4q3pq")]
+[node name="floor (137)" parent="Environment/Floor" unique_id=554789182 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, -0.5, 5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (138)" type="Node3D" parent="Environment/Floor" unique_id=565048754 instance=ExtResource("4_4q3pq")]
+[node name="floor (138)" parent="Environment/Floor" unique_id=565048754 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, -0.5, 5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (139)" type="Node3D" parent="Environment/Floor" unique_id=1474791031 instance=ExtResource("4_4q3pq")]
+[node name="floor (139)" parent="Environment/Floor" unique_id=1474791031 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, -0.5, 5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (140)" type="Node3D" parent="Environment/Floor" unique_id=664375377 instance=ExtResource("4_4q3pq")]
+[node name="floor (140)" parent="Environment/Floor" unique_id=664375377 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -0.5, 5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (141)" type="Node3D" parent="Environment/Floor" unique_id=991141902 instance=ExtResource("4_4q3pq")]
+[node name="floor (141)" parent="Environment/Floor" unique_id=991141902 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, -0.5, 5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (142)" type="Node3D" parent="Environment/Floor" unique_id=1314420635 instance=ExtResource("4_4q3pq")]
+[node name="floor (142)" parent="Environment/Floor" unique_id=1314420635 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (143)" type="Node3D" parent="Environment/Floor" unique_id=811985132 instance=ExtResource("4_4q3pq")]
+[node name="floor (143)" parent="Environment/Floor" unique_id=811985132 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, -0.5, 5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (144)" type="Node3D" parent="Environment/Floor" unique_id=593779060 instance=ExtResource("4_4q3pq")]
+[node name="floor (144)" parent="Environment/Floor" unique_id=593779060 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -0.5, 5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (145)" type="Node3D" parent="Environment/Floor" unique_id=21962053 instance=ExtResource("4_4q3pq")]
+[node name="floor (145)" parent="Environment/Floor" unique_id=21962053 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, -0.5, 5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (146)" type="Node3D" parent="Environment/Floor" unique_id=1306913291 instance=ExtResource("4_4q3pq")]
+[node name="floor (146)" parent="Environment/Floor" unique_id=1306913291 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -0.5, 5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (147)" type="Node3D" parent="Environment/Floor" unique_id=51575178 instance=ExtResource("4_4q3pq")]
+[node name="floor (147)" parent="Environment/Floor" unique_id=51575178 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, -0.5, 5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (148)" type="Node3D" parent="Environment/Floor" unique_id=979023660 instance=ExtResource("4_4q3pq")]
+[node name="floor (148)" parent="Environment/Floor" unique_id=979023660 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, -0.5, 5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (149)" type="Node3D" parent="Environment/Floor" unique_id=1013213184 instance=ExtResource("4_4q3pq")]
+[node name="floor (149)" parent="Environment/Floor" unique_id=1013213184 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, -0.5, 5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (150)" type="Node3D" parent="Environment/Floor" unique_id=845235267 instance=ExtResource("4_4q3pq")]
+[node name="floor (150)" parent="Environment/Floor" unique_id=845235267 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, -0.5, 7.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (151)" type="Node3D" parent="Environment/Floor" unique_id=637959666 instance=ExtResource("4_4q3pq")]
+[node name="floor (151)" parent="Environment/Floor" unique_id=637959666 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, -0.5, 7.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (152)" type="Node3D" parent="Environment/Floor" unique_id=612975557 instance=ExtResource("4_4q3pq")]
+[node name="floor (152)" parent="Environment/Floor" unique_id=612975557 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, -0.5, 7.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (153)" type="Node3D" parent="Environment/Floor" unique_id=323074707 instance=ExtResource("4_4q3pq")]
+[node name="floor (153)" parent="Environment/Floor" unique_id=323074707 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, -0.5, 7.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (154)" type="Node3D" parent="Environment/Floor" unique_id=2142516163 instance=ExtResource("4_4q3pq")]
+[node name="floor (154)" parent="Environment/Floor" unique_id=2142516163 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, -0.5, 7.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (155)" type="Node3D" parent="Environment/Floor" unique_id=413876853 instance=ExtResource("4_4q3pq")]
+[node name="floor (155)" parent="Environment/Floor" unique_id=413876853 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -0.5, 7.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (156)" type="Node3D" parent="Environment/Floor" unique_id=1974366774 instance=ExtResource("4_4q3pq")]
+[node name="floor (156)" parent="Environment/Floor" unique_id=1974366774 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, -0.5, 7.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (157)" type="Node3D" parent="Environment/Floor" unique_id=2036862281 instance=ExtResource("4_4q3pq")]
+[node name="floor (157)" parent="Environment/Floor" unique_id=2036862281 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 7.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (158)" type="Node3D" parent="Environment/Floor" unique_id=151972004 instance=ExtResource("4_4q3pq")]
+[node name="floor (158)" parent="Environment/Floor" unique_id=151972004 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, -0.5, 7.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (159)" type="Node3D" parent="Environment/Floor" unique_id=63426545 instance=ExtResource("4_4q3pq")]
+[node name="floor (159)" parent="Environment/Floor" unique_id=63426545 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -0.5, 7.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (160)" type="Node3D" parent="Environment/Floor" unique_id=927072927 instance=ExtResource("4_4q3pq")]
+[node name="floor (160)" parent="Environment/Floor" unique_id=927072927 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, -0.5, 7.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (161)" type="Node3D" parent="Environment/Floor" unique_id=1236148385 instance=ExtResource("4_4q3pq")]
+[node name="floor (161)" parent="Environment/Floor" unique_id=1236148385 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -0.5, 7.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (162)" type="Node3D" parent="Environment/Floor" unique_id=563953202 instance=ExtResource("4_4q3pq")]
+[node name="floor (162)" parent="Environment/Floor" unique_id=563953202 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, -0.5, 7.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (163)" type="Node3D" parent="Environment/Floor" unique_id=320376955 instance=ExtResource("4_4q3pq")]
+[node name="floor (163)" parent="Environment/Floor" unique_id=320376955 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, -0.5, 7.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (164)" type="Node3D" parent="Environment/Floor" unique_id=976610345 instance=ExtResource("4_4q3pq")]
+[node name="floor (164)" parent="Environment/Floor" unique_id=976610345 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, -0.5, 7.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (165)" type="Node3D" parent="Environment/Floor" unique_id=47777156 instance=ExtResource("4_4q3pq")]
+[node name="floor (165)" parent="Environment/Floor" unique_id=47777156 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, -0.5, 10)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (166)" type="Node3D" parent="Environment/Floor" unique_id=1551644414 instance=ExtResource("4_4q3pq")]
+[node name="floor (166)" parent="Environment/Floor" unique_id=1551644414 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, -0.5, 10)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (167)" type="Node3D" parent="Environment/Floor" unique_id=143834694 instance=ExtResource("4_4q3pq")]
+[node name="floor (167)" parent="Environment/Floor" unique_id=143834694 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, -0.5, 10)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (168)" type="Node3D" parent="Environment/Floor" unique_id=1685434871 instance=ExtResource("4_4q3pq")]
+[node name="floor (168)" parent="Environment/Floor" unique_id=1685434871 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, -0.5, 10)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (170)" type="Node3D" parent="Environment/Floor" unique_id=199516448 instance=ExtResource("4_4q3pq")]
+[node name="floor (170)" parent="Environment/Floor" unique_id=199516448 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -0.5, 10)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (171)" type="Node3D" parent="Environment/Floor" unique_id=934041421 instance=ExtResource("4_4q3pq")]
+[node name="floor (171)" parent="Environment/Floor" unique_id=934041421 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, -0.5, 10)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (172)" type="Node3D" parent="Environment/Floor" unique_id=363377773 instance=ExtResource("4_4q3pq")]
+[node name="floor (172)" parent="Environment/Floor" unique_id=363377773 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 10)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (173)" type="Node3D" parent="Environment/Floor" unique_id=2095785924 instance=ExtResource("4_4q3pq")]
+[node name="floor (173)" parent="Environment/Floor" unique_id=2095785924 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, -0.5, 10)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (174)" type="Node3D" parent="Environment/Floor" unique_id=1891605054 instance=ExtResource("4_4q3pq")]
+[node name="floor (174)" parent="Environment/Floor" unique_id=1891605054 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -0.5, 10)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (175)" type="Node3D" parent="Environment/Floor" unique_id=80932846 instance=ExtResource("4_4q3pq")]
+[node name="floor (175)" parent="Environment/Floor" unique_id=80932846 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, -0.5, 10)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (177)" type="Node3D" parent="Environment/Floor" unique_id=1404036606 instance=ExtResource("4_4q3pq")]
+[node name="floor (177)" parent="Environment/Floor" unique_id=1404036606 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, -0.5, 10)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (178)" type="Node3D" parent="Environment/Floor" unique_id=656272832 instance=ExtResource("4_4q3pq")]
+[node name="floor (178)" parent="Environment/Floor" unique_id=656272832 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, -0.5, 10)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (179)" type="Node3D" parent="Environment/Floor" unique_id=2036849717 instance=ExtResource("4_4q3pq")]
+[node name="floor (179)" parent="Environment/Floor" unique_id=2036849717 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, -0.5, 10)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (180)" type="Node3D" parent="Environment/Floor" unique_id=191595138 instance=ExtResource("4_4q3pq")]
+[node name="floor (180)" parent="Environment/Floor" unique_id=191595138 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, -0.5, 12.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (181)" type="Node3D" parent="Environment/Floor" unique_id=2108153435 instance=ExtResource("4_4q3pq")]
+[node name="floor (181)" parent="Environment/Floor" unique_id=2108153435 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, -0.5, 12.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (182)" type="Node3D" parent="Environment/Floor" unique_id=293346336 instance=ExtResource("4_4q3pq")]
+[node name="floor (182)" parent="Environment/Floor" unique_id=293346336 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, -0.5, 12.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (183)" type="Node3D" parent="Environment/Floor" unique_id=1072591199 instance=ExtResource("4_4q3pq")]
+[node name="floor (183)" parent="Environment/Floor" unique_id=1072591199 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, -0.5, 12.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (184)" type="Node3D" parent="Environment/Floor" unique_id=2044623727 instance=ExtResource("4_4q3pq")]
+[node name="floor (184)" parent="Environment/Floor" unique_id=2044623727 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, -0.5, 12.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (185)" type="Node3D" parent="Environment/Floor" unique_id=1111701195 instance=ExtResource("4_4q3pq")]
+[node name="floor (185)" parent="Environment/Floor" unique_id=1111701195 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -0.5, 12.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (186)" type="Node3D" parent="Environment/Floor" unique_id=1709309976 instance=ExtResource("4_4q3pq")]
+[node name="floor (186)" parent="Environment/Floor" unique_id=1709309976 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, -0.5, 12.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (187)" type="Node3D" parent="Environment/Floor" unique_id=1549737633 instance=ExtResource("4_4q3pq")]
+[node name="floor (187)" parent="Environment/Floor" unique_id=1549737633 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 12.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (188)" type="Node3D" parent="Environment/Floor" unique_id=2048031586 instance=ExtResource("4_4q3pq")]
+[node name="floor (188)" parent="Environment/Floor" unique_id=2048031586 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, -0.5, 12.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (189)" type="Node3D" parent="Environment/Floor" unique_id=1959774552 instance=ExtResource("4_4q3pq")]
+[node name="floor (189)" parent="Environment/Floor" unique_id=1959774552 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -0.5, 12.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (190)" type="Node3D" parent="Environment/Floor" unique_id=2124416125 instance=ExtResource("4_4q3pq")]
+[node name="floor (190)" parent="Environment/Floor" unique_id=2124416125 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, -0.5, 12.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (191)" type="Node3D" parent="Environment/Floor" unique_id=1833147948 instance=ExtResource("4_4q3pq")]
+[node name="floor (191)" parent="Environment/Floor" unique_id=1833147948 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -0.5, 12.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (192)" type="Node3D" parent="Environment/Floor" unique_id=482087680 instance=ExtResource("4_4q3pq")]
+[node name="floor (192)" parent="Environment/Floor" unique_id=482087680 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, -0.5, 12.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (193)" type="Node3D" parent="Environment/Floor" unique_id=526397587 instance=ExtResource("4_4q3pq")]
+[node name="floor (193)" parent="Environment/Floor" unique_id=526397587 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, -0.5, 12.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (194)" type="Node3D" parent="Environment/Floor" unique_id=2124371559 instance=ExtResource("4_4q3pq")]
+[node name="floor (194)" parent="Environment/Floor" unique_id=2124371559 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, -0.5, 12.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (195)" type="Node3D" parent="Environment/Floor" unique_id=1269704359 instance=ExtResource("4_4q3pq")]
+[node name="floor (195)" parent="Environment/Floor" unique_id=1269704359 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, -0.5, 15)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (196)" type="Node3D" parent="Environment/Floor" unique_id=1237000890 instance=ExtResource("4_4q3pq")]
+[node name="floor (196)" parent="Environment/Floor" unique_id=1237000890 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, -0.5, 15)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (197)" type="Node3D" parent="Environment/Floor" unique_id=210858029 instance=ExtResource("4_4q3pq")]
+[node name="floor (197)" parent="Environment/Floor" unique_id=210858029 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, -0.5, 15)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (198)" type="Node3D" parent="Environment/Floor" unique_id=943288352 instance=ExtResource("4_4q3pq")]
+[node name="floor (198)" parent="Environment/Floor" unique_id=943288352 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, -0.5, 15)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (199)" type="Node3D" parent="Environment/Floor" unique_id=1657547495 instance=ExtResource("4_4q3pq")]
+[node name="floor (199)" parent="Environment/Floor" unique_id=1657547495 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, -0.5, 15)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (200)" type="Node3D" parent="Environment/Floor" unique_id=30767805 instance=ExtResource("4_4q3pq")]
+[node name="floor (200)" parent="Environment/Floor" unique_id=30767805 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -0.5, 15)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (201)" type="Node3D" parent="Environment/Floor" unique_id=320671358 instance=ExtResource("4_4q3pq")]
+[node name="floor (201)" parent="Environment/Floor" unique_id=320671358 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, -0.5, 15)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (203)" type="Node3D" parent="Environment/Floor" unique_id=1683878833 instance=ExtResource("4_4q3pq")]
+[node name="floor (203)" parent="Environment/Floor" unique_id=1683878833 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, -0.5, 15)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (204)" type="Node3D" parent="Environment/Floor" unique_id=1711036998 instance=ExtResource("4_4q3pq")]
+[node name="floor (204)" parent="Environment/Floor" unique_id=1711036998 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -0.5, 15)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (205)" type="Node3D" parent="Environment/Floor" unique_id=1781330258 instance=ExtResource("4_4q3pq")]
+[node name="floor (205)" parent="Environment/Floor" unique_id=1781330258 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, -0.5, 15)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (206)" type="Node3D" parent="Environment/Floor" unique_id=1438289468 instance=ExtResource("4_4q3pq")]
+[node name="floor (206)" parent="Environment/Floor" unique_id=1438289468 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -0.5, 15)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (207)" type="Node3D" parent="Environment/Floor" unique_id=1729566548 instance=ExtResource("4_4q3pq")]
+[node name="floor (207)" parent="Environment/Floor" unique_id=1729566548 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, -0.5, 15)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (208)" type="Node3D" parent="Environment/Floor" unique_id=409298397 instance=ExtResource("4_4q3pq")]
+[node name="floor (208)" parent="Environment/Floor" unique_id=409298397 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, -0.5, 15)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (209)" type="Node3D" parent="Environment/Floor" unique_id=343294394 instance=ExtResource("4_4q3pq")]
+[node name="floor (209)" parent="Environment/Floor" unique_id=343294394 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, -0.5, 15)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (210)" type="Node3D" parent="Environment/Floor" unique_id=359859337 instance=ExtResource("4_4q3pq")]
+[node name="floor (210)" parent="Environment/Floor" unique_id=359859337 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, -0.5, 17.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (211)" type="Node3D" parent="Environment/Floor" unique_id=1156409403 instance=ExtResource("4_4q3pq")]
+[node name="floor (211)" parent="Environment/Floor" unique_id=1156409403 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, -0.5, 17.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (212)" type="Node3D" parent="Environment/Floor" unique_id=296658899 instance=ExtResource("4_4q3pq")]
+[node name="floor (212)" parent="Environment/Floor" unique_id=296658899 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, -0.5, 17.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (213)" type="Node3D" parent="Environment/Floor" unique_id=1290296834 instance=ExtResource("4_4q3pq")]
+[node name="floor (213)" parent="Environment/Floor" unique_id=1290296834 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, -0.5, 17.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (214)" type="Node3D" parent="Environment/Floor" unique_id=748889201 instance=ExtResource("4_4q3pq")]
+[node name="floor (214)" parent="Environment/Floor" unique_id=748889201 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, -0.5, 17.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (215)" type="Node3D" parent="Environment/Floor" unique_id=771695803 instance=ExtResource("4_4q3pq")]
+[node name="floor (215)" parent="Environment/Floor" unique_id=771695803 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -0.5, 17.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (216)" type="Node3D" parent="Environment/Floor" unique_id=871648247 instance=ExtResource("4_4q3pq")]
+[node name="floor (216)" parent="Environment/Floor" unique_id=871648247 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, -0.5, 17.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (217)" type="Node3D" parent="Environment/Floor" unique_id=1996433375 instance=ExtResource("4_4q3pq")]
+[node name="floor (217)" parent="Environment/Floor" unique_id=1996433375 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 17.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (218)" type="Node3D" parent="Environment/Floor" unique_id=133905612 instance=ExtResource("4_4q3pq")]
+[node name="floor (218)" parent="Environment/Floor" unique_id=133905612 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, -0.5, 17.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (219)" type="Node3D" parent="Environment/Floor" unique_id=1282648861 instance=ExtResource("4_4q3pq")]
+[node name="floor (219)" parent="Environment/Floor" unique_id=1282648861 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -0.5, 17.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (220)" type="Node3D" parent="Environment/Floor" unique_id=1064574538 instance=ExtResource("4_4q3pq")]
+[node name="floor (220)" parent="Environment/Floor" unique_id=1064574538 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, -0.5, 17.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (221)" type="Node3D" parent="Environment/Floor" unique_id=1981868032 instance=ExtResource("4_4q3pq")]
+[node name="floor (221)" parent="Environment/Floor" unique_id=1981868032 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -0.5, 17.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (222)" type="Node3D" parent="Environment/Floor" unique_id=53240639 instance=ExtResource("4_4q3pq")]
+[node name="floor (222)" parent="Environment/Floor" unique_id=53240639 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, -0.5, 17.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (223)" type="Node3D" parent="Environment/Floor" unique_id=1281996383 instance=ExtResource("4_4q3pq")]
+[node name="floor (223)" parent="Environment/Floor" unique_id=1281996383 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, -0.5, 17.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (224)" type="Node3D" parent="Environment/Floor" unique_id=1372230952 instance=ExtResource("4_4q3pq")]
+[node name="floor (224)" parent="Environment/Floor" unique_id=1372230952 instance=ExtResource("4_4q3pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, -0.5, 17.5)
 metadata/asset_placer_res_id = "uid://cin2y45cjjag"
 
-[node name="floor (225)" type="Node3D" parent="Environment/Floor" unique_id=1481290904 instance=ExtResource("4_4q3pq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, -0.5, 20)
-metadata/asset_placer_res_id = "uid://cin2y45cjjag"
-
-[node name="floor (226)" type="Node3D" parent="Environment/Floor" unique_id=282332657 instance=ExtResource("4_4q3pq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, -0.5, 20)
-metadata/asset_placer_res_id = "uid://cin2y45cjjag"
-
-[node name="floor (227)" type="Node3D" parent="Environment/Floor" unique_id=607707999 instance=ExtResource("4_4q3pq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, -0.5, 20)
-metadata/asset_placer_res_id = "uid://cin2y45cjjag"
-
-[node name="floor (228)" type="Node3D" parent="Environment/Floor" unique_id=478277179 instance=ExtResource("4_4q3pq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, -0.5, 20)
-metadata/asset_placer_res_id = "uid://cin2y45cjjag"
-
-[node name="floor (229)" type="Node3D" parent="Environment/Floor" unique_id=1148176286 instance=ExtResource("4_4q3pq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, -0.5, 20)
-metadata/asset_placer_res_id = "uid://cin2y45cjjag"
-
-[node name="floor (230)" type="Node3D" parent="Environment/Floor" unique_id=2085220030 instance=ExtResource("4_4q3pq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -0.5, 20)
-metadata/asset_placer_res_id = "uid://cin2y45cjjag"
-
-[node name="floor (231)" type="Node3D" parent="Environment/Floor" unique_id=1700549070 instance=ExtResource("4_4q3pq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, -0.5, 20)
-metadata/asset_placer_res_id = "uid://cin2y45cjjag"
-
-[node name="floor (232)" type="Node3D" parent="Environment/Floor" unique_id=542049127 instance=ExtResource("4_4q3pq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 20)
-metadata/asset_placer_res_id = "uid://cin2y45cjjag"
-
-[node name="floor (233)" type="Node3D" parent="Environment/Floor" unique_id=1645668269 instance=ExtResource("4_4q3pq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, -0.5, 20)
-metadata/asset_placer_res_id = "uid://cin2y45cjjag"
-
-[node name="floor (234)" type="Node3D" parent="Environment/Floor" unique_id=1476564469 instance=ExtResource("4_4q3pq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -0.5, 20)
-metadata/asset_placer_res_id = "uid://cin2y45cjjag"
-
-[node name="floor (235)" type="Node3D" parent="Environment/Floor" unique_id=1016088272 instance=ExtResource("4_4q3pq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, -0.5, 20)
-metadata/asset_placer_res_id = "uid://cin2y45cjjag"
-
-[node name="floor (236)" type="Node3D" parent="Environment/Floor" unique_id=850573185 instance=ExtResource("4_4q3pq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -0.5, 20)
-metadata/asset_placer_res_id = "uid://cin2y45cjjag"
-
-[node name="floor (237)" type="Node3D" parent="Environment/Floor" unique_id=275043454 instance=ExtResource("4_4q3pq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, -0.5, 20)
-metadata/asset_placer_res_id = "uid://cin2y45cjjag"
-
-[node name="floor (238)" type="Node3D" parent="Environment/Floor" unique_id=344753524 instance=ExtResource("4_4q3pq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, -0.5, 20)
-metadata/asset_placer_res_id = "uid://cin2y45cjjag"
-
-[node name="floor (239)" type="Node3D" parent="Environment/Floor" unique_id=444899181 instance=ExtResource("4_4q3pq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, -0.5, 20)
-metadata/asset_placer_res_id = "uid://cin2y45cjjag"
-
-[node name="floor (240)" type="Node3D" parent="Environment/Floor" unique_id=186843090 instance=ExtResource("4_4q3pq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, -0.5, 22.5)
-metadata/asset_placer_res_id = "uid://cin2y45cjjag"
-
-[node name="floor (241)" type="Node3D" parent="Environment/Floor" unique_id=1003653075 instance=ExtResource("4_4q3pq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, -0.5, 22.5)
-metadata/asset_placer_res_id = "uid://cin2y45cjjag"
-
-[node name="floor (242)" type="Node3D" parent="Environment/Floor" unique_id=955578369 instance=ExtResource("4_4q3pq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, -0.5, 22.5)
-metadata/asset_placer_res_id = "uid://cin2y45cjjag"
-
-[node name="floor (243)" type="Node3D" parent="Environment/Floor" unique_id=125926749 instance=ExtResource("4_4q3pq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, -0.5, 22.5)
-metadata/asset_placer_res_id = "uid://cin2y45cjjag"
-
-[node name="floor (244)" type="Node3D" parent="Environment/Floor" unique_id=1547659534 instance=ExtResource("4_4q3pq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, -0.5, 22.5)
-metadata/asset_placer_res_id = "uid://cin2y45cjjag"
-
-[node name="floor (245)" type="Node3D" parent="Environment/Floor" unique_id=1958888673 instance=ExtResource("4_4q3pq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -0.5, 22.5)
-metadata/asset_placer_res_id = "uid://cin2y45cjjag"
-
-[node name="floor (246)" type="Node3D" parent="Environment/Floor" unique_id=1468879388 instance=ExtResource("4_4q3pq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, -0.5, 22.5)
-metadata/asset_placer_res_id = "uid://cin2y45cjjag"
-
-[node name="floor (247)" type="Node3D" parent="Environment/Floor" unique_id=1944675154 instance=ExtResource("4_4q3pq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 22.5)
-metadata/asset_placer_res_id = "uid://cin2y45cjjag"
-
-[node name="floor (248)" type="Node3D" parent="Environment/Floor" unique_id=697595965 instance=ExtResource("4_4q3pq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, -0.5, 22.5)
-metadata/asset_placer_res_id = "uid://cin2y45cjjag"
-
-[node name="floor (249)" type="Node3D" parent="Environment/Floor" unique_id=1806577087 instance=ExtResource("4_4q3pq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -0.5, 22.5)
-metadata/asset_placer_res_id = "uid://cin2y45cjjag"
-
-[node name="floor (250)" type="Node3D" parent="Environment/Floor" unique_id=823980132 instance=ExtResource("4_4q3pq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, -0.5, 22.5)
-metadata/asset_placer_res_id = "uid://cin2y45cjjag"
-
-[node name="floor (252)" type="Node3D" parent="Environment/Floor" unique_id=277176108 instance=ExtResource("4_4q3pq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, -0.5, 22.5)
-metadata/asset_placer_res_id = "uid://cin2y45cjjag"
-
-[node name="floor (253)" type="Node3D" parent="Environment/Floor" unique_id=2076436794 instance=ExtResource("4_4q3pq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, -0.5, 22.5)
-metadata/asset_placer_res_id = "uid://cin2y45cjjag"
-
-[node name="floor (254)" type="Node3D" parent="Environment/Floor" unique_id=2019375773 instance=ExtResource("4_4q3pq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, -0.5, 22.5)
-metadata/asset_placer_res_id = "uid://cin2y45cjjag"
-
-[node name="floor-panel" type="Node3D" parent="Environment/Floor" unique_id=377480387 instance=ExtResource("5_nmnfq")]
+[node name="floor-panel" parent="Environment/Floor" unique_id=377480387 instance=ExtResource("5_nmnfq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, -0.5, -2.5)
 metadata/asset_placer_res_id = "uid://dfs1p2jc7lwgq"
 
-[node name="floor-detail" type="Node3D" parent="Environment/Floor" unique_id=1559688336 instance=ExtResource("6_anhuk")]
+[node name="floor-detail" parent="Environment/Floor" unique_id=1559688336 instance=ExtResource("6_anhuk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, -0.5, 10)
 metadata/asset_placer_res_id = "uid://dvigoh2mwkmuw"
 
-[node name="floor-detail (1)" type="Node3D" parent="Environment/Floor" unique_id=924216048 instance=ExtResource("6_anhuk")]
+[node name="floor-detail (1)" parent="Environment/Floor" unique_id=924216048 instance=ExtResource("6_anhuk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -0.50000095, 10)
 metadata/asset_placer_res_id = "uid://dvigoh2mwkmuw"
 
-[node name="floor-panel (1)" type="Node3D" parent="Environment/Floor" unique_id=1556343650 instance=ExtResource("5_nmnfq")]
+[node name="floor-panel (1)" parent="Environment/Floor" unique_id=1556343650 instance=ExtResource("5_nmnfq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 15)
 metadata/asset_placer_res_id = "uid://dfs1p2jc7lwgq"
 
-[node name="floor-panel (2)" type="Node3D" parent="Environment/Floor" unique_id=1541420158 instance=ExtResource("5_nmnfq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -0.5, 22.5)
+[node name="Decorations" type="Node3D" parent="Environment" unique_id=665074135]
+
+[node name="floor-panel" parent="Environment/Decorations" unique_id=135783844 instance=ExtResource("5_nmnfq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, -0.5, -7.5)
 metadata/asset_placer_res_id = "uid://dfs1p2jc7lwgq"
 
-[node name="Decorations" type="Node3D" parent="Environment" unique_id=665074135]
+[node name="floor-detail" parent="Environment/Decorations" unique_id=300935077 instance=ExtResource("6_anhuk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -0.5, -7.5)
+metadata/asset_placer_res_id = "uid://dvigoh2mwkmuw"
+
+[node name="computer-system" parent="Environment/Decorations" unique_id=911270304 instance=ExtResource("8_aqhay")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.25, 0, -17.5)
+metadata/asset_placer_res_id = "uid://qw0pqw2wsw3r"
+
+[node name="container-flat-open" parent="Environment/Decorations" unique_id=2131165404 instance=ExtResource("9_l6ntw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25, 0, -17.5)
+metadata/asset_placer_res_id = "uid://kixhp6lu4fed"
+
+[node name="container-tall" parent="Environment/Decorations" unique_id=2023442227 instance=ExtResource("10_xiia2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25, 0, -16.25)
+metadata/asset_placer_res_id = "uid://fmy5o3bve7l7"
+
+[node name="computer-wide" parent="Environment/Decorations" unique_id=1147130460 instance=ExtResource("13_ytcwe")]
+transform = Transform3D(0.94546527, 0, 0.32572567, 0, 1, 0, -0.32572567, 0, 0.94546527, -11.078756, 0.24613309, -7.780865)
+metadata/asset_placer_res_id = "uid://ouuqagu2jghk"
+
+[node name="computer-wide (1)" parent="Environment/Decorations" unique_id=1686626652 instance=ExtResource("13_ytcwe")]
+transform = Transform3D(0.8572542, 0, -0.5148963, 0, 1, 0, 0.5148963, 0, 0.8572542, -8.366743, 0.25984454, -7.6736217)
+metadata/asset_placer_res_id = "uid://ouuqagu2jghk"
+
+[node name="chair-headrest" parent="Environment/Decorations" unique_id=911136382 instance=ExtResource("14_ya1m6")]
+transform = Transform3D(-1.000001, 0, -3.1292439e-07, 0, 1, 0, 3.1292439e-07, 0, -1.000001, -9.812228, 0, -5.249044)
+metadata/asset_placer_res_id = "uid://cbfb1fxaiu1j3"
+
+[node name="bed-double-cover" parent="Environment/Decorations" unique_id=13197234 instance=ExtResource("15_41oom")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.327214, 0.6799071, -6.172182)
+metadata/asset_placer_res_id = "uid://cc8dw3ffhvixr"
+
+[node name="bed-single-cover" parent="Environment/Decorations" unique_id=457510092 instance=ExtResource("16_843kx")]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -10.759574, 0.37873626, -6.159749)
+metadata/asset_placer_res_id = "uid://h2w4kiojxhp"
+
+[node name="bed-single-cover2" parent="Environment/Decorations" unique_id=1633025372 instance=ExtResource("16_843kx")]
+transform = Transform3D(4.371139e-08, 1, -8.742278e-08, 1, -4.371139e-08, 0, -3.821371e-15, -8.742278e-08, -1, -8.640489, 0.37873626, -6.1525383)
+metadata/asset_placer_res_id = "uid://h2w4kiojxhp"
+
+[node name="skip" parent="Environment/Decorations" unique_id=1731206266 instance=ExtResource("17_6mida")]
+transform = Transform3D(0.25034133, 0, 0, 0, 0.25034133, 0, 0, 0, 0.25034133, -8.064122, 0.24579632, -6.193289)
+metadata/asset_placer_res_id = "uid://c1mpvxxst7qcj"
+
+[node name="table-display-planet" parent="Environment/Decorations" unique_id=321591882 instance=ExtResource("18_wf7uy")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -8.898353, 1.0958703, -6.597011)
+metadata/asset_placer_res_id = "uid://buaair17eym3r"
+
+[node name="wall-detail" parent="Environment/Decorations" unique_id=1466606430 instance=ExtResource("19_5ccqi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.717425, 0, -8.478731)
+metadata/asset_placer_res_id = "uid://3tn0cn8grsvo"
+
+[node name="wall-window-banner" parent="Environment/Decorations" unique_id=115891483 instance=ExtResource("20_ndoqv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.262205, 0, -18.680416)
+metadata/asset_placer_res_id = "uid://dibp20b7b2ipd"
+
+[node name="wall-window-banner (1)" parent="Environment/Decorations" unique_id=182696375 instance=ExtResource("20_ndoqv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.935595, 0, -18.485762)
+metadata/asset_placer_res_id = "uid://dibp20b7b2ipd"
+
+[node name="wall-window-shutters" parent="Environment/Decorations" unique_id=1415845379 instance=ExtResource("21_vqh7g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.703571, 1.1999998, -18.340418)
+metadata/asset_placer_res_id = "uid://d0wne0lo6hbe0"
+
+[node name="wall-window-shutters (1)" parent="Environment/Decorations" unique_id=456886215 instance=ExtResource("21_vqh7g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4136105, 1.1999998, -18.38243)
+metadata/asset_placer_res_id = "uid://d0wne0lo6hbe0"
+
+[node name="wall-window-shutters (2)" parent="Environment/Decorations" unique_id=1701671113 instance=ExtResource("21_vqh7g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.032978, 1.1999998, -18.36927)
+metadata/asset_placer_res_id = "uid://d0wne0lo6hbe0"
+
+[node name="wall-window-shutters (3)" parent="Environment/Decorations" unique_id=773750215 instance=ExtResource("21_vqh7g")]
+transform = Transform3D(1.0430813e-07, 0, 1.0000006, 0, 1, 0, -1.0000006, 0, 1.0430813e-07, -18.211906, 1.1999998, -5.618808)
+metadata/asset_placer_res_id = "uid://d0wne0lo6hbe0"
+
+[node name="wall-window-shutters (4)" parent="Environment/Decorations" unique_id=1488101069 instance=ExtResource("21_vqh7g")]
+transform = Transform3D(1.0430813e-07, 0, 1.0000006, 0, 1, 0, -1.0000006, 0, 1.0430813e-07, -18.30736, 1.1999998, -14.999929)
+metadata/asset_placer_res_id = "uid://d0wne0lo6hbe0"
+
+[node name="wall-window-shutters (5)" parent="Environment/Decorations" unique_id=8693405 instance=ExtResource("21_vqh7g")]
+transform = Transform3D(1.0430813e-07, 0, 1.0000006, 0, 1, 0, -1.0000006, 0, 1.0430813e-07, -18.290195, 1.1999998, 4.751255)
+metadata/asset_placer_res_id = "uid://d0wne0lo6hbe0"
+
+[node name="wall-window-shutters (6)" parent="Environment/Decorations" unique_id=819504694 instance=ExtResource("21_vqh7g")]
+transform = Transform3D(1.0430813e-07, 0, 1.0000006, 0, 1, 0, -1.0000006, 0, 1.0430813e-07, -18.253119, 1.1999998, 15.878092)
+metadata/asset_placer_res_id = "uid://d0wne0lo6hbe0"
+
+[node name="wall-window-shutters (7)" parent="Environment/Decorations" unique_id=1980014180 instance=ExtResource("21_vqh7g")]
+transform = Transform3D(1.0430813e-07, 0, 1.0000006, 0, 1, 0, -1.0000006, 0, 1.0430813e-07, 18.111856, 1.1999998, -16.463093)
+metadata/asset_placer_res_id = "uid://d0wne0lo6hbe0"
+
+[node name="wall-window-shutters (8)" parent="Environment/Decorations" unique_id=1723151173 instance=ExtResource("21_vqh7g")]
+transform = Transform3D(1.0430813e-07, 0, 1.0000006, 0, 1, 0, -1.0000006, 0, 1.0430813e-07, 18.327618, 1.1999998, -6.4425106)
+metadata/asset_placer_res_id = "uid://d0wne0lo6hbe0"
+
+[node name="wall-window-shutters (9)" parent="Environment/Decorations" unique_id=1007814043 instance=ExtResource("21_vqh7g")]
+transform = Transform3D(1.0430813e-07, 0, 1.0000006, 0, 1, 0, -1.0000006, 0, 1.0430813e-07, 18.315287, 1.1999998, 3.5213199)
+metadata/asset_placer_res_id = "uid://d0wne0lo6hbe0"
+
+[node name="wall-window-shutters (10)" parent="Environment/Decorations" unique_id=589486956 instance=ExtResource("21_vqh7g")]
+transform = Transform3D(1.0430813e-07, 0, 1.0000006, 0, 1, 0, -1.0000006, 0, 1.0430813e-07, 18.368397, 1.1999998, 13.315005)
+metadata/asset_placer_res_id = "uid://d0wne0lo6hbe0"
+
+[node name="wall-switch" parent="Environment/Decorations" unique_id=1208297261 instance=ExtResource("22_6a05e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.92001, 1.1999998, -18.481873)
+metadata/asset_placer_res_id = "uid://bj2wluj5e27yr"
+
+[node name="wall-switch (1)" parent="Environment/Decorations" unique_id=943926498 instance=ExtResource("22_6a05e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.132965, 1.1999998, -18.49012)
+metadata/asset_placer_res_id = "uid://bj2wluj5e27yr"
+
+[node name="wall-switch (2)" parent="Environment/Decorations" unique_id=1368333760 instance=ExtResource("22_6a05e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.879806, 1.1999998, -18.456757)
+metadata/asset_placer_res_id = "uid://bj2wluj5e27yr"
+
+[node name="rock_crystalsLargeA" parent="Environment/Decorations" unique_id=1043421865 instance=ExtResource("27_wf7uy")]
+transform = Transform3D(5.3245945, 0, 2.9439034, 0, 6.08423, 0, -2.9439034, 0, 5.3245945, 24.919529, 0, -6.3652344)
+metadata/asset_placer_res_id = "uid://4hsbrcnhbnl2"
+
+[node name="hangar_largeB" parent="Environment/Decorations" unique_id=141283624 instance=ExtResource("19_rb1t3")]
+transform = Transform3D(4.9282265, 0, 0, 0, 4.9282265, 0, 0, 0, 4.9282265, 20.636034, 0.3306799, -17.224709)
+metadata/asset_placer_res_id = "uid://b6qytrimqtdn4"
+
+[node name="hangar_roundA" parent="Environment/Decorations" unique_id=469515435 instance=ExtResource("20_yhpfb")]
+transform = Transform3D(4.5949736, 0, 0, 0, 4.5949736, 0, 0, 0, 4.5949736, -10.707766, 0, 23.279377)
+metadata/asset_placer_res_id = "uid://cr4imwt74plac"
+
+[node name="machine_generatorLarge" parent="Environment/Decorations" unique_id=310034870 instance=ExtResource("30_qkk60")]
+transform = Transform3D(4.5949736, 0, 0, 0, 4.5949736, 0, 0, 0, 4.5949736, 19.342321, -9.536743e-07, 15.428511)
+metadata/asset_placer_res_id = "uid://bdqohsr5i7pa8"
+
+[node name="machine_barrel" parent="Environment/Decorations" unique_id=1350224279 instance=ExtResource("31_4c54t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.604357, 1.1999993, 12.307764)
+metadata/asset_placer_res_id = "uid://gwxcm8sij7tq"
+
+[node name="machine_wirelessCable" parent="Environment/Decorations" unique_id=291130514 instance=ExtResource("32_jucxq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.773555, 1.1999991, 11.919838)
+metadata/asset_placer_res_id = "uid://bcymckqcecw7e"
+
+[node name="machine_generator" parent="Environment/Decorations" unique_id=242445870 instance=ExtResource("33_uvjo1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.0384, 1.1999993, 12.164616)
+metadata/asset_placer_res_id = "uid://dkly8v5wa88dg"
+
+[node name="machine_barrel (1)" parent="Environment/Decorations" unique_id=106940643 instance=ExtResource("31_4c54t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.602746, 1.1999993, 11.734319)
+metadata/asset_placer_res_id = "uid://gwxcm8sij7tq"
+
+[node name="rocket_baseB" parent="Environment/Decorations" unique_id=262155515 instance=ExtResource("34_4od4m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.086166, 2.3999994, 10.077511)
+metadata/asset_placer_res_id = "uid://cphso713xbq2d"
+
+[node name="craft_cargoA" parent="Environment/Decorations" unique_id=2078219406 instance=ExtResource("35_gfv0x")]
+transform = Transform3D(1.4641001, 0, 0, 0, 1.4641001, 0, 0, 0, 1.4641001, -7.0882316, 0.39999914, 10.993294)
+metadata/asset_placer_res_id = "uid://cpyaprcj0c645"
+
+[node name="machine_generator (1)" parent="Environment/Decorations" unique_id=2139101083 instance=ExtResource("33_uvjo1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.719748, 0.39999914, 10.020919)
+metadata/asset_placer_res_id = "uid://dkly8v5wa88dg"
+
+[node name="pipe_ringHighEnd" parent="Environment/Decorations" unique_id=1850581938 instance=ExtResource("36_qew70")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.3343477, 0.39999914, 9.9378395)
+metadata/asset_placer_res_id = "uid://ytagajil6qn2"
+
+[node name="pipe_ringHighEnd (1)" parent="Environment/Decorations" unique_id=410315145 instance=ExtResource("36_qew70")]
+transform = Transform3D(1.3570955, 0, -1.1387385, 0, 1.7715611, 0, 1.1387385, 0, 1.3570955, -9.052901, 0.39999914, 10.723935)
+metadata/asset_placer_res_id = "uid://ytagajil6qn2"
+
+[node name="pipe_ringHigh" parent="Environment/Decorations" unique_id=339123331 instance=ExtResource("37_vvisg")]
+transform = Transform3D(0.50000024, 0, 0.86602557, 0, 1, 0, -0.86602557, 0, 0.50000024, -9.262106, 0.39999914, 8.880825)
+metadata/asset_placer_res_id = "uid://bl3vw3cm0tld8"
+
+[node name="pipe_ringSupport" parent="Environment/Decorations" unique_id=430906495 instance=ExtResource("38_pnggt")]
+transform = Transform3D(0.3420204, 0, 0.93969285, 0, 1, 0, -0.93969285, 0, 0.3420204, -10.032634, 0.39999914, 6.2071257)
+metadata/asset_placer_res_id = "uid://c5iitxxpbkv74"
+
+[node name="satelliteDish_large" parent="Environment/Decorations" unique_id=1630152837 instance=ExtResource("39_yhpfb")]
+transform = Transform3D(2.9535933, 0, -3.5199537, 0, 4.5949736, 0, 3.5199537, 0, 2.9535933, -15.514871, 0.085175514, 13.119888)
+metadata/asset_placer_res_id = "uid://b0c3mqd2xdby5"
+
+[node name="turret_double" parent="Environment/Decorations" unique_id=1145224810 instance=ExtResource("31_vvisg")]
+transform = Transform3D(2.2981415, 0, 2.738818, 0, 3.5752697, 0, -2.738818, 0, 2.2981415, 22.614357, 0.39999866, -1.9228029)
+metadata/asset_placer_res_id = "uid://be27evmgtpvqc"
+
+[node name="supports_high" parent="Environment/Decorations" unique_id=1011100244 instance=ExtResource("32_pnggt")]
+transform = Transform3D(3.1384287, 0, 0, 0, 3.1384287, 0, 0, 0, 3.1384287, 17.005772, 0.39999914, 4.4576755)
+metadata/asset_placer_res_id = "uid://b8wait0617bgg"
+
+[node name="supports_high (1)" parent="Environment/Decorations" unique_id=1877091635 instance=ExtResource("32_pnggt")]
+transform = Transform3D(3.1384287, 0, 0, 0, 3.1384287, 0, 0, 0, 3.1384287, 13.506727, 0.39999914, 4.5035267)
+metadata/asset_placer_res_id = "uid://b8wait0617bgg"
+
+[node name="structure_detailed" parent="Environment/Decorations" unique_id=1094651303 instance=ExtResource("33_cwymy")]
+transform = Transform3D(2.143589, 0, 0, 0, 2.143589, 0, 0, 0, 2.143589, 13.2117605, 3.5999997, 3.0452056)
+metadata/asset_placer_res_id = "uid://bu4lv51vnnuj1"
+
+[node name="structure-panel" parent="Environment/Decorations" unique_id=390921553 instance=ExtResource("34_k7seo")]
+transform = Transform3D(1.7017545, 0, 0, 0, 1.7017545, 0, 0, 0, 1.7017545, 3.5245647, -4.7683716e-07, 8.477504)
+metadata/asset_placer_res_id = "uid://8oym1goa3sgx"
+
+[node name="structure-panel (1)" parent="Environment/Decorations" unique_id=2105512968 instance=ExtResource("34_k7seo")]
+transform = Transform3D(1.1555095, 0, 0.96958756, 0, 1.5084095, 0, -0.96958756, 0, 1.1555095, -10.721855, -9.536743e-07, 1.1687965)
+metadata/asset_placer_res_id = "uid://8oym1goa3sgx"
+
+[node name="rail" parent="Environment/Decorations" unique_id=1032922993 instance=ExtResource("35_d2dty")]
+transform = Transform3D(2.1306867e-07, 0, 1.0943031, 0, 1.0943025, 0, -1.0943031, 0, 2.1306867e-07, -12.699728, -9.536743e-07, -6.625067)
+metadata/asset_placer_res_id = "uid://bfj6o6c4acmo0"
+
+[node name="rail (1)" parent="Environment/Decorations" unique_id=2085831325 instance=ExtResource("35_d2dty")]
+transform = Transform3D(2.1306867e-07, 0, 1.0943031, 0, 1.0943025, 0, -1.0943031, 0, 2.1306867e-07, -6.857254, -9.536743e-07, -6.439008)
+metadata/asset_placer_res_id = "uid://bfj6o6c4acmo0"
+
+[node name="rail (2)" parent="Environment/Decorations" unique_id=1651127976 instance=ExtResource("35_d2dty")]
+transform = Transform3D(1.0164272, 0, 0.58683443, 0, 1.1736674, 0, -0.58683443, 0, 1.0164272, -11.440212, -9.536743e-07, -9.25087)
+metadata/asset_placer_res_id = "uid://bfj6o6c4acmo0"
+
+[node name="rail (3)" parent="Environment/Decorations" unique_id=1692859841 instance=ExtResource("35_d2dty")]
+transform = Transform3D(1.1348628, 0, -0.65521324, 0, 1.3104247, 0, 0.65521324, 0, 1.1348628, -8.14293, -9.536743e-07, -8.976938)
+metadata/asset_placer_res_id = "uid://bfj6o6c4acmo0"
+
+[node name="skip-rocks" parent="Environment/Decorations" unique_id=150715273 instance=ExtResource("36_loal5")]
+transform = Transform3D(1.545744e-07, 0, 0.7938813, 0, 0.793881, 0, -0.7938813, 0, 1.545744e-07, -16.818474, -9.536743e-07, -9.676449)
+metadata/asset_placer_res_id = "uid://bvlefxo0ivgss"
+
+[node name="skip-rocks (1)" parent="Environment/Decorations" unique_id=1844342878 instance=ExtResource("36_loal5")]
+transform = Transform3D(1.2027166e-07, 0, 0.61770535, 0, 0.6177051, 0, -0.61770535, 0, 1.2027166e-07, -17.040874, 0.15966856, -8.277743)
+metadata/asset_placer_res_id = "uid://bvlefxo0ivgss"
+
+[node name="skip-rocks (2)" parent="Environment/Decorations" unique_id=170809719 instance=ExtResource("36_loal5")]
+transform = Transform3D(9.742004e-08, 0, 0.5003413, 0, 0.5003412, 0, -0.5003413, 0, 9.742004e-08, -17.211979, 0.22972202, -6.9961147)
+metadata/asset_placer_res_id = "uid://bvlefxo0ivgss"
+
+[node name="skip2" parent="Environment/Decorations" unique_id=748158977 instance=ExtResource("17_6mida")]
+transform = Transform3D(0.6427879, 0, 0.7660446, 0, 1, 0, -0.7660446, 0, 0.6427879, -15.999808, 0.13210249, -11.993282)
+metadata/asset_placer_res_id = "uid://c1mpvxxst7qcj"
 
 [node name="Structures" type="Node3D" parent="Environment" unique_id=865258361]
 
 [node name="Walls" type="Node3D" parent="Environment" unique_id=1631701970]
 
-[node name="wall-banner (2)" type="Node3D" parent="Environment/Walls" unique_id=657695766 instance=ExtResource("8_l6ntw")]
-transform = Transform3D(0, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, 0, 18.75, 0.25, 22.5)
+[node name="SouthWall" type="Node3D" parent="Environment/Walls" unique_id=769631690]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0.25, -18.75)
+
+[node name="wall-banner (15)3" parent="Environment/Walls/SouthWall" unique_id=1535342125 instance=ExtResource("8_l6ntw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.5, 0, 36.555695)
 metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
 
-[node name="wall-banner (3)" type="Node3D" parent="Environment/Walls" unique_id=284886875 instance=ExtResource("8_l6ntw")]
-transform = Transform3D(0, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, 0, 18.75, 0.25, 20)
+[node name="wall-banner (14)3" parent="Environment/Walls/SouthWall" unique_id=2005383678 instance=ExtResource("8_l6ntw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35, 0, 36.555695)
 metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
 
-[node name="wall-banner (4)" type="Node3D" parent="Environment/Walls" unique_id=1865909249 instance=ExtResource("8_l6ntw")]
-transform = Transform3D(0, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, 0, 18.75, 0.25, 17.5)
+[node name="wall-banner (16)3" parent="Environment/Walls/SouthWall" unique_id=411807508 instance=ExtResource("8_l6ntw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, 36.555695)
 metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
 
-[node name="wall-banner (5)" type="Node3D" parent="Environment/Walls" unique_id=980194515 instance=ExtResource("8_l6ntw")]
+[node name="wall-banner (17)3" parent="Environment/Walls/SouthWall" unique_id=800567392 instance=ExtResource("8_l6ntw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.5, 0, 36.555695)
+metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
+
+[node name="wall-banner (18)3" parent="Environment/Walls/SouthWall" unique_id=1930652265 instance=ExtResource("8_l6ntw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 36.555695)
+metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
+
+[node name="wall-banner (19)" parent="Environment/Walls/SouthWall" unique_id=1390718860 instance=ExtResource("8_l6ntw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, 0, 36.555695)
+metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
+
+[node name="wall-banner (20)" parent="Environment/Walls/SouthWall" unique_id=310070262 instance=ExtResource("8_l6ntw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 36.555695)
+metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
+
+[node name="wall-banner (21)" parent="Environment/Walls/SouthWall" unique_id=1128731109 instance=ExtResource("8_l6ntw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, 0, 36.555695)
+metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
+
+[node name="wall-banner (22)" parent="Environment/Walls/SouthWall" unique_id=1237232578 instance=ExtResource("8_l6ntw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 36.555695)
+metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
+
+[node name="wall-banner (23)" parent="Environment/Walls/SouthWall" unique_id=640311465 instance=ExtResource("8_l6ntw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 0, 36.555695)
+metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
+
+[node name="wall-banner (24)" parent="Environment/Walls/SouthWall" unique_id=1637523063 instance=ExtResource("8_l6ntw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 36.555695)
+metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
+
+[node name="wall-banner (25)" parent="Environment/Walls/SouthWall" unique_id=1487941572 instance=ExtResource("8_l6ntw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0, 36.555695)
+metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
+
+[node name="wall-banner (26)" parent="Environment/Walls/SouthWall" unique_id=434245043 instance=ExtResource("8_l6ntw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 36.555695)
+metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
+
+[node name="wall-banner (27)" parent="Environment/Walls/SouthWall" unique_id=513735426 instance=ExtResource("8_l6ntw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 36.555695)
+metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
+
+[node name="wall-banner (28)" parent="Environment/Walls/SouthWall" unique_id=1118656226 instance=ExtResource("8_l6ntw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 36.555695)
+metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
+
+[node name="EastWall" type="Node3D" parent="Environment/Walls" unique_id=806836607]
+
+[node name="wall-banner (4)" parent="Environment/Walls/EastWall" unique_id=1865909249 instance=ExtResource("8_l6ntw")]
+transform = Transform3D(0, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, 0, 18.75, 0.25, 16.68926)
+metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
+
+[node name="wall-banner (5)" parent="Environment/Walls/EastWall" unique_id=980194515 instance=ExtResource("8_l6ntw")]
 transform = Transform3D(0, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, 0, 18.75, 0.25, 15)
 metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
 
-[node name="wall-banner (6)" type="Node3D" parent="Environment/Walls" unique_id=98826748 instance=ExtResource("8_l6ntw")]
+[node name="wall-banner (6)" parent="Environment/Walls/EastWall" unique_id=98826748 instance=ExtResource("8_l6ntw")]
 transform = Transform3D(0, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, 0, 18.75, 0.25, 12.5)
 metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
 
-[node name="wall-banner (7)" type="Node3D" parent="Environment/Walls" unique_id=1167422352 instance=ExtResource("8_l6ntw")]
+[node name="wall-banner (7)" parent="Environment/Walls/EastWall" unique_id=1167422352 instance=ExtResource("8_l6ntw")]
 transform = Transform3D(0, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, 0, 18.75, 0.25, 10)
 metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
 
-[node name="wall-banner (8)" type="Node3D" parent="Environment/Walls" unique_id=1464547297 instance=ExtResource("8_l6ntw")]
+[node name="wall-banner (8)" parent="Environment/Walls/EastWall" unique_id=1464547297 instance=ExtResource("8_l6ntw")]
 transform = Transform3D(0, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, 0, 18.75, 0.25, 7.5)
 metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
 
-[node name="wall-banner (9)" type="Node3D" parent="Environment/Walls" unique_id=238589941 instance=ExtResource("8_l6ntw")]
+[node name="wall-banner (9)" parent="Environment/Walls/EastWall" unique_id=238589941 instance=ExtResource("8_l6ntw")]
 transform = Transform3D(0, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, 0, 18.75, 0.25, 5)
 metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
 
-[node name="wall-banner (10)" type="Node3D" parent="Environment/Walls" unique_id=1419746521 instance=ExtResource("8_l6ntw")]
+[node name="wall-banner (10)" parent="Environment/Walls/EastWall" unique_id=1419746521 instance=ExtResource("8_l6ntw")]
 transform = Transform3D(0, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, 0, 18.75, 0.25, 2.5)
 metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
 
-[node name="wall-banner (11)" type="Node3D" parent="Environment/Walls" unique_id=1183355179 instance=ExtResource("8_l6ntw")]
+[node name="wall-banner (11)" parent="Environment/Walls/EastWall" unique_id=1183355179 instance=ExtResource("8_l6ntw")]
 transform = Transform3D(0, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, 0, 18.75, 0.25, 0)
 metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
 
-[node name="wall-banner (12)" type="Node3D" parent="Environment/Walls" unique_id=1959895764 instance=ExtResource("8_l6ntw")]
+[node name="wall-banner (12)" parent="Environment/Walls/EastWall" unique_id=1959895764 instance=ExtResource("8_l6ntw")]
 transform = Transform3D(0, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, 0, 18.75, 0.25, -2.5)
 metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
 
-[node name="wall-banner (13)" type="Node3D" parent="Environment/Walls" unique_id=988812546 instance=ExtResource("8_l6ntw")]
+[node name="wall-banner (13)" parent="Environment/Walls/EastWall" unique_id=988812546 instance=ExtResource("8_l6ntw")]
 transform = Transform3D(0, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, 0, 18.75, 0.25, -5)
 metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
 
-[node name="wall-banner (14)" type="Node3D" parent="Environment/Walls" unique_id=1932469330 instance=ExtResource("8_l6ntw")]
+[node name="wall-banner (14)" parent="Environment/Walls/EastWall" unique_id=1932469330 instance=ExtResource("8_l6ntw")]
 transform = Transform3D(0, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, 0, 18.75, 0.25, -7.5)
 metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
 
-[node name="wall-banner (15)" type="Node3D" parent="Environment/Walls" unique_id=1350427202 instance=ExtResource("8_l6ntw")]
+[node name="wall-banner (15)" parent="Environment/Walls/EastWall" unique_id=1350427202 instance=ExtResource("8_l6ntw")]
 transform = Transform3D(0, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, 0, 18.75, 0.25, -10)
 metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
 
-[node name="wall-banner (16)" type="Node3D" parent="Environment/Walls" unique_id=1923233731 instance=ExtResource("8_l6ntw")]
+[node name="wall-banner (16)" parent="Environment/Walls/EastWall" unique_id=1923233731 instance=ExtResource("8_l6ntw")]
 transform = Transform3D(0, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, 0, 18.75, 0.25, -12.5)
 metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
 
-[node name="wall-banner (17)" type="Node3D" parent="Environment/Walls" unique_id=1374595225 instance=ExtResource("8_l6ntw")]
+[node name="wall-banner (17)" parent="Environment/Walls/EastWall" unique_id=1374595225 instance=ExtResource("8_l6ntw")]
 transform = Transform3D(0, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, 0, 18.75, 0.25, -15)
 metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
 
-[node name="wall-banner (18)" type="Node3D" parent="Environment/Walls" unique_id=1781087427 instance=ExtResource("8_l6ntw")]
+[node name="wall-banner (18)" parent="Environment/Walls/EastWall" unique_id=1781087427 instance=ExtResource("8_l6ntw")]
 transform = Transform3D(0, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, 0, 18.75, 0.25, -17.5)
 metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
 
-[node name="wall-banner (1)2" parent="Environment/Walls" unique_id=736036133 instance=ExtResource("8_l6ntw")]
+[node name="NorthWall" type="Node3D" parent="Environment/Walls" unique_id=666351540]
+
+[node name="wall-banner (1)2" parent="Environment/Walls/NorthWall" unique_id=736036133 instance=ExtResource("8_l6ntw")]
 transform = Transform3D(-0.99999946, 0, -4.371136e-08, 0, 1, 0, 4.371136e-08, 0, -0.99999946, -17.388866, 0.25, -18.75)
 metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
 
-[node name="wall-banner (2)2" parent="Environment/Walls" unique_id=582588889 instance=ExtResource("8_l6ntw")]
-transform = Transform3D(4.371136e-08, 0, -0.99999946, 0, 1, 0, 0.99999946, 0, 4.371136e-08, -18.638866, 0.25, -17)
-metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
-
-[node name="wall-banner (3)2" parent="Environment/Walls" unique_id=820074697 instance=ExtResource("8_l6ntw")]
-transform = Transform3D(4.371136e-08, 0, -0.99999946, 0, 1, 0, 0.99999946, 0, 4.371136e-08, -18.638866, 0.25, -14.5)
-metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
-
-[node name="wall-banner (4)2" parent="Environment/Walls" unique_id=1128696858 instance=ExtResource("8_l6ntw")]
-transform = Transform3D(4.371136e-08, 0, -0.99999946, 0, 1, 0, 0.99999946, 0, 4.371136e-08, -18.638866, 0.25, -12.000002)
-metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
-
-[node name="wall-banner (5)2" parent="Environment/Walls" unique_id=2092685193 instance=ExtResource("8_l6ntw")]
-transform = Transform3D(4.371136e-08, 0, -0.99999946, 0, 1, 0, 0.99999946, 0, 4.371136e-08, -18.638866, 0.25, -9.500002)
-metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
-
-[node name="wall-banner (6)2" parent="Environment/Walls" unique_id=995645828 instance=ExtResource("8_l6ntw")]
-transform = Transform3D(4.371136e-08, 0, -0.99999946, 0, 1, 0, 0.99999946, 0, 4.371136e-08, -18.638866, 0.25, -7.0000067)
-metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
-
-[node name="wall-banner (7)2" parent="Environment/Walls" unique_id=1800177054 instance=ExtResource("8_l6ntw")]
-transform = Transform3D(4.371136e-08, 0, -0.99999946, 0, 1, 0, 0.99999946, 0, 4.371136e-08, -18.638866, 0.25, -4.5000076)
-metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
-
-[node name="wall-banner (8)2" parent="Environment/Walls" unique_id=597816591 instance=ExtResource("8_l6ntw")]
-transform = Transform3D(4.371136e-08, 0, -0.99999946, 0, 1, 0, 0.99999946, 0, 4.371136e-08, -18.638866, 0.25, -2.0000076)
-metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
-
-[node name="wall-banner (9)2" parent="Environment/Walls" unique_id=1790483617 instance=ExtResource("8_l6ntw")]
-transform = Transform3D(4.371136e-08, 0, -0.99999946, 0, 1, 0, 0.99999946, 0, 4.371136e-08, -18.638866, 0.25, 0.49998665)
-metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
-
-[node name="wall-banner (10)2" parent="Environment/Walls" unique_id=1665129030 instance=ExtResource("8_l6ntw")]
-transform = Transform3D(4.371136e-08, 0, -0.99999946, 0, 1, 0, 0.99999946, 0, 4.371136e-08, -18.638866, 0.25, 2.9999866)
-metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
-
-[node name="wall-banner (11)2" parent="Environment/Walls" unique_id=335193042 instance=ExtResource("8_l6ntw")]
-transform = Transform3D(4.371136e-08, 0, -0.99999946, 0, 1, 0, 0.99999946, 0, 4.371136e-08, -18.638866, 0.25, 5.4999847)
-metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
-
-[node name="wall-banner (12)2" parent="Environment/Walls" unique_id=1089126835 instance=ExtResource("8_l6ntw")]
-transform = Transform3D(4.371136e-08, 0, -0.99999946, 0, 1, 0, 0.99999946, 0, 4.371136e-08, -18.638866, 0.25, 7.9999847)
-metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
-
-[node name="wall-banner (13)2" parent="Environment/Walls" unique_id=729601237 instance=ExtResource("8_l6ntw")]
-transform = Transform3D(4.371136e-08, 0, -0.99999946, 0, 1, 0, 0.99999946, 0, 4.371136e-08, -18.638866, 0.25, 10.499985)
-metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
-
-[node name="wall-banner (14)2" parent="Environment/Walls" unique_id=1413905347 instance=ExtResource("8_l6ntw")]
-transform = Transform3D(4.371136e-08, 0, -0.99999946, 0, 1, 0, 0.99999946, 0, 4.371136e-08, -18.638866, 0.25, 12.999985)
-metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
-
-[node name="wall-banner (15)2" parent="Environment/Walls" unique_id=822027234 instance=ExtResource("8_l6ntw")]
-transform = Transform3D(4.371136e-08, 0, -0.99999946, 0, 1, 0, 0.99999946, 0, 4.371136e-08, -18.638866, 0.25, 15.499977)
-metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
-
-[node name="wall-banner (16)2" parent="Environment/Walls" unique_id=113185162 instance=ExtResource("8_l6ntw")]
-transform = Transform3D(4.371136e-08, 0, -0.99999946, 0, 1, 0, 0.99999946, 0, 4.371136e-08, -18.638866, 0.25, 17.999973)
-metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
-
-[node name="wall-banner (17)2" parent="Environment/Walls" unique_id=1954674407 instance=ExtResource("8_l6ntw")]
-transform = Transform3D(4.371136e-08, 0, -0.99999946, 0, 1, 0, 0.99999946, 0, 4.371136e-08, -18.638866, 0.25, 20.499973)
-metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
-
-[node name="wall-banner (18)2" parent="Environment/Walls" unique_id=123083081 instance=ExtResource("8_l6ntw")]
-transform = Transform3D(4.371136e-08, 0, -0.99999946, 0, 1, 0, 0.99999946, 0, 4.371136e-08, -18.638866, 0.25, 22.999973)
-metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
-
-[node name="wall-banner" type="Node3D" parent="Environment/Walls" unique_id=2142426560 instance=ExtResource("8_l6ntw")]
+[node name="wall-banner" parent="Environment/Walls/NorthWall" unique_id=2142426560 instance=ExtResource("8_l6ntw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0.25, -18.75)
 metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
 
-[node name="wall-banner (1)" type="Node3D" parent="Environment/Walls" unique_id=1782508400 instance=ExtResource("8_l6ntw")]
+[node name="wall-banner (1)" parent="Environment/Walls/NorthWall" unique_id=1782508400 instance=ExtResource("8_l6ntw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 0.25, -18.75)
 metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
 
-[node name="wall-banner (2)3" type="Node3D" parent="Environment/Walls" unique_id=642624157 instance=ExtResource("8_l6ntw")]
+[node name="wall-banner (2)3" parent="Environment/Walls/NorthWall" unique_id=642624157 instance=ExtResource("8_l6ntw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0.25, -18.75)
 metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
 
-[node name="wall-banner (3)3" type="Node3D" parent="Environment/Walls" unique_id=1931813158 instance=ExtResource("8_l6ntw")]
+[node name="wall-banner (3)3" parent="Environment/Walls/NorthWall" unique_id=1931813158 instance=ExtResource("8_l6ntw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0.25, -18.75)
 metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
 
-[node name="wall-banner (4)3" type="Node3D" parent="Environment/Walls" unique_id=1260245648 instance=ExtResource("8_l6ntw")]
+[node name="wall-banner (4)3" parent="Environment/Walls/NorthWall" unique_id=1260245648 instance=ExtResource("8_l6ntw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.25, -18.75)
 metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
 
-[node name="wall-banner (5)3" type="Node3D" parent="Environment/Walls" unique_id=772631804 instance=ExtResource("8_l6ntw")]
+[node name="wall-banner (5)3" parent="Environment/Walls/NorthWall" unique_id=772631804 instance=ExtResource("8_l6ntw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0.25, -18.75)
 metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
 
-[node name="wall-banner (6)3" type="Node3D" parent="Environment/Walls" unique_id=700098052 instance=ExtResource("8_l6ntw")]
+[node name="wall-banner (6)3" parent="Environment/Walls/NorthWall" unique_id=700098052 instance=ExtResource("8_l6ntw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, -18.75)
 metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
 
-[node name="wall-banner (7)3" type="Node3D" parent="Environment/Walls" unique_id=643215734 instance=ExtResource("8_l6ntw")]
+[node name="wall-banner (7)3" parent="Environment/Walls/NorthWall" unique_id=643215734 instance=ExtResource("8_l6ntw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0.25, -18.75)
 metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
 
-[node name="wall-banner (8)3" type="Node3D" parent="Environment/Walls" unique_id=837778849 instance=ExtResource("8_l6ntw")]
+[node name="wall-banner (8)3" parent="Environment/Walls/NorthWall" unique_id=837778849 instance=ExtResource("8_l6ntw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.25, -18.75)
 metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
 
-[node name="wall-banner (9)3" type="Node3D" parent="Environment/Walls" unique_id=713618816 instance=ExtResource("8_l6ntw")]
+[node name="wall-banner (9)3" parent="Environment/Walls/NorthWall" unique_id=713618816 instance=ExtResource("8_l6ntw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0.25, -18.75)
 metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
 
-[node name="wall-banner (10)3" type="Node3D" parent="Environment/Walls" unique_id=581670015 instance=ExtResource("8_l6ntw")]
+[node name="wall-banner (10)3" parent="Environment/Walls/NorthWall" unique_id=581670015 instance=ExtResource("8_l6ntw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0.25, -18.75)
 metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
 
-[node name="wall-banner (11)3" type="Node3D" parent="Environment/Walls" unique_id=585403249 instance=ExtResource("8_l6ntw")]
+[node name="wall-banner (11)3" parent="Environment/Walls/NorthWall" unique_id=585403249 instance=ExtResource("8_l6ntw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0.25, -18.75)
 metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
 
-[node name="wall-banner (12)3" type="Node3D" parent="Environment/Walls" unique_id=1013694643 instance=ExtResource("8_l6ntw")]
+[node name="wall-banner (12)3" parent="Environment/Walls/NorthWall" unique_id=1013694643 instance=ExtResource("8_l6ntw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0.25, -18.75)
 metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
 
-[node name="wall-banner (13)3" type="Node3D" parent="Environment/Walls" unique_id=1341012734 instance=ExtResource("8_l6ntw")]
+[node name="wall-banner (13)3" parent="Environment/Walls/NorthWall" unique_id=1341012734 instance=ExtResource("8_l6ntw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0.25, -18.75)
 metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
 
-[node name="wall-banner (14)3" type="Node3D" parent="Environment/Walls" unique_id=2005383678 instance=ExtResource("8_l6ntw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, 0.25, 24)
+[node name="WestWall" type="Node3D" parent="Environment/Walls" unique_id=1617834234]
+
+[node name="wall-banner (2)2" parent="Environment/Walls/WestWall" unique_id=582588889 instance=ExtResource("8_l6ntw")]
+transform = Transform3D(4.371136e-08, 0, -0.99999946, 0, 1, 0, 0.99999946, 0, 4.371136e-08, -18.638866, 0.25, -17)
 metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
 
-[node name="wall-banner (15)3" type="Node3D" parent="Environment/Walls" unique_id=1535342125 instance=ExtResource("8_l6ntw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0.25, 24)
+[node name="wall-banner (3)2" parent="Environment/Walls/WestWall" unique_id=820074697 instance=ExtResource("8_l6ntw")]
+transform = Transform3D(4.371136e-08, 0, -0.99999946, 0, 1, 0, 0.99999946, 0, 4.371136e-08, -18.638866, 0.25, -14.5)
 metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
 
-[node name="wall-banner (16)3" type="Node3D" parent="Environment/Walls" unique_id=411807508 instance=ExtResource("8_l6ntw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 0.25, 24)
+[node name="wall-banner (4)2" parent="Environment/Walls/WestWall" unique_id=1128696858 instance=ExtResource("8_l6ntw")]
+transform = Transform3D(4.371136e-08, 0, -0.99999946, 0, 1, 0, 0.99999946, 0, 4.371136e-08, -18.638866, 0.25, -12.000002)
 metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
 
-[node name="wall-banner (17)3" type="Node3D" parent="Environment/Walls" unique_id=800567392 instance=ExtResource("8_l6ntw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0.25, 24)
+[node name="wall-banner (5)2" parent="Environment/Walls/WestWall" unique_id=2092685193 instance=ExtResource("8_l6ntw")]
+transform = Transform3D(4.371136e-08, 0, -0.99999946, 0, 1, 0, 0.99999946, 0, 4.371136e-08, -18.638866, 0.25, -9.500002)
 metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
 
-[node name="wall-banner (18)3" type="Node3D" parent="Environment/Walls" unique_id=1930652265 instance=ExtResource("8_l6ntw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0.25, 24)
+[node name="wall-banner (6)2" parent="Environment/Walls/WestWall" unique_id=995645828 instance=ExtResource("8_l6ntw")]
+transform = Transform3D(4.371136e-08, 0, -0.99999946, 0, 1, 0, 0.99999946, 0, 4.371136e-08, -18.638866, 0.25, -7.0000067)
 metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
 
-[node name="wall-banner (19)" type="Node3D" parent="Environment/Walls" unique_id=1390718860 instance=ExtResource("8_l6ntw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.25, 24)
+[node name="wall-banner (7)2" parent="Environment/Walls/WestWall" unique_id=1800177054 instance=ExtResource("8_l6ntw")]
+transform = Transform3D(4.371136e-08, 0, -0.99999946, 0, 1, 0, 0.99999946, 0, 4.371136e-08, -18.638866, 0.25, -4.5000076)
 metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
 
-[node name="wall-banner (20)" type="Node3D" parent="Environment/Walls" unique_id=310070262 instance=ExtResource("8_l6ntw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0.25, 24)
+[node name="wall-banner (8)2" parent="Environment/Walls/WestWall" unique_id=597816591 instance=ExtResource("8_l6ntw")]
+transform = Transform3D(4.371136e-08, 0, -0.99999946, 0, 1, 0, 0.99999946, 0, 4.371136e-08, -18.638866, 0.25, -2.0000076)
 metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
 
-[node name="wall-banner (21)" type="Node3D" parent="Environment/Walls" unique_id=1128731109 instance=ExtResource("8_l6ntw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 24)
+[node name="wall-banner (9)2" parent="Environment/Walls/WestWall" unique_id=1790483617 instance=ExtResource("8_l6ntw")]
+transform = Transform3D(4.371136e-08, 0, -0.99999946, 0, 1, 0, 0.99999946, 0, 4.371136e-08, -18.638866, 0.25, 0.49998665)
 metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
 
-[node name="wall-banner (22)" type="Node3D" parent="Environment/Walls" unique_id=1237232578 instance=ExtResource("8_l6ntw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0.25, 24)
+[node name="wall-banner (10)2" parent="Environment/Walls/WestWall" unique_id=1665129030 instance=ExtResource("8_l6ntw")]
+transform = Transform3D(4.371136e-08, 0, -0.99999946, 0, 1, 0, 0.99999946, 0, 4.371136e-08, -18.638866, 0.25, 2.9999866)
 metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
 
-[node name="wall-banner (23)" type="Node3D" parent="Environment/Walls" unique_id=640311465 instance=ExtResource("8_l6ntw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.25, 24)
+[node name="wall-banner (11)2" parent="Environment/Walls/WestWall" unique_id=335193042 instance=ExtResource("8_l6ntw")]
+transform = Transform3D(4.371136e-08, 0, -0.99999946, 0, 1, 0, 0.99999946, 0, 4.371136e-08, -18.638866, 0.25, 5.4999847)
 metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
 
-[node name="wall-banner (24)" type="Node3D" parent="Environment/Walls" unique_id=1637523063 instance=ExtResource("8_l6ntw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0.25, 24)
+[node name="wall-banner (12)2" parent="Environment/Walls/WestWall" unique_id=1089126835 instance=ExtResource("8_l6ntw")]
+transform = Transform3D(4.371136e-08, 0, -0.99999946, 0, 1, 0, 0.99999946, 0, 4.371136e-08, -18.638866, 0.25, 7.9999847)
 metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
 
-[node name="wall-banner (25)" type="Node3D" parent="Environment/Walls" unique_id=1487941572 instance=ExtResource("8_l6ntw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0.25, 24)
+[node name="wall-banner (13)2" parent="Environment/Walls/WestWall" unique_id=729601237 instance=ExtResource("8_l6ntw")]
+transform = Transform3D(4.371136e-08, 0, -0.99999946, 0, 1, 0, 0.99999946, 0, 4.371136e-08, -18.638866, 0.25, 10.499985)
 metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
 
-[node name="wall-banner (26)" type="Node3D" parent="Environment/Walls" unique_id=434245043 instance=ExtResource("8_l6ntw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0.25, 24)
+[node name="wall-banner (14)2" parent="Environment/Walls/WestWall" unique_id=1413905347 instance=ExtResource("8_l6ntw")]
+transform = Transform3D(4.371136e-08, 0, -0.99999946, 0, 1, 0, 0.99999946, 0, 4.371136e-08, -18.638866, 0.25, 12.999985)
 metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
 
-[node name="wall-banner (27)" type="Node3D" parent="Environment/Walls" unique_id=513735426 instance=ExtResource("8_l6ntw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0.25, 24)
+[node name="wall-banner (15)2" parent="Environment/Walls/WestWall" unique_id=822027234 instance=ExtResource("8_l6ntw")]
+transform = Transform3D(4.371136e-08, 0, -0.99999946, 0, 1, 0, 0.99999946, 0, 4.371136e-08, -18.638866, 0.25, 15.499977)
 metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
 
-[node name="wall-banner (28)" type="Node3D" parent="Environment/Walls" unique_id=1118656226 instance=ExtResource("8_l6ntw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0.25, 24)
+[node name="wall-banner (16)2" parent="Environment/Walls/WestWall" unique_id=113185162 instance=ExtResource("8_l6ntw")]
+transform = Transform3D(4.371136e-08, 0, -0.99999946, 0, 1, 0, 0.99999946, 0, 4.371136e-08, -18.638866, 0.25, 16.7061)
 metadata/asset_placer_res_id = "uid://bn8l6pdud6eqt"
 
 [node name="PlayerSpawn" type="Marker3D" parent="." unique_id=1359750423]
@@ -1343,11 +1501,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 5)
 [node name="Player" parent="PlayerSpawn" unique_id=1362294124 instance=ExtResource("5_player")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1823544475]
+environment = ExtResource("12_sky_env")
 
 [node name="Sun" type="DirectionalLight3D" parent="." unique_id=1943213386]
 transform = Transform3D(0.866025, -0.353553, 0.353553, 0, 0.707107, 0.707107, -0.5, -0.612372, 0.612372, 0, 14, 0)
-light_energy = 1.2
+light_color = Color(0.88, 0.9, 0.98, 1)
+light_energy = 0.55
+light_angular_distance = 1.5
+light_specular = 0.35
 shadow_enabled = true
+directional_shadow_blend_splits = true
+directional_shadow_max_distance = 40.0
 
 [node name="Ground" type="StaticBody3D" parent="." unique_id=637539892]
 
@@ -1368,6 +1532,7 @@ display_name = "Mathew Deeb"
 interact_range = 4.0
 zone_color = Color(1, 0.95, 0.8, 1)
 face_player_during_dialogue = true
+allow_repeat = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MathewDeeb" unique_id=433706470]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -1570,26 +1735,221 @@ surface_material_override/0 = SubResource("Mat_edge")
 [node name="Collision" type="CollisionShape3D" parent="BoundaryWalls/WallEast" unique_id=1595441573]
 shape = SubResource("Shape_wall_ew")
 
-[node name="floor-panel" type="Node3D" parent="." unique_id=135783844 instance=ExtResource("5_nmnfq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, -0.5, -7.5)
-metadata/asset_placer_res_id = "uid://dfs1p2jc7lwgq"
+[node name="SpaceShipPatrol3" parent="." unique_id=976263699 instance=ExtResource("23_patrol")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.857561, 3.8146973e-06, -0.2734337)
+craft_scene = ExtResource("24_41oom")
+ship_scale = 3.0
+speed = 40.0
+start_delay = 2.0
+loop = true
+spin_axis_x = true
+spin_axis_y = true
 
-[node name="floor-detail" type="Node3D" parent="." unique_id=300935077 instance=ExtResource("6_anhuk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -0.5, -7.5)
+[node name="Waypoints" parent="SpaceShipPatrol3" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5926037, 0, 0.28959656)
+
+[node name="Spawn" parent="SpaceShipPatrol3/Waypoints" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.519674, 4.6396675, -47.37313)
+
+[node name="Ship" parent="SpaceShipPatrol3/Waypoints/Spawn" index="0"]
+transform = Transform3D(0.9995679, -0.0018876797, -0.029333137, 5.614301e-09, 0.99793583, -0.064220116, 0.029393813, 0.06419237, 0.9975046, -2.4118023, -5.2797565, 82.00659)
+visible = false
+
+[node name="Exit" parent="SpaceShipPatrol3/Waypoints" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.107874, -0.64008904, 34.633465)
+
+[node name="SpaceShipPatrol4" parent="." unique_id=391492728 instance=ExtResource("23_patrol")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.51615, 3.8146973e-06, -0.2734337)
+craft_scene = ExtResource("25_6mida")
+ship_scale = 3.0
+speed = 40.0
+start_delay = 2.0
+loop = true
+spin_axis_x = true
+spin_axis_y = true
+
+[node name="Waypoints" parent="SpaceShipPatrol4" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5926037, 0, 0.28959656)
+
+[node name="Spawn" parent="SpaceShipPatrol4/Waypoints" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.519674, 4.6396675, -47.37313)
+
+[node name="Ship" parent="SpaceShipPatrol4/Waypoints/Spawn" index="0"]
+transform = Transform3D(0.9995679, -0.0018876797, -0.029333137, 5.614301e-09, 0.99793583, -0.064220116, 0.029393813, 0.06419237, 0.9975046, -2.4118004, -5.2797565, 82.00659)
+visible = false
+
+[node name="Exit" parent="SpaceShipPatrol4/Waypoints" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.107874, -0.64008904, 34.633465)
+
+[node name="SpaceShipPatrol5" parent="." unique_id=1357436899 instance=ExtResource("23_patrol")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.817715, 8.53084, 13.40461)
+ship_scale = 3.0
+speed = 20.0
+start_delay = 3.0
+loop = true
+respawn_delay = 5.0
+spin_axis_x = true
+spin_axis_y = true
+
+[node name="Waypoints" parent="SpaceShipPatrol5" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5926037, 0, 0.28959656)
+
+[node name="Spawn" parent="SpaceShipPatrol5/Waypoints" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.519674, 4.6396675, -47.37313)
+
+[node name="Ship" parent="SpaceShipPatrol5/Waypoints/Spawn" index="0"]
+transform = Transform3D(0.8594459, 0.029170908, 0.5103937, 4.9883986e-09, 0.99837077, -0.05706063, -0.5112266, 0.04904053, 0.8580457, 16.274204, -1.8194122, 27.359299)
+
+[node name="Exit" parent="SpaceShipPatrol5/Waypoints" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.74583, -0.64008904, 32.020885)
+
+[node name="Asteroid" parent="." unique_id=300395506 instance=ExtResource("23_patrol")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -27.584827, 10.652798)
+craft_scene = ExtResource("25_843kx")
+loop = true
+random_spin_enabled = true
+spin_axis_x = true
+spin_axis_y = true
+spin_speed_min_deg = 80.0
+
+[node name="Spawn" parent="Asteroid/Waypoints" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.311077, 20, -39.210304)
+
+[node name="Ship" parent="Asteroid/Waypoints/Spawn" index="0"]
+transform = Transform3D(0.35847068, -0.26833317, -0.8941455, 0.82039994, -0.36649558, 0.43889076, -0.44546932, -0.8908862, 0.08876264, -76.3051, 3.0669203, 31.814322)
+
+[node name="Exit" parent="Asteroid/Waypoints" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.20908, 24, 2.2832012)
+
+[node name="Asteroid2" parent="." unique_id=1811177651 instance=ExtResource("23_patrol")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.095933, -27.584827, 1.3674431)
+craft_scene = ExtResource("25_843kx")
+speed = 60.0
+loop = true
+respawn_delay = 10.0
+random_spin_enabled = true
+spin_axis_y = true
+spin_speed_min_deg = 80.0
+
+[node name="Spawn" parent="Asteroid2/Waypoints" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.311077, 20, -39.210304)
+
+[node name="Ship" parent="Asteroid2/Waypoints/Spawn" index="0"]
+transform = Transform3D(0.53737265, 0.2549575, 0.80388266, 0.47182667, -0.88095605, -0.03600076, 0.69900656, 0.39863905, -0.5936975, -99.52016, 4, 41.493507)
+visible = false
+
+[node name="Exit" parent="Asteroid2/Waypoints" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.20908, 24, 2.2832012)
+
+[node name="Asteroid3" parent="." unique_id=1706851580 instance=ExtResource("23_patrol")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.095933, -27.584827, 1.3674431)
+craft_scene = ExtResource("25_843kx")
+speed = 20.0
+loop = true
+respawn_delay = 10.0
+random_spin_enabled = true
+spin_speed_min_deg = 80.0
+
+[node name="Spawn" parent="Asteroid3/Waypoints" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.875744, 20, -27.103481)
+
+[node name="Ship" parent="Asteroid3/Waypoints/Spawn" index="0"]
+transform = Transform3D(0.34209755, -0.87714964, 0.33701304, 0.9209978, 0.38412696, 0.06488104, -0.18636617, 0.28819257, 0.93926185, 20.776917, 4, 57.90587)
+visible = false
+
+[node name="Exit" parent="Asteroid3/Waypoints" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9011736, 24, 30.802387)
+
+[node name="Asteroid4" parent="." unique_id=1383965548 instance=ExtResource("23_patrol")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.095933, -27.584827, 48.446857)
+craft_scene = ExtResource("25_843kx")
+speed = 12.0
+loop = true
+respawn_delay = 10.0
+random_spin_enabled = true
+spin_speed_min_deg = 80.0
+
+[node name="Spawn" parent="Asteroid4/Waypoints" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.875744, 20, -27.103481)
+
+[node name="Ship" parent="Asteroid4/Waypoints/Spawn" index="0"]
+transform = Transform3D(0.54521334, -0.6401679, 0.54122776, -0.7826496, -0.6200239, 0.05504443, 0.30033648, -0.45360264, -0.8390725, 29.850021, 3.035833, -46.276875)
+
+[node name="Exit" parent="Asteroid4/Waypoints" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.05412, 24.060982, -89.00726)
+
+[node name="table-display" parent="." unique_id=1244249990 instance=ExtResource("46_8psgo")]
+transform = Transform3D(1.4349645, 0, 0, 0, 1.4349645, 0, 0, 0, 1.4349645, -2.492055, 0.39999914, -17.104622)
+metadata/asset_placer_res_id = "uid://babl8untpcadh"
+
+[node name="structure-barrier-high" parent="." unique_id=2038797304 instance=ExtResource("47_vgn05")]
+transform = Transform3D(1.4641001, 0, 0, 0, 1.4641001, 0, 0, 0, 1.4641001, -0.012278914, 0.39999914, -2.1267438)
+metadata/asset_placer_res_id = "uid://b8ixlq6tmi078"
+
+[node name="table-display-planet" parent="." unique_id=1637810265 instance=ExtResource("18_wf7uy")]
+transform = Transform3D(3.7974987, 0, 0, 0, 3.7974987, 0, 0, 0, 3.7974987, 2.319121, 3.9999998, -4.7417126)
+metadata/asset_placer_res_id = "uid://buaair17eym3r"
+
+[node name="floor-detail" parent="." unique_id=250933910 instance=ExtResource("6_anhuk")]
+transform = Transform3D(0.94148016, 0, 0, 0, 0.94148016, 0, 0, 0, 0.94148016, -5.064219, -0.40000105, 5.9831057)
 metadata/asset_placer_res_id = "uid://dvigoh2mwkmuw"
 
-[node name="computer-system" type="Node3D" parent="." unique_id=911270304 instance=ExtResource("8_aqhay")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.25, 0, -17.5)
-metadata/asset_placer_res_id = "uid://qw0pqw2wsw3r"
+[node name="floor-detail (1)" parent="." unique_id=228254470 instance=ExtResource("6_anhuk")]
+transform = Transform3D(0.94148016, 0, 0, 0, 0.94148016, 0, 0, 0, 0.94148016, -2.781804, -0.40000057, 7.3682976)
+metadata/asset_placer_res_id = "uid://dvigoh2mwkmuw"
 
-[node name="container-flat-open" type="Node3D" parent="." unique_id=2131165404 instance=ExtResource("9_l6ntw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25, 0, -17.5)
-metadata/asset_placer_res_id = "uid://kixhp6lu4fed"
+[node name="floor-detail (2)" parent="." unique_id=692553356 instance=ExtResource("6_anhuk")]
+transform = Transform3D(1.7136335e-07, 0, 0.94148093, 0, 0.94148016, 0, -0.94148093, 0, 1.7136335e-07, -5.0696335, -0.40000057, 8.302268)
+metadata/asset_placer_res_id = "uid://dvigoh2mwkmuw"
 
-[node name="container-tall" type="Node3D" parent="." unique_id=2023442227 instance=ExtResource("10_xiia2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25, 0, -16.25)
-metadata/asset_placer_res_id = "uid://fmy5o3bve7l7"
+[node name="pipe-bend" parent="." unique_id=669263602 instance=ExtResource("48_k7seo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8504918, -9.536743e-07, -0.5666466)
+metadata/asset_placer_res_id = "uid://cm2xe74oowpk6"
 
-[node name="bed-double" type="Node3D" parent="." unique_id=537160119 instance=ExtResource("11_sn65u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.25, 0, -17.5)
-metadata/asset_placer_res_id = "uid://dbfdf7yrqgyqh"
+[node name="pipe-bend (1)" parent="." unique_id=920236306 instance=ExtResource("48_k7seo")]
+transform = Transform3D(1.8626451e-07, 0, 1.0000004, 0, 1, 0, -1.0000004, 0, 1.8626451e-07, -1.6372342, -9.536743e-07, 0.6293049)
+metadata/asset_placer_res_id = "uid://cm2xe74oowpk6"
+
+[node name="container-wide" parent="." unique_id=44527226 instance=ExtResource("49_d2dty")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0238738, -9.536743e-07, -2.338296)
+metadata/asset_placer_res_id = "uid://dx5iwio4vlxn1"
+
+[node name="display-wall-wide" parent="." unique_id=984879020 instance=ExtResource("50_loal5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6359615, 1.9999995, -0.1721735)
+metadata/asset_placer_res_id = "uid://dqspi5hdrc3bt"
+
+[node name="display-wall-wide (1)" parent="." unique_id=1871850100 instance=ExtResource("50_loal5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6480346, 1.999999, -0.10389137)
+metadata/asset_placer_res_id = "uid://dqspi5hdrc3bt"
+
+[node name="floor-panel" parent="." unique_id=1293489713 instance=ExtResource("5_nmnfq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.2682266, -0.40000105, 1.4030771)
+metadata/asset_placer_res_id = "uid://dfs1p2jc7lwgq"
+
+[node name="floor-panel (1)" parent="." unique_id=2106155488 instance=ExtResource("5_nmnfq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10785365, -0.40000057, 5.086346)
+metadata/asset_placer_res_id = "uid://dfs1p2jc7lwgq"
+
+[node name="structure-panel" parent="." unique_id=911844906 instance=ExtResource("34_k7seo")]
+transform = Transform3D(2.5937426, 0, 0, 0, 2.5937426, 0, 0, 0, 2.5937426, 15.172845, 0, 14.671381)
+metadata/asset_placer_res_id = "uid://8oym1goa3sgx"
+
+[node name="structure-panel (1)" parent="." unique_id=375863086 instance=ExtResource("34_k7seo")]
+transform = Transform3D(2.5937426, 0, 0, 0, 2.5937426, 0, 0, 0, 2.5937426, 8.891499, 0, 14.771009)
+metadata/asset_placer_res_id = "uid://8oym1goa3sgx"
+
+[node name="structure" parent="." unique_id=505882824 instance=ExtResource("51_d2dty")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.906376, -9.536743e-07, 14.859775)
+metadata/asset_placer_res_id = "uid://d13klosyuix85"
+
+[node name="structure (1)" parent="." unique_id=926691955 instance=ExtResource("51_d2dty")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.77383, -9.536743e-07, 14.823989)
+metadata/asset_placer_res_id = "uid://d13klosyuix85"
+
+[editable path="SpaceShipPatrol3"]
+[editable path="SpaceShipPatrol4"]
+[editable path="SpaceShipPatrol5"]
+[editable path="Asteroid"]
+[editable path="Asteroid2"]
+[editable path="Asteroid3"]
+[editable path="Asteroid4"]

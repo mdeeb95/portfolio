@@ -8,6 +8,8 @@ extends Area3D
 @export var interact_range: float = 5.5
 @export var zone_color: Color = Color.GRAY
 @export var face_player_during_dialogue: bool = false
+## When false, the full dialogue sequence only plays once per visit (resume zones).
+@export var allow_repeat: bool = false
 
 const FACE_TURN_SPEED := 12.0
 
@@ -17,6 +19,7 @@ var player_in_range: bool = false
 @onready var _assist_label: Label3D = $InteractPrompt
 
 var _dialogue_active: bool = false
+var _dialogue_completed: bool = false
 var _character_model: Node3D = null
 
 
@@ -52,10 +55,22 @@ func is_player_in_range(player_pos: Vector3) -> bool:
 	return player_pos.distance_to(get_interact_point()) <= interact_range
 
 
+func can_start_dialogue() -> bool:
+	return allow_repeat or not _dialogue_completed
+
+
+func mark_dialogue_completed() -> void:
+	if _dialogue_completed:
+		return
+	_dialogue_completed = true
+	if _assist_label:
+		_assist_label.visible = false
+
+
 func set_focused(focused: bool) -> void:
 	if _assist_label:
-		_assist_label.visible = focused and not Dialogue.is_active
-		if focused:
+		_assist_label.visible = focused and not Dialogue.is_active and can_start_dialogue()
+		if focused and can_start_dialogue():
 			_assist_label.text = _get_assist_text()
 	var label := get_node_or_null("Label3D") as Label3D
 	if label:
