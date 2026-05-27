@@ -1,6 +1,6 @@
 class_name VirtualJoystick
 extends Control
-## Floating thumbstick: touch in the right zone, drag from the press point to move.
+## Floating thumbstick anywhere on screen. Skips capture when a tap targets an in-range interactable.
 
 @export var max_radius: float = 90.0
 @export var deadzone: float = 0.15
@@ -22,7 +22,7 @@ func _ready() -> void:
 	_base.visible = false
 	_knob.visible = false
 	visible = _should_show()
-	mouse_filter = Control.MOUSE_FILTER_STOP
+	mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 
 func is_simulating_mobile() -> bool:
@@ -79,20 +79,8 @@ func _handle_mouse_sim(event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 
 
-func is_point_in_zone(screen_pos: Vector2) -> bool:
-	return visible and get_global_rect().has_point(screen_pos)
-
-
-func _is_in_zone(screen_pos: Vector2) -> bool:
-	return get_global_rect().has_point(screen_pos)
-
-
 func _should_capture_touch(screen_pos: Vector2) -> bool:
-	if not _is_in_zone(screen_pos):
-		return false
-	if GameUI.blocks_joystick_at(screen_pos):
-		return false
-	return true
+	return not GameUI.blocks_joystick_at(screen_pos)
 
 
 func _begin_stick(screen_pos: Vector2, index: int) -> void:

@@ -27,12 +27,6 @@ func get_move_vector() -> Vector2:
 	return _joystick.vector
 
 
-func is_joystick_zone(screen_pos: Vector2) -> bool:
-	if _joystick == null or not _joystick.visible:
-		return false
-	return _joystick.is_point_in_zone(screen_pos)
-
-
 func is_mobile_controls() -> bool:
 	return _joystick != null and _joystick.visible
 
@@ -44,6 +38,6 @@ func blocks_joystick_at(screen_pos: Vector2) -> bool:
 	if player == null:
 		return false
 	var mgr := player.get_node_or_null("InteractionManager")
-	if mgr == null or not mgr.has_method("should_block_joystick_at"):
+	if mgr == null or not mgr.has_method("is_interactable_at_screen"):
 		return false
-	return mgr.should_block_joystick_at(screen_pos)
+	return mgr.is_interactable_at_screen(screen_pos)
