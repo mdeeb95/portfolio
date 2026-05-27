@@ -1,7 +1,8 @@
 @tool
 extends Node3D
 
-## Fly-by along waypoints (Spawn → Exit). Can loop, despawn, or stop when done.
+## Fly-by along waypoints (Spawn → Exit). Optional return to Spawn, or spin in place at Spawn.
+## Can loop, despawn, or stop when done.
 ##
 ## In town_square: Scene → Instantiate Child Scene → space_ship_patrol.tscn
 ## (or add SpaceShipPatrol node). Make editable children, add Marker3D under Waypoints.
@@ -19,6 +20,10 @@ const EDITOR_PREVIEW_NAME := "EditorPreview"
 @export var model_rotation_fix_degrees: Vector3 = Vector3(0.0, 180.0, 0.0)
 
 @export_group("Movement")
+## When off, the ship stays at Spawn and only tumbles — use Exit only to set facing direction.
+@export var movement_enabled: bool = true
+## Spawn → Exit → Spawn before loop / finish. Return leg reverses spin so orientation matches Spawn.
+@export var back_and_forth: bool = false
 @export var speed: float = 18.0
 @export var start_delay: float = 0.0
 @export var loop: bool = false
@@ -56,6 +61,8 @@ var _spin_angles: Vector3 = Vector3.ZERO
 var _editor_respawn_timer: float = 0.0
 var _editor_start_delay_left: float = 0.0
 var _preview_patrol_enabled_last: bool = true
+var _returning_to_spawn: bool = false
+var _cycle_start_spin_angles: Vector3 = Vector3.ZERO
 
 
 func _ready() -> void:
@@ -143,8 +150,19 @@ func _step_patrol(delta: float) -> void:
 	_reload_waypoints()
 	if _points.size() < 2:
 		return
-	var from: Vector3 = _points[_segment_index]
-	var to: Vector3 = _points[_segment_index + 1]
+	if not movement_enabled:
+		_ship.global_position = _points[0]
+		_accumulate_spin(delta)
+		_face_toward(_get_exit_position())
+		return
+	var from: Vector3
+	var to: Vector3
+	if _returning_to_spawn:
+		from = _points[_points.size() - 1]
+		to = _points[0]
+	else:
+		from = _points[_segment_index]
+		to = _points[_segment_index + 1]
 	var segment_length: float = from.distance_to(to)
 	if segment_length < 0.01:
 		_advance_segment()
@@ -154,8 +172,8 @@ func _step_patrol(delta: float) -> void:
 		_advance_segment()
 		return
 	_ship.global_position = from.lerp(to, _segment_t)
-	_accumulate_spin(delta)
-	_face_exit()
+	_accumulate_spin(delta, _returning_to_spawn)
+	_face_toward(to)
 
 
 func _cache_ship() -> void:
@@ -176,10 +194,9 @@ func _get_exit_position() -> Vector3:
 	return _points[_points.size() - 1]
 
 
-func _face_exit() -> void:
+func _face_toward(target: Vector3) -> void:
 	if _ship == null or _points.size() < 2:
 		return
-	var target: Vector3 = _get_exit_position()
 	var forward: Vector3 = target - _ship.global_position
 	if forward.length_squared() < 0.0001:
 		return
@@ -233,15 +250,16 @@ func _random_signed_speed(min_rad: float, max_rad: float) -> float:
 	return -magnitude if randf() < 0.5 else magnitude
 
 
-func _accumulate_spin(delta: float) -> void:
+func _accumulate_spin(delta: float, reverse: bool = false) -> void:
 	if not random_spin_enabled:
 		return
+	var spin_delta: float = -delta if reverse else delta
 	if spin_axis_x:
-		_spin_angles.x += _spin_speeds.x * delta
+		_spin_angles.x += _spin_speeds.x * spin_delta
 	if spin_axis_y:
-		_spin_angles.y += _spin_speeds.y * delta
+		_spin_angles.y += _spin_speeds.y * spin_delta
 	if spin_axis_z:
-		_spin_angles.z += _spin_speeds.z * delta
+		_spin_angles.z += _spin_speeds.z * spin_delta
 
 
 func _ensure_editor_preview() -> void:
@@ -297,7 +315,7 @@ func _update_editor_spawn_pose(delta: float) -> void:
 	_reset_ship_to_spawn_local()
 	_apply_rotation_fix()
 	_accumulate_spin(delta)
-	_face_exit()
+	_face_toward(_get_exit_position())
 
 
 func _setup_craft() -> void:
@@ -362,8 +380,17 @@ func _reset_ship_to_spawn_local() -> void:
 
 
 func _advance_segment() -> void:
+	if _returning_to_spawn:
+		_ship.global_position = _points[0]
+		_spin_angles = _cycle_start_spin_angles
+		_finish()
+		return
 	if _segment_index + 1 >= _points.size() - 1:
 		_ship.global_position = _points[_points.size() - 1]
+		if back_and_forth:
+			_returning_to_spawn = true
+			_segment_t = 0.0
+			return
 		_finish()
 		return
 	_segment_index += 1
@@ -376,12 +403,14 @@ func _begin_patrol_run() -> void:
 		return
 	_segment_index = 0
 	_segment_t = 0.0
+	_returning_to_spawn = false
 	_finished = false
 	_spin_angles = Vector3.ZERO
+	_cycle_start_spin_angles = Vector3.ZERO
 	if _ship:
 		_ship.visible = true
 		_reset_ship_to_spawn_local()
-		_face_exit()
+		_face_toward(_get_exit_position())
 	if Engine.is_editor_hint() and start_delay > 0.0:
 		_editor_start_delay_left = start_delay
 		_active = false

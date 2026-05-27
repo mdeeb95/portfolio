@@ -1,82 +1,263 @@
-[gd_scene load_steps=4 format=3 uid="uid://cdialogue01"]
+[gd_scene format=3 uid="uid://cdialogue01"]
 
-[ext_resource type="Script" path="res://scripts/dialogue_controller.gd" id="1_dialogue"]
-[ext_resource type="Script" path="res://scripts/babble_player.gd" id="2_babble"]
+[ext_resource type="Script" uid="uid://cbllfa2ahlp7r" path="res://scripts/dialogue_controller.gd" id="1_dialogue"]
+[ext_resource type="Script" uid="uid://chn05itpgg2d1" path="res://scripts/babble_player.gd" id="2_babble"]
+[ext_resource type="Theme" uid="uid://bul6h6mdtrpoq" path="res://assets/ui/portfolio_theme.tres" id="3_theme"]
+[ext_resource type="FontFile" uid="uid://cxo7trub48yey" path="res://assets/ui/fonts/BricolageGrotesque-Bold.ttf" id="5_bricolage"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
-bg_color = Color(0.96, 0.93, 0.82, 0.98)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(0.45, 0.38, 0.28, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-shadow_color = Color(0, 0, 0, 0.3)
-shadow_size = 8
+[sub_resource type="Gradient" id="Gradient_awmck"]
+offsets = PackedFloat32Array(0, 0.55, 1)
+colors = PackedColorArray(0.059, 0.078, 0.118, 0, 0.059, 0.078, 0.118, 0.55, 0.039, 0.055, 0.086, 0.94)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_header"]
-bg_color = Color(0.55, 0.72, 0.88, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_yi6h4"]
+gradient = SubResource("Gradient_awmck")
+fill_from = Vector2(0.5, 0)
+fill_to = Vector2(0.5, 1)
 
-[node name="Dialogue" type="CanvasLayer"]
+[sub_resource type="Animation" id="Animation_caret_blink"]
+resource_name = "blink"
+length = 1.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../ContinueRow/Caret:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.55, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.4), Color(1, 1, 1, 1), Color(1, 1, 1, 0.4)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_caret"]
+_data = {
+&"blink": SubResource("Animation_caret_blink")
+}
+
+[node name="Dialogue" type="CanvasLayer" unique_id=86776271]
+layer = 20
 script = ExtResource("1_dialogue")
+content_max_width = 900.0
+body_max_width = 840.0
+fade_text_cover = 200
+font_body = ExtResource("5_bricolage")
+font_speaker = ExtResource("5_bricolage")
+body_font_size = 18
+role_font_size = 12
+continue_font_size = 12
+preview_in_editor = true
+preview_line = "
 
-[node name="BabblePlayer" type="Node" parent="."]
+idasjfsdujfiasjdfi
+
+idasjfsdujfiasjdfi
+siadufiausjdfauisdf
+"
+
+[node name="BabblePlayer" type="Node" parent="." unique_id=387377455]
 script = ExtResource("2_babble")
 
-[node name="DialoguePanel" type="PanelContainer" parent="."]
+[node name="DialogueRoot" type="Control" parent="." unique_id=4948240]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_theme")
+
+[node name="Fade" type="TextureRect" parent="DialogueRoot" unique_id=90792581]
+layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 16.0
-offset_top = -220.0
-offset_right = -16.0
-offset_bottom = -16.0
+offset_top = -449.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_yi6h4")
+expand_mode = 1
 
-[node name="Margin" type="MarginContainer" parent="DialoguePanel"]
-layout_mode = 2
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 14
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 14
+[node name="ContentColumn" type="Control" parent="DialogueRoot" unique_id=1702457649]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -449.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
 
-[node name="VBox" type="VBoxContainer" parent="DialoguePanel/Margin"]
+[node name="Content" type="MarginContainer" parent="DialogueRoot/ContentColumn" unique_id=202923247]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -450.0
+offset_top = -249.0
+offset_right = 450.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_constants/margin_left = 36
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 36
+theme_override_constants/margin_bottom = 30
+
+[node name="VBox" type="VBoxContainer" parent="DialogueRoot/ContentColumn/Content" unique_id=1475426548]
 layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/separation = 14
+
+[node name="BodyWrap" type="Control" parent="DialogueRoot/ContentColumn/Content/VBox" unique_id=2028101520]
+custom_minimum_size = Vector2(0, 183)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="BodyVBox" type="VBoxContainer" parent="DialogueRoot/ContentColumn/Content/VBox/BodyWrap" unique_id=882910441]
+custom_minimum_size = Vector2(828, 183)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 theme_override_constants/separation = 12
 
-[node name="Header" type="PanelContainer" parent="DialoguePanel/Margin/VBox"]
+[node name="NameTag" type="Control" parent="DialogueRoot/ContentColumn/Content/VBox/BodyWrap/BodyVBox" unique_id=1579941003]
+z_index = 1
+custom_minimum_size = Vector2(284, 39)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_header")
+size_flags_horizontal = 0
+mouse_filter = 2
 
-[node name="SpeakerLabel" type="Label" parent="DialoguePanel/Margin/VBox/Header"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.12, 0.18, 0.28, 1)
-theme_override_font_sizes/font_size = 22
-text = "Speaker"
+[node name="TagDepth" type="Panel" parent="DialogueRoot/ContentColumn/Content/VBox/BodyWrap/BodyVBox/NameTag" unique_id=1605924918]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 4.0
+offset_right = 287.0
+offset_bottom = 39.0
+mouse_filter = 2
+theme_type_variation = &"SpeechTagDepth"
 
-[node name="BodyLabel" type="Label" parent="DialoguePanel/Margin/VBox"]
+[node name="TagFace" type="Panel" parent="DialogueRoot/ContentColumn/Content/VBox/BodyWrap/BodyVBox/NameTag" unique_id=184258950]
+custom_minimum_size = Vector2(284, 35)
+layout_mode = 0
+offset_right = 284.0
+offset_bottom = 35.0
+mouse_filter = 2
+theme_type_variation = &"SpeechTagFace"
+
+[node name="TagRow" type="HBoxContainer" parent="DialogueRoot/ContentColumn/Content/VBox/BodyWrap/BodyVBox/NameTag/TagFace" unique_id=2014312463]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 8.0
+offset_right = -16.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 12
+
+[node name="Diamond" type="ColorRect" parent="DialogueRoot/ContentColumn/Content/VBox/BodyWrap/BodyVBox/NameTag/TagFace/TagRow" unique_id=730304771]
+custom_minimum_size = Vector2(6, 6)
 layout_mode = 2
-size_flags_vertical = 3
-custom_minimum_size = Vector2(0, 100)
-theme_override_colors/font_color = Color(0.15, 0.12, 0.1, 1)
+size_flags_vertical = 4
+mouse_filter = 2
+color = Color(0.169, 0.141, 0.094, 1)
+
+[node name="SpeakerLabel" type="Label" parent="DialogueRoot/ContentColumn/Content/VBox/BodyWrap/BodyVBox/NameTag/TagFace/TagRow" unique_id=504617868]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.169, 0.141, 0.094, 1)
+theme_override_fonts/font = ExtResource("5_bricolage")
+theme_override_font_sizes/font_size = 15
+text = "Mathew Deeb"
+
+[node name="RoleDivider" type="ColorRect" parent="DialogueRoot/ContentColumn/Content/VBox/BodyWrap/BodyVBox/NameTag/TagFace/TagRow" unique_id=123333677]
+custom_minimum_size = Vector2(2, 16)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+color = Color(0.169, 0.141, 0.094, 0.35)
+
+[node name="RoleLabel" type="Label" parent="DialogueRoot/ContentColumn/Content/VBox/BodyWrap/BodyVBox/NameTag/TagFace/TagRow" unique_id=1421105837]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.169, 0.141, 0.094, 0.7)
+theme_override_fonts/font = ExtResource("5_bricolage")
+theme_override_font_sizes/font_size = 12
+text = "DESIGNER · ENGINEER"
+
+[node name="BodyLabel" type="Label" parent="DialogueRoot/ContentColumn/Content/VBox/BodyWrap/BodyVBox" unique_id=273556893]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_bricolage")
 theme_override_font_sizes/font_size = 18
-text = "..."
+text = "
+
+idasjfsdujfiasjdfi
+
+idasjfsdujfiasjdfi
+siadufiausjdfauisdf
+"
 autowrap_mode = 3
 
-[node name="ContinueHint" type="Label" parent="DialoguePanel/Margin/VBox"]
-layout_mode = 2
+[node name="TypeCursor" type="ColorRect" parent="DialogueRoot/ContentColumn/Content/VBox/BodyWrap" unique_id=1935492676]
 visible = false
-theme_override_colors/font_color = Color(0.35, 0.3, 0.22, 1)
-theme_override_font_sizes/font_size = 16
-text = "▼  Tap to continue"
-horizontal_alignment = 2
+layout_mode = 0
+offset_left = 3.0
+offset_top = 15.5
+offset_right = 5.0
+offset_bottom = 41.5
+mouse_filter = 2
+
+[node name="ContinueRow" type="HBoxContainer" parent="DialogueRoot/ContentColumn/Content/VBox" unique_id=473206518]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 10
+alignment = 2
+
+[node name="ContinueLabel" type="Label" parent="DialogueRoot/ContentColumn/Content/VBox/ContinueRow" unique_id=2028411998]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.72)
+theme_override_fonts/font = ExtResource("5_bricolage")
+theme_override_font_sizes/font_size = 12
+text = "CLOSE"
+
+[node name="Caret" type="Label" parent="DialogueRoot/ContentColumn/Content/VBox/ContinueRow" unique_id=742646709]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.85)
+theme_override_font_sizes/font_size = 10
+text = "▼"
+
+[node name="PromptKey" type="PanelContainer" parent="DialogueRoot/ContentColumn/Content/VBox/ContinueRow" unique_id=106339833]
+custom_minimum_size = Vector2(22, 22)
+layout_mode = 2
+mouse_filter = 2
+theme_type_variation = &"PromptKey"
+
+[node name="KeyLabel" type="Label" parent="DialogueRoot/ContentColumn/Content/VBox/ContinueRow/PromptKey" unique_id=1069904128]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.169, 0.141, 0.094, 1)
+theme_override_fonts/font = ExtResource("5_bricolage")
+theme_override_font_sizes/font_size = 11
+text = "E"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CaretAnimator" type="AnimationPlayer" parent="DialogueRoot/ContentColumn/Content/VBox" unique_id=273052400]
+root_node = NodePath("../ContinueRow/Caret")
+libraries/ = SubResource("AnimationLibrary_caret")
+autoplay = &"blink"

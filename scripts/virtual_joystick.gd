@@ -1,6 +1,6 @@
 class_name VirtualJoystick
 extends Control
-## Floating thumbstick: touch in the left zone, drag from the press point to move.
+## Floating thumbstick: touch in the right zone, drag from the press point to move.
 
 @export var max_radius: float = 90.0
 @export var deadzone: float = 0.15
@@ -40,6 +40,8 @@ func _simulate_in_editor() -> bool:
 func _input(event: InputEvent) -> void:
 	if not visible:
 		return
+	if Dialogue.is_active:
+		return
 
 	if _simulate_in_editor():
 		_handle_mouse_sim(event)
@@ -47,7 +49,7 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventScreenTouch:
 		var touch := event as InputEventScreenTouch
 		if touch.pressed:
-			if _touch_index == -1 and not _using_mouse_sim and _is_in_zone(touch.position):
+			if _touch_index == -1 and not _using_mouse_sim and _should_capture_touch(touch.position):
 				_begin_stick(touch.position, touch.index)
 				get_viewport().set_input_as_handled()
 		elif touch.index == _touch_index:
@@ -65,7 +67,7 @@ func _handle_mouse_sim(event: InputEvent) -> void:
 		var mb := event as InputEventMouseButton
 		if mb.button_index != MOUSE_BUTTON_LEFT:
 			return
-		if mb.pressed and not _active and _is_in_zone(mb.position):
+		if mb.pressed and not _active and _should_capture_touch(mb.position):
 			_begin_stick(mb.position, -1)
 			_using_mouse_sim = true
 			get_viewport().set_input_as_handled()
@@ -83,6 +85,14 @@ func is_point_in_zone(screen_pos: Vector2) -> bool:
 
 func _is_in_zone(screen_pos: Vector2) -> bool:
 	return get_global_rect().has_point(screen_pos)
+
+
+func _should_capture_touch(screen_pos: Vector2) -> bool:
+	if not _is_in_zone(screen_pos):
+		return false
+	if GameUI.blocks_joystick_at(screen_pos):
+		return false
+	return true
 
 
 func _begin_stick(screen_pos: Vector2, index: int) -> void:

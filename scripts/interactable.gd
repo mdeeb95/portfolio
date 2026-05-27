@@ -1,3 +1,4 @@
+@tool
 class_name Interactable
 extends Area3D
 
@@ -10,6 +11,20 @@ extends Area3D
 @export var face_player_during_dialogue: bool = false
 ## When false, the full dialogue sequence only plays once per visit (resume zones).
 @export var allow_repeat: bool = false
+## When false, clicks/taps use proximity focus only (avoids blocking rays to distant zones).
+@export var click_to_interact: bool = true
+
+@export_group("Click Hitbox")
+## Box size for click/tap raycasts (width, height, depth in meters).
+@export var click_hitbox_size: Vector3 = Vector3(4, 6, 4):
+	set(value):
+		click_hitbox_size = value
+		_apply_click_hitbox()
+## Local offset of the hitbox center (raise Y to cover floating labels).
+@export var click_hitbox_center: Vector3 = Vector3(0, 3, 0):
+	set(value):
+		click_hitbox_center = value
+		_apply_click_hitbox()
 
 const FACE_TURN_SPEED := 12.0
 
@@ -34,6 +49,7 @@ func _ready() -> void:
 	if _assist_label:
 		_assist_label.visible = false
 	_character_model = find_child("KenneyCharacter", true, false) as Node3D
+	_apply_click_hitbox()
 
 
 func _physics_process(delta: float) -> void:
@@ -45,6 +61,16 @@ func _update_label() -> void:
 	var label := get_node_or_null("Label3D") as Label3D
 	if label and display_name != "":
 		label.text = display_name
+
+
+func _apply_click_hitbox() -> void:
+	var collision := get_node_or_null("CollisionShape3D") as CollisionShape3D
+	if collision == null:
+		return
+	var box := BoxShape3D.new()
+	box.size = click_hitbox_size
+	collision.shape = box
+	collision.position = click_hitbox_center
 
 
 func get_interact_point() -> Vector3:
@@ -72,6 +98,7 @@ func set_focused(focused: bool) -> void:
 		_assist_label.visible = focused and not Dialogue.is_active and can_start_dialogue()
 		if focused and can_start_dialogue():
 			_assist_label.text = _get_assist_text()
+		_assist_label.modulate = UITokens.PROMPT_FOCUS if focused else UITokens.PROMPT_UNFOCUS
 	var label := get_node_or_null("Label3D") as Label3D
 	if label:
 		label.modulate = Color.WHITE if focused else zone_color
@@ -83,7 +110,7 @@ func _setup_assist_label() -> void:
 	var name_font_size := _name_label.font_size if _name_label else 40
 	_assist_label.font_size = 28 if name_font_size >= 44 else 22
 	_assist_label.outline_size = 5
-	_assist_label.modulate = Color(1, 0.95, 0.7, 1)
+	_assist_label.modulate = UITokens.PROMPT_UNFOCUS
 	_assist_label.text = _get_assist_text()
 	if _name_label:
 		_name_label.vertical_alignment = VerticalAlignment.VERTICAL_ALIGNMENT_BOTTOM
@@ -93,8 +120,8 @@ func _setup_assist_label() -> void:
 
 func _get_assist_text() -> String:
 	if DisplayServer.is_touchscreen_available():
-		return "Tap %s" % display_name
-	return "Click %s  ·  [E]" % display_name
+		return "TAP %s" % display_name.to_upper()
+	return "CLICK %s  ·  E" % display_name.to_upper()
 
 
 func set_dialogue_active(active: bool) -> void:

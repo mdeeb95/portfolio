@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cgameui01"]
 
 [ext_resource type="Script" path="res://scripts/game_ui.gd" id="1_ui"]
-[ext_resource type="PackedScene" uid="uid://ctouchjoystick01" path="res://scenes/ui/touch_joystick.tscn" id="2_joystick"]
+[ext_resource type="PackedScene" uid="uid://d00biycrbn7oq" path="res://scenes/ui/touch_joystick.tscn" id="2_joystick"]
 
 [node name="GameUI" type="CanvasLayer"]
 layer = 10

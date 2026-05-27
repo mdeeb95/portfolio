@@ -23,7 +23,7 @@ func _load() -> void:
 
 
 func get_dialogue_pages(zone_key: String) -> Array[Dictionary]:
-	# Each page: { "speaker": String, "text": String }
+	# Each page: { "speaker": String, "text": String, "role": String (optional) }
 	match zone_key:
 		"intro":
 			return _pages_intro()
@@ -41,13 +41,16 @@ func get_dialogue_pages(zone_key: String) -> Array[Dictionary]:
 
 func _pages_intro() -> Array[Dictionary]:
 	var name: String = data.get("name", "Mathew Deeb")
+	var role: String = data.get("speaker_role", data.get("title", ""))
 	return [
 		{
 			"speaker": name,
+			"role": role,
 			"text": data.get("intro", "Welcome to my portfolio town!")
 		},
 		{
 			"speaker": name,
+			"role": role,
 			"text": "%s\n\n%s" % [data.get("title", ""), data.get("tagline", "")]
 		},
 	]

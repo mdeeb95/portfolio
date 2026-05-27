@@ -105,27 +105,50 @@ func _start_interaction(target: Interactable) -> void:
 	Dialogue.start_dialogue(pages)
 
 
+func is_interactable_at_screen(screen_pos: Vector2) -> bool:
+	var target := _interactable_at_screen(screen_pos)
+	return target != null and _can_interact_with(target) and target.can_start_dialogue()
+
+
 func _interactable_from_ray(event: InputEvent) -> Interactable:
+	var pos := _screen_pos_from_event(event)
+	if pos.x < 0.0:
+		return null
+	return _interactable_at_screen(pos)
+
+
+func _interactable_at_screen(screen_pos: Vector2) -> Interactable:
 	if _camera == null:
 		return null
-	var pos: Vector2 = Vector2.ZERO
-	if event is InputEventMouseButton:
-		pos = (event as InputEventMouseButton).position
-	elif event is InputEventScreenTouch:
-		pos = (event as InputEventScreenTouch).position
-	else:
-		return null
-	var origin := _camera.project_ray_origin(pos)
-	var direction := _camera.project_ray_normal(pos)
+	var origin := _camera.project_ray_origin(screen_pos)
+	var direction := _camera.project_ray_normal(screen_pos)
+	var end := origin + direction * 80.0
 	var space := _player.get_world_3d().direct_space_state
-	var query := PhysicsRayQueryParameters3D.create(origin, origin + direction * 80.0)
-	query.collide_with_areas = true
-	query.collide_with_bodies = true
-	query.collision_mask = 8
-	var hit := space.intersect_ray(query)
-	if hit.is_empty():
-		return null
-	var collider: Object = hit.collider
+	var exclude: Array[RID] = []
+	var blocked: Interactable = null
+	while true:
+		var query := PhysicsRayQueryParameters3D.create(origin, end)
+		query.collide_with_areas = true
+		query.collide_with_bodies = true
+		query.collision_mask = 8
+		query.exclude = exclude
+		var hit := space.intersect_ray(query)
+		if hit.is_empty():
+			break
+		exclude.append(hit.rid)
+		var target := _interactable_from_collider(hit.collider)
+		if target == null:
+			continue
+		if not target.click_to_interact:
+			continue
+		if _can_interact_with(target) and target.can_start_dialogue():
+			return target
+		if blocked == null and _can_interact_with(target):
+			blocked = target
+	return blocked
+
+
+func _interactable_from_collider(collider: Object) -> Interactable:
 	if collider is Interactable:
 		return collider as Interactable
 	if collider is Node:
@@ -135,6 +158,14 @@ func _interactable_from_ray(event: InputEvent) -> Interactable:
 	return null
 
 
+func _screen_pos_from_event(event: InputEvent) -> Vector2:
+	if event is InputEventMouseButton:
+		return (event as InputEventMouseButton).position
+	if event is InputEventScreenTouch:
+		return (event as InputEventScreenTouch).position
+	return Vector2(-1.0, -1.0)
+
+
 func _is_interact_event(event: InputEvent) -> bool:
 	if event.is_action_pressed("interact"):
 		return true
@@ -142,16 +173,26 @@ func _is_interact_event(event: InputEvent) -> bool:
 		var mb := event as InputEventMouseButton
 		if not mb.pressed or mb.button_index != MOUSE_BUTTON_LEFT:
 			return false
-		return not GameUI.is_joystick_zone(mb.position)
+		if GameUI.is_joystick_zone(mb.position):
+			return is_interactable_at_screen(mb.position)
+		return true
 	if event is InputEventScreenTouch:
 		var touch := event as InputEventScreenTouch
-		return touch.pressed and not GameUI.is_joystick_zone(touch.position)
+		if not touch.pressed:
+			return false
+		if GameUI.is_joystick_zone(touch.position):
+			return is_interactable_at_screen(touch.position)
+		return true
 	return false
 
 
 func _is_continue_event(event: InputEvent) -> bool:
 	if event.is_action_pressed("interact"):
 		return true
+	if event is InputEventKey and event.pressed and not event.echo:
+		var key := event as InputEventKey
+		if key.keycode in [KEY_SPACE, KEY_ENTER, KEY_KP_ENTER]:
+			return true
 	if event is InputEventMouseButton:
 		var mb := event as InputEventMouseButton
 		return mb.pressed and mb.button_index == MOUSE_BUTTON_LEFT
