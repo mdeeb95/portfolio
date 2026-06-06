@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cbllfa2ahlp7r" path="res://scripts/dialogue_controller.gd" id="1_dialogue"]
 [ext_resource type="Script" uid="uid://chn05itpgg2d1" path="res://scripts/babble_player.gd" id="2_babble"]
 [ext_resource type="Theme" uid="uid://bul6h6mdtrpoq" path="res://assets/ui/portfolio_theme.tres" id="3_theme"]
-[ext_resource type="FontFile" uid="uid://cxo7trub48yey" path="res://assets/ui/fonts/BricolageGrotesque-Bold.ttf" id="5_bricolage"]
+[ext_resource type="FontFile" uid="uid://c0516du3648ea" path="res://assets/ui/fonts/eclipse-foundry.ttf" id="5_eclipse"]
 
 [sub_resource type="Gradient" id="Gradient_awmck"]
 offsets = PackedFloat32Array(0, 0.55, 1)
@@ -42,8 +42,8 @@ script = ExtResource("1_dialogue")
 content_max_width = 900.0
 body_max_width = 840.0
 fade_text_cover = 200
-font_body = ExtResource("5_bricolage")
-font_speaker = ExtResource("5_bricolage")
+font_body = ExtResource("5_eclipse")
+font_speaker = ExtResource("5_eclipse")
 body_font_size = 18
 role_font_size = 12
 continue_font_size = 12
@@ -181,7 +181,7 @@ color = Color(0.169, 0.141, 0.094, 1)
 [node name="SpeakerLabel" type="Label" parent="DialogueRoot/ContentColumn/Content/VBox/BodyWrap/BodyVBox/NameTag/TagFace/TagRow" unique_id=504617868]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.169, 0.141, 0.094, 1)
-theme_override_fonts/font = ExtResource("5_bricolage")
+theme_override_fonts/font = ExtResource("5_eclipse")
 theme_override_font_sizes/font_size = 15
 text = "Mathew Deeb"
 
@@ -195,7 +195,7 @@ color = Color(0.169, 0.141, 0.094, 0.35)
 [node name="RoleLabel" type="Label" parent="DialogueRoot/ContentColumn/Content/VBox/BodyWrap/BodyVBox/NameTag/TagFace/TagRow" unique_id=1421105837]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.169, 0.141, 0.094, 0.7)
-theme_override_fonts/font = ExtResource("5_bricolage")
+theme_override_fonts/font = ExtResource("5_eclipse")
 theme_override_font_sizes/font_size = 12
 text = "DESIGNER · ENGINEER"
 
@@ -203,7 +203,7 @@ text = "DESIGNER · ENGINEER"
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("5_bricolage")
+theme_override_fonts/font = ExtResource("5_eclipse")
 theme_override_font_sizes/font_size = 18
 text = "
 
@@ -232,7 +232,7 @@ alignment = 2
 [node name="ContinueLabel" type="Label" parent="DialogueRoot/ContentColumn/Content/VBox/ContinueRow" unique_id=2028411998]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 0.72)
-theme_override_fonts/font = ExtResource("5_bricolage")
+theme_override_fonts/font = ExtResource("5_eclipse")
 theme_override_font_sizes/font_size = 12
 text = "CLOSE"
 
@@ -251,7 +251,7 @@ theme_type_variation = &"PromptKey"
 [node name="KeyLabel" type="Label" parent="DialogueRoot/ContentColumn/Content/VBox/ContinueRow/PromptKey" unique_id=1069904128]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.169, 0.141, 0.094, 1)
-theme_override_fonts/font = ExtResource("5_bricolage")
+theme_override_fonts/font = ExtResource("5_eclipse")
 theme_override_font_sizes/font_size = 11
 text = "E"
 horizontal_alignment = 1

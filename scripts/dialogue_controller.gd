@@ -236,9 +236,9 @@ func try_advance() -> void:
 
 func _setup_fonts() -> void:
 	if font_body == null:
-		font_body = load("res://assets/ui/fonts/Outfit-Regular.ttf") as Font
+		font_body = load("res://assets/ui/fonts/eclipse-foundry.ttf") as Font
 	if font_speaker == null:
-		font_speaker = load("res://assets/ui/fonts/BricolageGrotesque-Bold.ttf") as Font
+		font_speaker = load("res://assets/ui/fonts/eclipse-foundry.ttf") as Font
 	for label: Label in [_speaker_label, _role_label, _body_label, _continue_label]:
 		if label == _speaker_label and font_speaker:
 			label.add_theme_font_override("font", font_speaker)

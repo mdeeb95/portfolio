@@ -24,6 +24,7 @@ general/plane_material="res://addons/asset_placer/ui/plane_preview/plane_preview
 
 [autoload]
 
+BootGate="*res://scripts/boot_gate.gd"
 ResumeData="*res://scripts/resume_data.gd"
 Dialogue="*res://scenes/ui/dialogue_ui.tscn"
 GameUI="*res://scenes/ui/game_ui.tscn"

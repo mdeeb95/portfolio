@@ -1,5 +1,7 @@
 [gd_resource type="Theme" format=3 uid="uid://bul6h6mdtrpoq"]
 
+[ext_resource type="FontFile" uid="uid://c0516du3648ea" path="res://assets/ui/fonts/eclipse-foundry.ttf" id="1_eclipse"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_joystick_base"]
 bg_color = Color(0.059, 0.078, 0.118, 0.35)
 border_width_left = 2
@@ -22,27 +24,6 @@ shadow_color = Color(0, 0, 0, 0.25)
 shadow_size = 4
 shadow_offset = Vector2(0, 2)
 
-[sub_resource type="FontFile" id="FontFile_outfit"]
-cache/0/variation_coordinates = {}
-cache/0/face_index = 0
-cache/0/embolden = 0.0
-cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
-cache/0/spacing_top = 0
-cache/0/spacing_bottom = 0
-cache/0/spacing_space = 0
-cache/0/spacing_glyph = 0
-cache/0/baseline_offset = 0.0
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/10/0/ascent = 0.0
-cache/0/10/0/descent = 0.0
-cache/0/10/0/underline_position = 0.0
-cache/0/10/0/underline_thickness = 0.0
-cache/0/10/0/scale = 1.0
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_prompt_key"]
 bg_color = Color(1, 1, 1, 0.92)
 corner_radius_top_left = 6
@@ -62,14 +43,14 @@ border_width_bottom = 2
 border_color = Color(0.784, 0.518, 0.098, 1)
 
 [resource]
-default_font = SubResource("FontFile_outfit")
+default_font = ExtResource("1_eclipse")
 default_font_size = 16
 JoystickBase/base_type = &"Panel"
 JoystickBase/styles/panel = SubResource("StyleBoxFlat_joystick_base")
 JoystickKnob/base_type = &"Panel"
 JoystickKnob/styles/panel = SubResource("StyleBoxFlat_joystick_knob")
 Label/colors/font_color = Color(1, 1, 1, 1)
-Label/fonts/font = SubResource("FontFile_outfit")
+Label/fonts/font = ExtResource("1_eclipse")
 PromptKey/base_type = &"PanelContainer"
 PromptKey/styles/panel = SubResource("StyleBoxFlat_prompt_key")
 SpeechTagDepth/base_type = &"Panel"

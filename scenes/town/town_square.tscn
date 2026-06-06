@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://cnxi1r77yi104"]
 
+[ext_resource type="FontFile" uid="uid://c0516du3648ea" path="res://assets/ui/fonts/eclipse-foundry.ttf" id="font_eclipse"]
 [ext_resource type="Script" uid="uid://cdppwjsq8i466" path="res://scripts/interactable.gd" id="2_interact"]
 [ext_resource type="PackedScene" uid="uid://ckenneychar01" path="res://scenes/characters/kenney_character.tscn" id="3_character"]
 [ext_resource type="PackedScene" uid="uid://cin2y45cjjag" path="res://assets/environment/space_station/models/floor.fbx" id="4_4q3pq"]
@@ -48,11 +49,19 @@
 [ext_resource type="PackedScene" uid="uid://b0c3mqd2xdby5" path="res://assets/environment/space/satelliteDish_large.fbx" id="39_yhpfb"]
 [ext_resource type="PackedScene" uid="uid://babl8untpcadh" path="res://assets/environment/space_station/models/table-display.fbx" id="46_8psgo"]
 [ext_resource type="PackedScene" uid="uid://b8ixlq6tmi078" path="res://assets/environment/space_station/models/structure-barrier-high.fbx" id="47_vgn05"]
+[ext_resource type="PackedScene" uid="uid://bwe8xc0wqcyau" path="res://assets/environment/factory_kit/models/pipe-glass-large-bend.fbx" id="48_66qsf"]
 [ext_resource type="PackedScene" uid="uid://cm2xe74oowpk6" path="res://assets/environment/space_station/models/pipe-bend.fbx" id="48_k7seo"]
+[ext_resource type="PackedScene" uid="uid://dij11n5e2vjfn" path="res://assets/environment/factory_kit/models/pipe-glass-large-junction.fbx" id="49_66qsf"]
 [ext_resource type="PackedScene" uid="uid://dx5iwio4vlxn1" path="res://assets/environment/space_station/models/container-wide.fbx" id="49_d2dty"]
 [ext_resource type="PackedScene" uid="uid://dqspi5hdrc3bt" path="res://assets/environment/space_station/models/display-wall-wide.fbx" id="50_loal5"]
 [ext_resource type="PackedScene" uid="uid://d13klosyuix85" path="res://assets/environment/space_station/models/structure.fbx" id="51_d2dty"]
 [ext_resource type="PackedScene" uid="uid://dgt8pmrx036b7" path="res://assets/environment/space_station/models/container.fbx" id="53_8psgo"]
+[ext_resource type="PackedScene" uid="uid://d2ppq6wdcy4v6" path="res://assets/environment/space/machine_barrelLarge.fbx" id="54_7js5x"]
+[ext_resource type="PackedScene" uid="uid://ccj4vmqaaje10" path="res://assets/environment/space/hangar_smallA.fbx" id="55_qbmm8"]
+[ext_resource type="PackedScene" uid="uid://bggdb6on1ngx4" path="res://assets/environment/space/corridor_open.fbx" id="56_od34t"]
+[ext_resource type="PackedScene" uid="uid://be4exane5pmv8" path="res://assets/environment/space/satelliteDish_detailed.fbx" id="57_qbmm8"]
+[ext_resource type="PackedScene" uid="uid://deknhp680n0ne" path="res://assets/environment/factory_kit/models/crane.fbx" id="58_v2wjn"]
+[ext_resource type="PackedScene" uid="uid://clakqpopsmcat" path="res://assets/environment/factory_kit/models/crane-lift.fbx" id="59_vdioa"]
 
 [sub_resource type="BoxMesh" id="Mesh_ground"]
 size = Vector3(36, 0.4, 36)
@@ -63,8 +72,8 @@ albedo_color = Color(0.35, 0.42, 0.32, 1)
 [sub_resource type="BoxShape3D" id="Shape_ground"]
 size = Vector3(36, 0.4, 36)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_8psgo"]
-size = Vector3(4, 6, 4)
+[sub_resource type="BoxShape3D" id="BoxShape3D_66qsf"]
+size = Vector3(2.5, 3, 2.5)
 
 [sub_resource type="BoxMesh" id="Mesh_building"]
 size = Vector3(4, 3, 4)
@@ -72,25 +81,25 @@ size = Vector3(4, 3, 4)
 [sub_resource type="StandardMaterial3D" id="Mat_work"]
 albedo_color = Color(0.75, 0.25, 0.25, 1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_vgn05"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_psrwd"]
 size = Vector3(4, 6, 4)
 
 [sub_resource type="StandardMaterial3D" id="Mat_hobbies"]
 albedo_color = Color(0.25, 0.7, 0.35, 1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_onqj2"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_dmfyt"]
 size = Vector3(4, 6, 4)
 
 [sub_resource type="StandardMaterial3D" id="Mat_wins"]
 albedo_color = Color(0.85, 0.75, 0.2, 1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_7js5x"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_xvo3t"]
 size = Vector3(4, 6, 4)
 
 [sub_resource type="StandardMaterial3D" id="Mat_about"]
 albedo_color = Color(0.3, 0.45, 0.85, 1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_qbmm8"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_x3r3t"]
 size = Vector3(7, 5, 7)
 
 [sub_resource type="BoxMesh" id="Mesh_wall_ns"]
@@ -1308,17 +1317,57 @@ metadata/asset_placer_res_id = "uid://dfs1p2jc7lwgq"
 transform = Transform3D(2.5937426, 0, 0, 0, 2.5937426, 0, 0, 0, 2.5937426, 15.172845, 0, 14.671381)
 metadata/asset_placer_res_id = "uid://8oym1goa3sgx"
 
-[node name="structure-panel (1)2" parent="Environment/Decorations" unique_id=375863086 instance=ExtResource("34_k7seo")]
-transform = Transform3D(2.5937426, 0, 0, 0, 2.5937426, 0, 0, 0, 2.5937426, 8.891499, 0, 14.771009)
-metadata/asset_placer_res_id = "uid://8oym1goa3sgx"
+[node name="machine_wirelessCable2" parent="Environment/Decorations" unique_id=1941237585 instance=ExtResource("32_jucxq")]
+transform = Transform3D(5.559918, 0, 0, 0, 5.559918, 0, 0, 0, 5.559918, 0.7051964, 0, 23.698597)
+metadata/asset_placer_res_id = "uid://bcymckqcecw7e"
 
-[node name="structure" parent="Environment/Decorations" unique_id=505882824 instance=ExtResource("51_d2dty")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.906376, -9.536743e-07, 14.859775)
-metadata/asset_placer_res_id = "uid://d13klosyuix85"
+[node name="machine_generatorLarge2" parent="Environment/Decorations" unique_id=1130385512 instance=ExtResource("30_qkk60")]
+transform = Transform3D(1.21, 0, 0, 0, 1.21, 0, 0, 0, 1.21, -15.076231, 0, 10.873316)
+metadata/asset_placer_res_id = "uid://bdqohsr5i7pa8"
+
+[node name="machine_generatorLarge (1)" parent="Environment/Decorations" unique_id=987481091 instance=ExtResource("30_qkk60")]
+transform = Transform3D(1.21, 0, 0, 0, 1.21, 0, 0, 0, 1.21, -15.099503, 4.7683716e-07, 9.320014)
+metadata/asset_placer_res_id = "uid://bdqohsr5i7pa8"
+
+[node name="machine_generator2" parent="Environment/Decorations" unique_id=304054983 instance=ExtResource("33_uvjo1")]
+transform = Transform3D(1.7715611, 0, 0, 0, 1.7715611, 0, 0, 0, 1.7715611, -13.142203, 0, 10.151591)
+metadata/asset_placer_res_id = "uid://dkly8v5wa88dg"
+
+[node name="machine_wirelessCable (1)" parent="Environment/Decorations" unique_id=1186414452 instance=ExtResource("32_jucxq")]
+transform = Transform3D(3.5741022e-07, 0, 4.7340417, 0, 4.7340364, 0, -4.7340417, 0, 3.5741022e-07, -8.700582, 0, 0.11033344)
+metadata/asset_placer_res_id = "uid://bcymckqcecw7e"
+
+[node name="machine_barrelLarge" parent="Environment/Decorations" unique_id=535295657 instance=ExtResource("54_7js5x")]
+transform = Transform3D(1.7715611, 0, 0, 0, 1.7715611, 0, 0, 0, 1.7715611, -13.962455, 0, 8.660687)
+metadata/asset_placer_res_id = "uid://d2ppq6wdcy4v6"
+
+[node name="hangar_smallA" parent="Environment/Decorations" unique_id=1768029302 instance=ExtResource("55_qbmm8")]
+transform = Transform3D(0.63024706, 0, 0, 0, 0.63024706, 0, 0, 0, 0.63024706, -16.270397, 0, 6.279015)
+metadata/asset_placer_res_id = "uid://ccj4vmqaaje10"
+
+[node name="corridor_open" parent="Environment/Decorations" unique_id=1472371769 instance=ExtResource("56_od34t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.5331135, 0.4000001, 6.727908)
+metadata/asset_placer_res_id = "uid://bggdb6on1ngx4"
+
+[node name="satelliteDish_detailed" parent="Environment/Decorations" unique_id=939208411 instance=ExtResource("57_qbmm8")]
+transform = Transform3D(2.2974877, 0, 3.9793644, 0, 4.5949736, 0, -3.9793644, 0, 2.2974877, 6, 0.39999962, -8)
+metadata/asset_placer_res_id = "uid://be4exane5pmv8"
 
 [node name="structure (1)" parent="Environment/Decorations" unique_id=926691955 instance=ExtResource("51_d2dty")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.77383, -9.536743e-07, 14.823989)
 metadata/asset_placer_res_id = "uid://d13klosyuix85"
+
+[node name="pipe-glass-large-bend" type="Node3D" parent="Environment/Decorations" unique_id=1321436372 instance=ExtResource("48_66qsf")]
+transform = Transform3D(-5.9604645e-07, 0, -1.0000018, 0, 1, 0, 1.0000018, 0, -5.9604645e-07, -6.1295643, 0.19999981, 15.457384)
+metadata/asset_placer_res_id = "uid://bwe8xc0wqcyau"
+
+[node name="pipe-glass-large-junction" type="Node3D" parent="Environment/Decorations" unique_id=1291605224 instance=ExtResource("49_66qsf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14425313, 0.19999981, 14.473061)
+metadata/asset_placer_res_id = "uid://dij11n5e2vjfn"
+
+[node name="pipe-glass-large-bend (1)" type="Node3D" parent="Environment/Decorations" unique_id=1655503797 instance=ExtResource("48_66qsf")]
+transform = Transform3D(-1.0000008, 0, 2.7567148e-07, 0, 1, 0, -2.7567148e-07, 0, -1.0000008, 4.8247566, 0.19999981, 14.509003)
+metadata/asset_placer_res_id = "uid://bwe8xc0wqcyau"
 
 [node name="Structures" type="Node3D" parent="Environment" unique_id=865258361]
 
@@ -1615,8 +1664,8 @@ click_hitbox_size = Vector3(2.5, 3, 2.5)
 click_hitbox_center = Vector3(0, 1.5, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MathewDeeb" unique_id=433706470]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
-shape = SubResource("BoxShape3D_8psgo")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+shape = SubResource("BoxShape3D_66qsf")
 
 [node name="KenneyCharacter" parent="MathewDeeb" unique_id=184831738 instance=ExtResource("3_character")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
@@ -1626,6 +1675,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.05, 0)
 visible = false
 modulate = Color(0.85, 0.82, 0.72, 1)
 text = "CLICK MATHEW DEEB  ·  E"
+font = ExtResource("font_eclipse")
 font_size = 28
 outline_size = 5
 vertical_alignment = 2
@@ -1634,6 +1684,7 @@ vertical_alignment = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
 modulate = Color(1, 0.95, 0.8, 1)
 text = "Mathew Deeb"
+font = ExtResource("font_eclipse")
 font_size = 48
 outline_size = 8
 vertical_alignment = 2
@@ -1655,6 +1706,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.7499998, 0)
 visible = false
 modulate = Color(0.85, 0.82, 0.72, 1)
 text = "CLICK WORK  ·  E"
+font = ExtResource("font_eclipse")
 font_size = 22
 outline_size = 5
 vertical_alignment = 2
@@ -1667,12 +1719,13 @@ surface_material_override/0 = SubResource("Mat_work")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Zones/Work" unique_id=844007944]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
-shape = SubResource("BoxShape3D_vgn05")
+shape = SubResource("BoxShape3D_psrwd")
 
 [node name="Label3D" type="Label3D" parent="Zones/Work" unique_id=1460481138]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.2, 0)
 modulate = Color(0.75, 0.25, 0.25, 1)
 text = "Work"
+font = ExtResource("font_eclipse")
 font_size = 40
 outline_size = 6
 vertical_alignment = 2
@@ -1692,6 +1745,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.7499998, 0)
 visible = false
 modulate = Color(0.85, 0.82, 0.72, 1)
 text = "CLICK HOBBIES  ·  E"
+font = ExtResource("font_eclipse")
 font_size = 22
 outline_size = 5
 vertical_alignment = 2
@@ -1704,12 +1758,13 @@ surface_material_override/0 = SubResource("Mat_hobbies")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Zones/Hobbies" unique_id=15276740]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
-shape = SubResource("BoxShape3D_onqj2")
+shape = SubResource("BoxShape3D_dmfyt")
 
 [node name="Label3D" type="Label3D" parent="Zones/Hobbies" unique_id=1422513857]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.2, 0)
 modulate = Color(0.25, 0.7, 0.35, 1)
 text = "Hobbies"
+font = ExtResource("font_eclipse")
 font_size = 40
 outline_size = 6
 vertical_alignment = 2
@@ -1729,6 +1784,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.7499998, 0)
 visible = false
 modulate = Color(0.85, 0.82, 0.72, 1)
 text = "CLICK WINS  ·  E"
+font = ExtResource("font_eclipse")
 font_size = 22
 outline_size = 5
 vertical_alignment = 2
@@ -1741,12 +1797,13 @@ surface_material_override/0 = SubResource("Mat_wins")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Zones/Accomplishments" unique_id=489021232]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
-shape = SubResource("BoxShape3D_7js5x")
+shape = SubResource("BoxShape3D_xvo3t")
 
 [node name="Label3D" type="Label3D" parent="Zones/Accomplishments" unique_id=1749948985]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.2, 0)
 modulate = Color(0.85, 0.75, 0.2, 1)
 text = "Wins"
+font = ExtResource("font_eclipse")
 font_size = 40
 outline_size = 6
 vertical_alignment = 2
@@ -1768,6 +1825,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.7499998, 0)
 visible = false
 modulate = Color(0.85, 0.82, 0.72, 1)
 text = "CLICK ABOUT  ·  E"
+font = ExtResource("font_eclipse")
 font_size = 22
 outline_size = 5
 vertical_alignment = 2
@@ -1780,12 +1838,13 @@ surface_material_override/0 = SubResource("Mat_about")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Zones/About" unique_id=1459912318]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
-shape = SubResource("BoxShape3D_qbmm8")
+shape = SubResource("BoxShape3D_x3r3t")
 
 [node name="Label3D" type="Label3D" parent="Zones/About" unique_id=1471679941]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.2, 0)
 modulate = Color(0.3, 0.45, 0.85, 1)
 text = "About"
+font = ExtResource("font_eclipse")
 font_size = 40
 outline_size = 6
 vertical_alignment = 2
@@ -1853,7 +1912,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5926037, 0, 0.28959656)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.519674, 4.6396675, -47.37313)
 
 [node name="Ship" parent="SpaceShipPatrol3/Waypoints/Spawn" index="0"]
-transform = Transform3D(0.9995678, -0.0018879272, -0.029336378, 5.614416e-09, 0.9979357, -0.064221434, 0.029397063, 0.06419368, 0.9975044, 0, 0, 0)
+transform = Transform3D(0.9995678, -0.0018879262, -0.02933638, 5.614413e-09, 0.9979357, -0.0642214, 0.029397065, 0.06419364, 0.9975044, -2.1864128, -4.7863493, 74.34286)
 
 [node name="Exit" parent="SpaceShipPatrol3/Waypoints" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.107874, -0.64008904, 34.633465)
@@ -1875,7 +1934,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5926037, 0, 0.28959656)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.519674, 4.6396675, -47.37313)
 
 [node name="Ship" parent="SpaceShipPatrol4/Waypoints/Spawn" index="0"]
-transform = Transform3D(0.9995678, -0.0018879257, -0.029336354, 5.614416e-09, 0.9979357, -0.064221434, 0.029397039, 0.06419368, 0.9975044, 0, 0, 0)
+transform = Transform3D(0.9995678, -0.0018879262, -0.02933638, 5.614413e-09, 0.9979357, -0.0642214, 0.029397065, 0.06419364, 0.9975044, -2.186411, -4.7863493, 74.34286)
 
 [node name="Exit" parent="SpaceShipPatrol4/Waypoints" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.107874, -0.64008904, 34.633465)
@@ -1897,7 +1956,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5926037, 0, 0.28959656)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.519674, 4.6396675, -47.37313)
 
 [node name="Ship" parent="SpaceShipPatrol5/Waypoints/Spawn" index="0"]
-transform = Transform3D(0.8594459, 0.029170912, 0.5103937, 4.9883995e-09, 0.99837077, -0.057060637, -0.5112266, 0.049040534, 0.8580457, 0, 0, 0)
+transform = Transform3D(0.8594829, 0.029165212, 0.5103318, 4.9880304e-09, 0.998371, -0.05705642, -0.5111645, 0.04903902, 0.8580828, 47.22615, -5.2797565, 79.39401)
+visible = false
 
 [node name="Exit" parent="SpaceShipPatrol5/Waypoints" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.74583, -0.64008904, 32.020885)
@@ -1915,7 +1975,7 @@ spin_speed_min_deg = 80.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.311077, 20, -39.210304)
 
 [node name="Ship" parent="Asteroid/Waypoints/Spawn" index="0"]
-transform = Transform3D(0.22662486, 0.9738645, -0.015133731, -0.17458154, 0.055902846, 0.9830545, 0.95820785, -0.2201425, 0.18268774, -87.10836, 3.5011344, 36.31859)
+transform = Transform3D(0.10678762, 0.98605883, -0.12761077, 0.1196775, -0.14015885, -0.98286974, -0.9870531, 0.089686245, -0.13297628, -44.158348, 1.7748504, 18.411192)
 
 [node name="Exit" parent="Asteroid/Waypoints" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.20908, 24, 2.2832012)
@@ -1934,7 +1994,7 @@ spin_speed_min_deg = 80.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.311077, 20, -39.210304)
 
 [node name="Ship" parent="Asteroid2/Waypoints/Spawn" index="0"]
-transform = Transform3D(-0.20373613, -0.0001359433, 0.9790258, -0.14660996, -0.98871946, -0.03064695, 0.96798605, -0.14977883, 0.20141792, -99.52016, 4, 41.493507)
+transform = Transform3D(0.82758766, -0.031109132, 0.56047386, -0.0165686, -0.9993819, -0.03100579, 0.56109196, 0.01637374, -0.82759154, -99.52016, 4, 41.493507)
 visible = false
 
 [node name="Exit" parent="Asteroid2/Waypoints" index="1"]
@@ -1953,7 +2013,7 @@ spin_speed_min_deg = 80.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.875744, 20, -27.103481)
 
 [node name="Ship" parent="Asteroid3/Waypoints/Spawn" index="0"]
-transform = Transform3D(-0.118197165, -0.9340521, 0.33701035, 0.99264544, -0.102201514, 0.06488328, -0.026161395, 0.3422008, 0.9392626, 20.776917, 4, 57.90587)
+transform = Transform3D(0.010141166, -0.9414458, 0.33701184, 0.9973147, 0.033968847, 0.06488168, -0.07253049, 0.3354489, 0.9392622, 20.776917, 4, 57.90587)
 visible = false
 
 [node name="Exit" parent="Asteroid3/Waypoints" index="1"]
@@ -1972,7 +2032,7 @@ spin_speed_min_deg = 80.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.875744, 20, -27.103481)
 
 [node name="Ship" parent="Asteroid4/Waypoints/Spawn" index="0"]
-transform = Transform3D(-0.51688814, 0.66325456, 0.54122084, 0.80884814, 0.58543557, 0.055044387, -0.28034148, 0.46621728, -0.839077, 39.929863, 4.0609818, -61.90378)
+transform = Transform3D(0.84079045, -0.012016732, 0.5412272, -0.04968577, -0.9972469, 0.05504467, 0.53907573, -0.07317233, -0.8390728, 39.929863, 4.0609818, -61.90378)
 visible = false
 
 [node name="Exit" parent="Asteroid4/Waypoints" index="1"]
@@ -1996,10 +2056,82 @@ spin_speed_max_deg = 96.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.816751, 0.04871273, 1.2247319)
 
 [node name="Ship" parent="SpaceShipPatrol/Waypoints/Spawn" index="0"]
-transform = Transform3D(0.28720874, 0.937809, 0.1950013, 0.47076458, -0.31549406, 0.82392, 0.83420134, -0.14483732, -0.53209996, 0, 0, 0)
+transform = Transform3D(0.11899942, 0.538678, 0.8340655, 0.89668673, 0.30242413, -0.32325327, -0.42637098, 0.7863624, -0.44703704, 0, 0, 0)
 
 [node name="Exit" parent="SpaceShipPatrol/Waypoints" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.598179, 0.48221064, 1.1899456)
+
+[node name="wall-detail" parent="." unique_id=230997382 instance=ExtResource("19_5ccqi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0.40000057, -18)
+metadata/asset_placer_res_id = "uid://3tn0cn8grsvo"
+
+[node name="wall-detail (1)" parent="." unique_id=1219455413 instance=ExtResource("19_5ccqi")]
+transform = Transform3D(1.7136335e-07, 0, 1.0000005, 0, 1, 0, -1.0000005, 0, 1.7136335e-07, -18, 0.4000001, -4)
+metadata/asset_placer_res_id = "uid://3tn0cn8grsvo"
+
+[node name="wall-detail (2)" parent="." unique_id=1674682410 instance=ExtResource("19_5ccqi")]
+transform = Transform3D(1.7136335e-07, 0, 1.0000005, 0, 1, 0, -1.0000005, 0, 1.7136335e-07, -18, 0.40000057, -3)
+metadata/asset_placer_res_id = "uid://3tn0cn8grsvo"
+
+[node name="wall-detail (3)" parent="." unique_id=783543947 instance=ExtResource("19_5ccqi")]
+transform = Transform3D(1.7136335e-07, 0, 1.0000005, 0, 1, 0, -1.0000005, 0, 1.7136335e-07, -18, 0.4000001, -2)
+metadata/asset_placer_res_id = "uid://3tn0cn8grsvo"
+
+[node name="wall-detail (4)" parent="." unique_id=1597628046 instance=ExtResource("19_5ccqi")]
+transform = Transform3D(1.7136335e-07, 0, 1.0000005, 0, 1, 0, -1.0000005, 0, 1.7136335e-07, -18, 0.4000001, -1)
+metadata/asset_placer_res_id = "uid://3tn0cn8grsvo"
+
+[node name="wall-detail (5)" parent="." unique_id=882049481 instance=ExtResource("19_5ccqi")]
+transform = Transform3D(1.7136335e-07, 0, 1.0000005, 0, 1, 0, -1.0000005, 0, 1.7136335e-07, 18, 0.4000001, 5)
+metadata/asset_placer_res_id = "uid://3tn0cn8grsvo"
+
+[node name="wall-detail (6)" parent="." unique_id=1004535996 instance=ExtResource("19_5ccqi")]
+transform = Transform3D(1.7136335e-07, 0, 1.0000005, 0, 1, 0, -1.0000005, 0, 1.7136335e-07, 18, 0.4000001, 6)
+metadata/asset_placer_res_id = "uid://3tn0cn8grsvo"
+
+[node name="wall-detail (7)" parent="." unique_id=410543086 instance=ExtResource("19_5ccqi")]
+transform = Transform3D(1.7136335e-07, 0, 1.0000005, 0, 1, 0, -1.0000005, 0, 1.7136335e-07, 18, 0.39999962, 7)
+metadata/asset_placer_res_id = "uid://3tn0cn8grsvo"
+
+[node name="wall-detail (8)" parent="." unique_id=527376363 instance=ExtResource("19_5ccqi")]
+transform = Transform3D(1.7136335e-07, 0, 1.0000005, 0, 1, 0, -1.0000005, 0, 1.7136335e-07, 18, 0.40000057, 8)
+metadata/asset_placer_res_id = "uid://3tn0cn8grsvo"
+
+[node name="wall-detail (9)" parent="." unique_id=573188556 instance=ExtResource("19_5ccqi")]
+transform = Transform3D(1.7136335e-07, 0, 1.0000005, 0, 1, 0, -1.0000005, 0, 1.7136335e-07, 18, 0.40000057, 9)
+metadata/asset_placer_res_id = "uid://3tn0cn8grsvo"
+
+[node name="wall-detail (10)" parent="." unique_id=983900609 instance=ExtResource("19_5ccqi")]
+transform = Transform3D(1.7136335e-07, 0, 1.0000005, 0, 1, 0, -1.0000005, 0, 1.7136335e-07, 18, 0.39999962, 2)
+metadata/asset_placer_res_id = "uid://3tn0cn8grsvo"
+
+[node name="wall-detail (11)" parent="." unique_id=2025246663 instance=ExtResource("19_5ccqi")]
+transform = Transform3D(1.7136335e-07, 0, 1.0000005, 0, 1, 0, -1.0000005, 0, 1.7136335e-07, 18, 0.4000001, 1)
+metadata/asset_placer_res_id = "uid://3tn0cn8grsvo"
+
+[node name="wall-detail (12)" parent="." unique_id=45772695 instance=ExtResource("19_5ccqi")]
+transform = Transform3D(1.7136335e-07, 0, 1.0000005, 0, 1, 0, -1.0000005, 0, 1.7136335e-07, 18, 0.39999962, 0)
+metadata/asset_placer_res_id = "uid://3tn0cn8grsvo"
+
+[node name="wall-detail (13)" parent="." unique_id=1527029669 instance=ExtResource("19_5ccqi")]
+transform = Transform3D(1.7136335e-07, 0, 1.0000005, 0, 1, 0, -1.0000005, 0, 1.7136335e-07, 18, 0.4000001, -1)
+metadata/asset_placer_res_id = "uid://3tn0cn8grsvo"
+
+[node name="wall-detail (14)" parent="." unique_id=1772250658 instance=ExtResource("19_5ccqi")]
+transform = Transform3D(1.7136335e-07, 0, 1.0000005, 0, 1, 0, -1.0000005, 0, 1.7136335e-07, 18, 0.4000001, -3)
+metadata/asset_placer_res_id = "uid://3tn0cn8grsvo"
+
+[node name="crane" type="Node3D" parent="." unique_id=1159175941 instance=ExtResource("58_v2wjn")]
+transform = Transform3D(-0.23317344, 0, 0.9724352, 0, 1, 0, -0.9724352, 0, -0.23317344, 16.848354, 0.19999981, -10.013613)
+metadata/asset_placer_res_id = "uid://deknhp680n0ne"
+
+[node name="turret_double" type="Node3D" parent="." unique_id=187248253 instance=ExtResource("31_vvisg")]
+transform = Transform3D(3.2480233, 0, 2.7254143, 0, 4.239988, 0, -2.7254143, 0, 3.2480233, -4.280631, 0.19999981, -15.793165)
+metadata/asset_placer_res_id = "uid://be27evmgtpvqc"
+
+[node name="crane-lift" type="Node3D" parent="." unique_id=1362174316 instance=ExtResource("59_vdioa")]
+transform = Transform3D(0.7856783, 0, 0, 0, 0.7856783, 0, 0, 0, 0.7856783, 9.510169, 8.799996, -8.432515)
+metadata/asset_placer_res_id = "uid://clakqpopsmcat"
 
 [editable path="SpaceShipPatrol3"]
 [editable path="SpaceShipPatrol4"]
