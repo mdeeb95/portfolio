@@ -44,9 +44,9 @@ body_max_width = 840.0
 fade_text_cover = 200
 font_body = ExtResource("5_eclipse")
 font_speaker = ExtResource("5_eclipse")
-body_font_size = 18
-role_font_size = 12
-continue_font_size = 12
+body_font_size = 22
+role_font_size = 13
+continue_font_size = 14
 preview_in_editor = true
 preview_line = "
 

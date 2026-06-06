@@ -46,19 +46,19 @@ const FADE_MAX_VIEWPORT_RATIO := 0.88
 @export_group("Typography")
 @export var font_body: Font
 @export var font_speaker: Font
-@export var body_font_size: int = 19:
+@export var body_font_size: int = 22:
 	set(v):
 		body_font_size = v
 		_request_layout()
-@export var speaker_font_size: int = 15:
+@export var speaker_font_size: int = 18:
 	set(v):
 		speaker_font_size = v
 		_request_layout()
-@export var role_font_size: int = 10:
+@export var role_font_size: int = 13:
 	set(v):
 		role_font_size = v
 		_request_layout()
-@export var continue_font_size: int = 11:
+@export var continue_font_size: int = 14:
 	set(v):
 		continue_font_size = v
 		_request_layout()

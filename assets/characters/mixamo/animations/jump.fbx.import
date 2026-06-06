@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bmaw7n4tu4xdh"
-path="res://.godot/imported/jump.fbx-ed936682cdd2e745d7f075d492420585.scn"
+uid="uid://bqtynjx0wtb8s"
+path="res://.godot/imported/jump.fbx-8689ffb0c2ee3b05c7e8bd9ad0e697ea.scn"
 
 [deps]
 
-source_file="res://assets/characters/kenney/animations/jump.fbx"
-dest_files=["res://.godot/imported/jump.fbx-ed936682cdd2e745d7f075d492420585.scn"]
+source_file="res://assets/characters/mixamo/animations/jump.fbx"
+dest_files=["res://.godot/imported/jump.fbx-8689ffb0c2ee3b05c7e8bd9ad0e697ea.scn"]
 
 [params]
 
@@ -22,7 +22,7 @@ nodes/import_as_skeleton_bones=false
 nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
-meshes/generate_lods=false
+meshes/generate_lods=true
 meshes/create_shadow_meshes=true
 meshes/light_baking=1
 meshes/lightmap_texel_size=0.2

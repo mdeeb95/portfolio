@@ -14,7 +14,7 @@ https://mdeeb.dev
 2. Open this folder in Godot.
 3. Press **F5** to run.
 
-**Controls (desktop):** WASD move · Space jump · E or click to interact  
+**Controls (desktop):** WASD move · E or click to interact  
 **Controls (mobile):** Tap ground to move · Tap buildings or Mathew to talk
 
 ## Web export (manual)
@@ -56,7 +56,7 @@ data/resume.json In-game copy (work, hobbies, about, etc.)
 
 ## Assets
 
-Character models and animations from [Kenney Animated Characters Bundle](https://kenney.nl/assets) (CC0).
+Character model and skins from [Kenney Animated Characters Bundle](https://kenney.nl/assets) (CC0). Character animations (idle, walk, talk) from [Adobe Mixamo](https://www.mixamo.com), retargeted onto the Kenney rig in Mixamo and committed under `assets/characters/mixamo/` (per Mixamo's usage terms).
 
 Environment art from Kenney Space Station Kit (CC0). Models import at **2.5×** baked into each FBX (`nodes/root_scale=2.5` in `models/*.fbx.import`) so props match characters at any parent. Use [Godot Asset Placer](https://godotengine.org/asset-library/asset/4244) on `town_square.tscn` — Plane mode **Y = 0.2**, grid snap **2.5 m**. `Environment/Floor` etc. are optional folders for organization.
 

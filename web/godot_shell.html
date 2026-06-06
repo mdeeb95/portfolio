@@ -458,7 +458,10 @@ const engine = new Engine(GODOT_CONFIG);
 		boot.removeEventListener('pointerdown', onPointerDown);
 		ring.classList.remove('active');
 
-		// Tell Godot to unpause and come alive as the iris opens.
+		// Tell Godot the player entered, and where their finger was (normalized),
+		// so the in-game intro can place its colour spotlight at the same spot.
+		window.__deebEnterX = x / window.innerWidth;
+		window.__deebEnterY = y / window.innerHeight;
 		window.__deebStarted = true;
 
 		// Fade text/particles out, iris open from the finger.

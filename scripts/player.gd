@@ -2,10 +2,9 @@ extends CharacterBody3D
 
 const _CharacterStep = preload("res://scripts/character_step.gd")
 
-const WALK_SPEED := 6.5
-const TURN_SPEED := 18.0
-const GRAVITY := 20.0
-const JUMP_VELOCITY := 7.5
+const WALK_SPEED := 5.0
+const TURN_SPEED := 14.0
+const GRAVITY := 14.0
 const TAP_MOVE_STOP_DIST := 0.35
 
 @onready var model: Node3D = $Model
@@ -17,7 +16,6 @@ var _has_tap_target: bool = false
 
 
 func _physics_process(delta: float) -> void:
-	var just_jumped := false
 	if _is_movement_locked():
 		velocity.x = 0.0
 		velocity.z = 0.0
@@ -26,14 +24,11 @@ func _physics_process(delta: float) -> void:
 		else:
 			velocity.y -= GRAVITY * delta
 		move_and_slide()
-		_update_animation(false)
+		_update_animation()
 		return
 
 	if is_on_floor():
-		if Input.is_action_just_pressed("jump"):
-			velocity.y = JUMP_VELOCITY
-			just_jumped = true
-		elif velocity.y < 0.0:
+		if velocity.y < 0.0:
 			velocity.y = 0.0
 	else:
 		velocity.y -= GRAVITY * delta
@@ -74,7 +69,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	if not is_on_floor() and velocity.y <= 0.0:
 		apply_floor_snap()
-	_update_animation(just_jumped)
+	_update_animation()
 
 
 func set_tap_target(world_pos: Vector3) -> void:
@@ -83,11 +78,11 @@ func set_tap_target(world_pos: Vector3) -> void:
 	_has_tap_target = true
 
 
-func _update_animation(just_jumped: bool) -> void:
+func _update_animation() -> void:
 	if _animator == null:
 		return
 	var horizontal_speed := Vector2(velocity.x, velocity.z).length()
-	_animator.update_locomotion(horizontal_speed, is_on_floor(), just_jumped)
+	_animator.update_locomotion(horizontal_speed, is_on_floor())
 
 
 func _is_movement_locked() -> bool:

@@ -44,7 +44,7 @@ border_color = Color(0.784, 0.518, 0.098, 1)
 
 [resource]
 default_font = ExtResource("1_eclipse")
-default_font_size = 16
+default_font_size = 19
 JoystickBase/base_type = &"Panel"
 JoystickBase/styles/panel = SubResource("StyleBoxFlat_joystick_base")
 JoystickKnob/base_type = &"Panel"

@@ -24,11 +24,12 @@ general/plane_material="res://addons/asset_placer/ui/plane_preview/plane_preview
 
 [autoload]
 
-BootGate="*res://scripts/boot_gate.gd"
+FontSetup="*res://scripts/font_setup.gd"
 ResumeData="*res://scripts/resume_data.gd"
 Dialogue="*res://scenes/ui/dialogue_ui.tscn"
 GameUI="*res://scenes/ui/game_ui.tscn"
 DisplaySetup="*res://scripts/display_setup.gd"
+TutorialIntro="*res://scripts/tutorial_intro.gd"
 MCPScreenshot="*res://addons/godot_mcp/mcp_screenshot_service.gd"
 MCPInputService="*res://addons/godot_mcp/mcp_input_service.gd"
 MCPGameInspector="*res://addons/godot_mcp/mcp_game_inspector_service.gd"

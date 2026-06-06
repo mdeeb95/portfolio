@@ -66,7 +66,7 @@ After a green Actions run:
 - https://mdeeb.dev loads the game
 - https://www.mdeeb.dev redirects to apex
 - Mobile: tap to move, tap zones to interact
-- Desktop: WASD, Space, E / click
+- Desktop: WASD, E / click
 
 ## 6. Troubleshooting
 

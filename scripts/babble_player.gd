@@ -5,7 +5,7 @@ extends Node
 
 const BASE_HZ := 158.0
 const BLIP_DURATION := 0.055
-const BLIP_VOLUME := 0.5
+const BLIP_VOLUME := 0.1
 
 ## Stepped pitch feels more like old phoneme synthesis than smooth vibrato.
 const PITCH_STEPS: Array[float] = [0.88, 0.94, 1.0, 1.06, 1.12]
@@ -19,7 +19,7 @@ func _ready() -> void:
 	_stream = _make_blip_stream()
 	_player = AudioStreamPlayer.new()
 	_player.bus = &"Master"
-	_player.volume_db = -2.0
+	_player.volume_db = -10.0
 	_player.stream = _stream
 	add_child(_player)
 
