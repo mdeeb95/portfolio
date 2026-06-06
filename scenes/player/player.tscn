@@ -26,6 +26,7 @@ shape = SubResource("CapsuleShape3D_player")
 [node name="KenneyCharacter" parent="Model" instance=ExtResource("3_character")]
 
 [node name="SpringArm3D" type="SpringArm3D" parent="."]
+process_mode = 3
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 1.2, 0)
 spring_length = 11.0
 margin = 0.2
