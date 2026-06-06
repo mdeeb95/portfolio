@@ -1,9 +1,16 @@
 class_name VirtualJoystick
 extends Control
-## Floating thumbstick anywhere on screen. Skips capture when a tap targets an in-range interactable.
+## Floating thumbstick anywhere on screen. Claims every touch: dragging past
+## tap_slop moves the player; releasing without dragging is a tap that interacts
+## with whatever was under the press (so the player can always drag to move,
+## even right next to an interactable).
 
 @export var max_radius: float = 90.0
 @export var deadzone: float = 0.15
+## How far (px) a touch may move before it counts as a drag rather than a tap.
+## Below this, releasing the touch is treated as a tap (interact); above it, the
+## touch drives movement and never interacts.
+@export var tap_slop: float = 22.0
 ## When true, F5 in the editor shows the stick and maps left-click drag to movement.
 @export var simulate_mobile_in_editor: bool = true
 
@@ -15,6 +22,8 @@ var vector: Vector2 = Vector2.ZERO
 var _touch_index: int = -1
 var _using_mouse_sim: bool = false
 var _origin: Vector2 = Vector2.ZERO
+var _down_pos: Vector2 = Vector2.ZERO
+var _moved: bool = false
 var _active: bool = false
 
 
@@ -53,7 +62,7 @@ func _input(event: InputEvent) -> void:
 				_begin_stick(touch.position, touch.index)
 				get_viewport().set_input_as_handled()
 		elif touch.index == _touch_index:
-			_end_stick()
+			_release()
 			get_viewport().set_input_as_handled()
 	elif event is InputEventScreenDrag:
 		var drag := event as InputEventScreenDrag
@@ -72,7 +81,7 @@ func _handle_mouse_sim(event: InputEvent) -> void:
 			_using_mouse_sim = true
 			get_viewport().set_input_as_handled()
 		elif not mb.pressed and _using_mouse_sim:
-			_end_stick()
+			_release()
 			get_viewport().set_input_as_handled()
 	elif event is InputEventMouseMotion and _using_mouse_sim:
 		_update_stick(event.position)
@@ -86,15 +95,27 @@ func _should_capture_touch(screen_pos: Vector2) -> bool:
 func _begin_stick(screen_pos: Vector2, index: int) -> void:
 	_touch_index = index
 	_origin = screen_pos
+	_down_pos = screen_pos
+	_moved = false
 	_active = true
-	_place_ring(screen_pos)
+	# Ring is shown lazily once the touch becomes a drag (see _update_stick), so a
+	# tap-to-interact doesn't flash the stick.
 	_update_stick(screen_pos)
+
+
+## Release: a touch that never dragged past tap_slop counts as a tap and tries to
+## interact at the press point; otherwise it was movement and does nothing.
+func _release() -> void:
+	if _active and not _moved:
+		GameUI.try_tap_interact(_down_pos)
+	_end_stick()
 
 
 func _end_stick() -> void:
 	_touch_index = -1
 	_using_mouse_sim = false
 	_active = false
+	_moved = false
 	vector = Vector2.ZERO
 	_base.visible = false
 	_knob.visible = false
@@ -102,6 +123,14 @@ func _end_stick() -> void:
 
 func _update_stick(screen_pos: Vector2) -> void:
 	var delta := screen_pos - _origin
+	if not _moved:
+		if delta.length() <= tap_slop:
+			vector = Vector2.ZERO
+			return
+		# Crossed the threshold: this is a drag. Show the stick and start moving.
+		_moved = true
+		_place_ring(_origin)
+
 	var clamped := delta.limit_length(max_radius)
 	_knob.global_position = _origin + clamped - _knob.size * 0.5
 

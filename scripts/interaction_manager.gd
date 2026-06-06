@@ -109,6 +109,18 @@ func is_interactable_at_screen(screen_pos: Vector2) -> bool:
 	return target != null and _can_interact_with(target) and target.can_start_dialogue()
 
 
+## Called by the touch joystick on tap-release (a touch that did not drag).
+## Interacts only if the tap landed on an in-range interactable.
+func try_touch_interact(screen_pos: Vector2) -> bool:
+	if Dialogue.is_active or _interact_cooldown > 0.0:
+		return false
+	var target := _interactable_at_screen(screen_pos)
+	if target != null and _can_interact_with(target) and target.can_start_dialogue():
+		_start_interaction(target)
+		return true
+	return false
+
+
 func _interactable_from_ray(event: InputEvent) -> Interactable:
 	var pos := _screen_pos_from_event(event)
 	if pos.x < 0.0:
