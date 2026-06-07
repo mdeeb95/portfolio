@@ -1,21 +1,27 @@
 [gd_resource type="Environment" format=3 uid="uid://boa6fkdfx7nc7"]
 
-[ext_resource type="Texture2D" uid="uid://blepcuo4qbqvg" path="res://assets/environment/space_skybox/panorama.png" id="1_pano"]
+[ext_resource type="Shader" uid="uid://dkmeyxxqig5ox" path="res://shaders/space_milkyway_sky.gdshader" id="1_sky_shader"]
 
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_space"]
-panorama = ExtResource("1_pano")
-energy_multiplier = 1.4
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_space"]
+shader = ExtResource("1_sky_shader")
+shader_parameter/master_brightness = 1.0
+shader_parameter/nebula_drift_speed = 0.012
+shader_parameter/twinkle_speed = 2.2
+shader_parameter/twinkle_amount = 0.5
+shader_parameter/star_density = 1.0
+shader_parameter/meteor_rate = 2.0
+shader_parameter/band_tilt = -0.62000001966976
 
 [sub_resource type="Sky" id="Sky_wwwtyro"]
-sky_material = SubResource("PanoramaSkyMaterial_space")
+sky_material = SubResource("ShaderMaterial_space")
+process_mode = 1
+radiance_size = 1
 
 [resource]
 background_mode = 1
 sky = SubResource("Sky_wwwtyro")
 ambient_light_source = 3
 ambient_light_color = Color(1, 1, 1, 1)
-ambient_light_sky_contribution = 0.05
-ambient_light_energy = 0.05
 tonemap_mode = 4
 tonemap_white = 1.05
 ssao_enabled = true
