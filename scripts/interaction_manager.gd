@@ -187,8 +187,11 @@ func _is_interact_event(event: InputEvent) -> bool:
 		var mb := event as InputEventMouseButton
 		if not mb.pressed or mb.button_index != MOUSE_BUTTON_LEFT:
 			return false
+		# On mobile every touch also emits an emulated mouse button. Taps are handled
+		# by the joystick on release (so the player can drag from an interactable to
+		# move); acting on the emulated mouse press would interact instantly instead.
 		if GameUI.is_mobile_controls():
-			return is_interactable_at_screen(screen_pos)
+			return false
 		return true
 	if event is InputEventScreenTouch:
 		var touch := event as InputEventScreenTouch
