@@ -10,9 +10,12 @@ extends Node
 const BLEND_PARAM := "parameters/Move/blend_position"
 const TRANSITION_PARAM := "parameters/Transition/transition_request"
 
-## blend_position (= horizontal speed, m/s) at which the walk clip is full weight; idle sits at 0.
-## Matches the player's WALK_SPEED.
-const WALK_BLEND_POINT := 5.0
+## Locomotion speeds (m/s) — tune these in the inspector on the KenneyCharacter node (it's shared by
+## every character). The blend tree shows the walk pose at walk_speed and the run pose at run_speed
+## (idle at 0). The player reads them to scale movement: keyboard/tap-to-move = walk_speed; the
+## virtual joystick scales from a slow walk up to run_speed at full push.
+@export var walk_speed := 5.0
+@export var run_speed := 5.6
 ## Speeds below this (m/s) are treated as a full stop. move_and_slide() leaves tiny residual x/z
 ## velocity on slopes/contacts even when "stopped"; without a dead zone that blends a sliver of walk
 ## into idle — a "shuffle in place". (Mirrors the old controller's 0.25 threshold.)
@@ -28,6 +31,7 @@ const MIXAMO_CLIP := "mixamo_com"
 const ANIM_SOURCES := {
 	"idle": "res://assets/characters/mixamo/animations/idle.fbx",
 	"walk": "res://assets/characters/mixamo/animations/walking.fbx",
+	"run": "res://assets/characters/mixamo/animations/running.fbx",
 	"talk": "res://assets/characters/mixamo/animations/talking.fbx",
 }
 
@@ -136,33 +140,48 @@ func _ensure_blend_points() -> void:
 	var space := blend_tree.get_node(&"Move") as AnimationNodeBlendSpace1D
 	if space == null:
 		return
-	var idle_idx := -1
-	var walk_idx := -1
+	var has_idle := false
+	var has_walk := false
+	var has_run := false
 	for i: int in space.get_blend_point_count():
 		var point := space.get_blend_point_node(i) as AnimationNodeAnimation
 		if point == null:
 			continue
 		if point.animation == &"idle":
-			idle_idx = i
+			has_idle = true
 		elif point.animation == &"walk":
-			walk_idx = i
-	# Healthy config: exactly one idle + one walk. Force the idle point to sit at speed 0 so a
-	# stopped character (blend_position 0) is PURE idle — an idle point dragged off 0 otherwise
-	# blends a little walk into idle (the "shuffle in place"). The walk point stays tunable.
-	if idle_idx != -1 and walk_idx != -1 and space.get_blend_point_count() == 2:
-		if not is_equal_approx(space.get_blend_point_position(idle_idx), 0.0):
-			space.set_blend_point_position(idle_idx, 0.0)
-		return
-	# Anything else (missing / duplicate / reassigned points): rebuild the canonical pair.
-	for i: int in range(space.get_blend_point_count() - 1, -1, -1):
-		space.remove_blend_point(i)
-	var idle_node := AnimationNodeAnimation.new()
-	idle_node.animation = &"idle"
-	var walk_node := AnimationNodeAnimation.new()
-	walk_node.animation = &"walk"
-	space.add_blend_point(idle_node, 0.0)
-	space.add_blend_point(walk_node, WALK_BLEND_POINT)
-	push_warning("CharacterAnimator: locomotion blend points were invalid; rebuilt idle/walk.")
+			has_walk = true
+		elif point.animation == &"run":
+			has_run = true
+	# Rebuild the canonical idle/walk/run set if any are missing or there are stray points (a hand
+	# edit in the AnimationTree editor can drop/duplicate/reassign points, and pressing Play saves it).
+	if not (has_idle and has_walk and has_run) or space.get_blend_point_count() != 3:
+		for i: int in range(space.get_blend_point_count() - 1, -1, -1):
+			space.remove_blend_point(i)
+		var idle_node := AnimationNodeAnimation.new()
+		idle_node.animation = &"idle"
+		var walk_node := AnimationNodeAnimation.new()
+		walk_node.animation = &"walk"
+		var run_node := AnimationNodeAnimation.new()
+		run_node.animation = &"run"
+		space.add_blend_point(idle_node, 0.0)
+		space.add_blend_point(walk_node, walk_speed)
+		space.add_blend_point(run_node, run_speed)
+		push_warning("CharacterAnimator: rebuilt locomotion blend points (idle/walk/run).")
+	# Pin positions to the tunable speeds — the @export values are the single source of truth, so an
+	# editor drag can't break the mapping: idle stays at 0 (a clean stop), walk/run track the speeds.
+	for i: int in space.get_blend_point_count():
+		var point := space.get_blend_point_node(i) as AnimationNodeAnimation
+		if point == null:
+			continue
+		if point.animation == &"idle":
+			space.set_blend_point_position(i, 0.0)
+		elif point.animation == &"walk":
+			space.set_blend_point_position(i, walk_speed)
+		elif point.animation == &"run":
+			space.set_blend_point_position(i, run_speed)
+	space.min_space = 0.0
+	space.max_space = run_speed
 
 
 func _remap_animation_paths(animation: Animation) -> void:

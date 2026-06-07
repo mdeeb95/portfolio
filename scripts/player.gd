@@ -2,7 +2,8 @@ extends CharacterBody3D
 
 const _CharacterStep = preload("res://scripts/character_step.gd")
 
-const WALK_SPEED := 5.0
+# Movement speeds (walk_speed / run_speed, m/s) live on the KenneyCharacter (CharacterAnimator) so
+# the blend poses line up with movement; read them via _animator. Tune them there in the inspector.
 const TURN_SPEED := 14.0
 const GRAVITY := 14.0
 const TAP_MOVE_STOP_DIST := 0.35
@@ -35,18 +36,29 @@ func _physics_process(delta: float) -> void:
 
 	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_back")
 	var touch_dir := GameUI.get_move_vector()
+	var analog := false
 	if touch_dir.length_squared() > 0.01:
 		input_dir = touch_dir
+		analog = true
 		_has_tap_target = false
 	var cam_basis := spring_arm.global_transform.basis
 	var cam_forward := Vector3(-cam_basis.z.x, 0.0, -cam_basis.z.z).normalized()
 	var cam_right := Vector3(cam_basis.x.x, 0.0, cam_basis.x.z).normalized()
 	var direction := (cam_right * input_dir.x + cam_forward * -input_dir.y).normalized()
 
+	# Speeds come from the animator (tunable in the inspector); fall back to literals if absent.
+	var walk_v: float = _animator.walk_speed if _animator else 5.0
+	var run_v: float = _animator.run_speed if _animator else 8.0
+
 	if direction != Vector3.ZERO:
 		_has_tap_target = false
-		velocity.x = direction.x * WALK_SPEED
-		velocity.z = direction.z * WALK_SPEED
+		# Joystick push distance (0..1) scales speed from a slow walk up to run_speed. Keyboard is
+		# digital (magnitude ~1), so it moves at the steady walk_speed.
+		var move_speed := walk_v
+		if analog:
+			move_speed = minf(input_dir.length(), 1.0) * run_v
+		velocity.x = direction.x * move_speed
+		velocity.z = direction.z * move_speed
 		model.rotation.y = lerp_angle(model.rotation.y, atan2(direction.x, direction.z), TURN_SPEED * delta)
 	elif _has_tap_target:
 		var to_target := _tap_target - global_position
@@ -57,8 +69,8 @@ func _physics_process(delta: float) -> void:
 			velocity.z = 0.0
 		else:
 			direction = to_target.normalized()
-			velocity.x = direction.x * WALK_SPEED
-			velocity.z = direction.z * WALK_SPEED
+			velocity.x = direction.x * walk_v
+			velocity.z = direction.z * walk_v
 			model.rotation.y = lerp_angle(model.rotation.y, atan2(direction.x, direction.z), TURN_SPEED * delta)
 	else:
 		velocity.x = 0.0
