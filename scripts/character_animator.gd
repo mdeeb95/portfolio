@@ -1,27 +1,34 @@
 class_name CharacterAnimator
 extends Node
 
-enum State { IDLE, WALK, TALK }
+## Drives the Kenney character through an AnimationTree blend tree.
+## Locomotion is a BlendSpace1D ("Move": idle@0 → walk@WALK_SPEED) blended by horizontal
+## speed; the "talk" clip is swapped in via a Transition node. The blend tree and the baked
+## locomotion AnimationLibrary live in kenney_character.tscn (authored through Godot MCP).
 
-## Mixamo locomotion + talk clips retargeted onto the Kenney rig in Mixamo,
-## so each FBX shares the Kenney skeleton and a single clip named "mixamo_com".
+## AnimationTree parameter paths (pinned from the live tree in Godot 4.6).
+const BLEND_PARAM := "parameters/Move/blend_position"
+const TRANSITION_PARAM := "parameters/Transition/transition_request"
+
+## blend_position (= horizontal speed, m/s) at which the walk clip is full weight; idle sits at 0.
+## Matches the player's WALK_SPEED.
+const WALK_BLEND_POINT := 5.0
+## Speeds below this (m/s) are treated as a full stop. move_and_slide() leaves tiny residual x/z
+## velocity on slopes/contacts even when "stopped"; without a dead zone that blends a sliver of walk
+## into idle — a "shuffle in place". (Mirrors the old controller's 0.25 threshold.)
+const MOVE_THRESHOLD := 0.25
+## blend_position damping rate (frame-rate independent); higher = snappier idle<->walk easing.
+const BLEND_DAMP := 14.0
+
+## Mixamo locomotion + talk clips retargeted onto the Kenney rig in Mixamo, so each FBX shares
+## the Kenney skeleton and a single clip named "mixamo_com". These are baked into
+## res://assets/characters/kenney/locomotion_library.res and assigned to the AnimationPlayer in
+## the scene; this dict is only the runtime rebuild fallback (see _ensure_library).
 const MIXAMO_CLIP := "mixamo_com"
 const ANIM_SOURCES := {
-	"idle": {
-		"path": "res://assets/characters/mixamo/animations/idle.fbx",
-		"clip": MIXAMO_CLIP,
-		"loop": true,
-	},
-	"walk": {
-		"path": "res://assets/characters/mixamo/animations/walking.fbx",
-		"clip": MIXAMO_CLIP,
-		"loop": true,
-	},
-	"talk": {
-		"path": "res://assets/characters/mixamo/animations/talking.fbx",
-		"clip": MIXAMO_CLIP,
-		"loop": true,
-	},
+	"idle": "res://assets/characters/mixamo/animations/idle.fbx",
+	"walk": "res://assets/characters/mixamo/animations/walking.fbx",
+	"talk": "res://assets/characters/mixamo/animations/talking.fbx",
 }
 
 const SKIN_TEXTURE := preload("res://assets/characters/kenney/skins/business_male_a.png")
@@ -29,25 +36,14 @@ const MESH_NODE_NAME := "characterLargeMale"
 const ANIM_TRACK_PREFIX := "Root/Skeleton3D"
 const ANIM_TRACK_REMAP := "Root/Root/Skeleton3D"
 
-const MOVE_THRESHOLD := 0.25
-
-## Body speed (m/s) where the walk clip plays at 1×. Match to player WALK_SPEED for a
-## 1:1 start, then nudge in the editor. No speed cap — values above ~7 used to look
-## identical because of a removed 1.1 clamp, not because tuning stopped working.
-@export var walk_anim_match_speed := 5.0
-## Crossfade duration (seconds) when switching idle ↔ walk.
-@export var idle_walk_blend_time := 0.25
-
 ## Kenney FBX import scales an inner Root by 100 (~2.5 m). Scale outer Root to fit the 1.6 m capsule.
 @export var model_scale := Vector3(0.64, 0.64, 0.64)
 
 @onready var _animation_player: AnimationPlayer = $AnimationPlayer
+@onready var _tree: AnimationTree = $AnimationTree
 @onready var _model_root: Node3D = $Root
 
-var _current_state: State = State.IDLE
 var _talking: bool = false
-var _libraries_ready: bool = false
-var _last_horizontal_speed: float = 0.0
 
 
 func _enter_tree() -> void:
@@ -59,8 +55,15 @@ func _ready() -> void:
 	_apply_skin()
 	if Engine.is_editor_hint():
 		return
-	_build_animation_library()
-	_play_state(State.IDLE)
+	_ensure_library()
+	_ensure_blend_points()
+	# The grayscale intro pauses the world. Process the tree anyway so characters hold their idle
+	# pose during the pause instead of a rest-pose T-pose, and don't snap to idle when play begins.
+	_tree.process_mode = Node.PROCESS_MODE_ALWAYS
+	_tree.active = true
+	_tree.set(BLEND_PARAM, 0.0)
+	_tree.set(TRANSITION_PARAM, "move")
+	_tree.advance(0.0)
 
 
 func _apply_model_scale() -> void:
@@ -73,12 +76,16 @@ func set_talking(talking: bool) -> void:
 	if _talking == talking:
 		return
 	_talking = talking
-	_refresh_state(0.0, true)
+	_tree.set(TRANSITION_PARAM, "talk" if talking else "move")
 
 
-func update_locomotion(horizontal_speed: float, is_on_floor: bool) -> void:
-	_last_horizontal_speed = horizontal_speed
-	_refresh_state(horizontal_speed, is_on_floor)
+## Feed horizontal body speed (m/s) into the locomotion blend space. Sub-threshold speed snaps to a
+## clean idle, and the blend is damped so idle<->walk eases instead of popping.
+func update_locomotion(horizontal_speed: float, _is_on_floor: bool) -> void:
+	var target := 0.0 if horizontal_speed < MOVE_THRESHOLD else horizontal_speed
+	var current := float(_tree.get(BLEND_PARAM))
+	var weight := 1.0 - exp(-BLEND_DAMP * get_physics_process_delta_time())
+	_tree.set(BLEND_PARAM, lerpf(current, target, weight))
 
 
 func _apply_skin() -> void:
@@ -94,27 +101,68 @@ func _apply_skin() -> void:
 	mesh.material_override = material
 
 
-func _build_animation_library() -> void:
-	if _libraries_ready:
-		return
-
-	var library := AnimationLibrary.new()
-	_animation_player.add_animation_library("", library)
-
-	for anim_name: String in ANIM_SOURCES.keys():
-		var source: Dictionary = ANIM_SOURCES[anim_name]
-		var scene: PackedScene = load(source["path"] as String)
+## The locomotion library is normally baked into the scene's AnimationPlayer. Rebuild it at
+## runtime only if it's missing/incomplete (e.g. after a re-import) so the blend tree always has
+## its clips. Idempotent. Mirrors the bake: remap Mixamo→Kenney track paths + strip root motion.
+func _ensure_library() -> void:
+	var library: AnimationLibrary
+	if _animation_player.has_animation_library(""):
+		library = _animation_player.get_animation_library("")
+	else:
+		library = AnimationLibrary.new()
+		_animation_player.add_animation_library("", library)
+	for anim_name: String in ANIM_SOURCES:
+		if library.has_animation(anim_name):
+			continue
+		var scene: PackedScene = load(ANIM_SOURCES[anim_name] as String)
 		var instance := scene.instantiate()
 		var source_player := instance.find_child("AnimationPlayer", true, false) as AnimationPlayer
-		var clip_name: String = source["clip"] as String
-		var animation := source_player.get_animation(clip_name).duplicate()
-		animation.loop_mode = Animation.LOOP_LINEAR if source["loop"] else Animation.LOOP_NONE
+		var animation := source_player.get_animation(MIXAMO_CLIP).duplicate()
+		animation.loop_mode = Animation.LOOP_LINEAR
 		_remap_animation_paths(animation)
 		_remove_root_motion(animation)
 		library.add_animation(anim_name, animation)
 		instance.free()
 
-	_libraries_ready = true
+
+## The locomotion BlendSpace1D is easy to corrupt by hand in the AnimationTree editor — a deleted
+## or re-assigned point makes every character play one clip (the "idle characters walk in place"
+## bug). Self-heal: if the idle↔walk pair is missing, rebuild the canonical idle@0 / walk points at
+## runtime. A valid idle+walk setup is left alone, so point positions stay tunable in the editor.
+func _ensure_blend_points() -> void:
+	var blend_tree := _tree.tree_root as AnimationNodeBlendTree
+	if blend_tree == null:
+		return
+	var space := blend_tree.get_node(&"Move") as AnimationNodeBlendSpace1D
+	if space == null:
+		return
+	var idle_idx := -1
+	var walk_idx := -1
+	for i: int in space.get_blend_point_count():
+		var point := space.get_blend_point_node(i) as AnimationNodeAnimation
+		if point == null:
+			continue
+		if point.animation == &"idle":
+			idle_idx = i
+		elif point.animation == &"walk":
+			walk_idx = i
+	# Healthy config: exactly one idle + one walk. Force the idle point to sit at speed 0 so a
+	# stopped character (blend_position 0) is PURE idle — an idle point dragged off 0 otherwise
+	# blends a little walk into idle (the "shuffle in place"). The walk point stays tunable.
+	if idle_idx != -1 and walk_idx != -1 and space.get_blend_point_count() == 2:
+		if not is_equal_approx(space.get_blend_point_position(idle_idx), 0.0):
+			space.set_blend_point_position(idle_idx, 0.0)
+		return
+	# Anything else (missing / duplicate / reassigned points): rebuild the canonical pair.
+	for i: int in range(space.get_blend_point_count() - 1, -1, -1):
+		space.remove_blend_point(i)
+	var idle_node := AnimationNodeAnimation.new()
+	idle_node.animation = &"idle"
+	var walk_node := AnimationNodeAnimation.new()
+	walk_node.animation = &"walk"
+	space.add_blend_point(idle_node, 0.0)
+	space.add_blend_point(walk_node, WALK_BLEND_POINT)
+	push_warning("CharacterAnimator: locomotion blend points were invalid; rebuilt idle/walk.")
 
 
 func _remap_animation_paths(animation: Animation) -> void:
@@ -127,60 +175,10 @@ func _remap_animation_paths(animation: Animation) -> void:
 			)
 
 
-## Mixamo clips retargeted onto Kenney still key HipsCtrl translation. Under the
-## inner 100× Root that reads as world-space drift and a loop snap — strip it so
-## movement comes only from CharacterBody3D velocity (in-place locomotion).
+## Mixamo clips retargeted onto Kenney still key HipsCtrl translation. Under the inner 100× Root
+## that reads as world-space drift and a loop snap — strip it so movement comes only from
+## CharacterBody3D velocity (in-place locomotion).
 func _remove_root_motion(animation: Animation) -> void:
 	for track_idx: int in range(animation.get_track_count() - 1, -1, -1):
 		if animation.track_get_type(track_idx) == Animation.TYPE_POSITION_3D:
 			animation.remove_track(track_idx)
-
-
-func _refresh_state(horizontal_speed: float, is_on_floor: bool) -> void:
-	var next_state := _pick_state(horizontal_speed, is_on_floor)
-	if next_state != _current_state:
-		_play_state(next_state)
-	elif next_state == State.WALK:
-		_apply_walk_speed_scale()
-
-
-func _pick_state(horizontal_speed: float, _is_on_floor: bool) -> State:
-	if _talking:
-		return State.TALK
-	if horizontal_speed > MOVE_THRESHOLD:
-		return State.WALK
-	return State.IDLE
-
-
-func _play_state(state: State) -> void:
-	var prev_anim := _animation_player.current_animation
-	_current_state = state
-	var anim_name := _state_to_animation(state)
-	if prev_anim != anim_name:
-		_animation_player.play(anim_name, _locomotion_blend_time(prev_anim, anim_name))
-	if state == State.WALK:
-		_apply_walk_speed_scale()
-	else:
-		_animation_player.speed_scale = 1.0
-
-
-func _apply_walk_speed_scale() -> void:
-	var move_speed := maxf(_last_horizontal_speed, MOVE_THRESHOLD)
-	_animation_player.speed_scale = walk_anim_match_speed / move_speed
-
-
-func _locomotion_blend_time(from_anim: String, to_anim: String) -> float:
-	var locomotion := ["idle", "walk"]
-	if from_anim in locomotion and to_anim in locomotion:
-		return idle_walk_blend_time
-	return 0.0
-
-
-func _state_to_animation(state: State) -> String:
-	match state:
-		State.WALK:
-			return "walk"
-		State.TALK:
-			return "talk"
-		_:
-			return "idle"

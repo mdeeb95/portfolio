@@ -1,12 +1,62 @@
-[gd_scene load_steps=3 format=3 uid="uid://ckenneychar01"]
+[gd_scene format=3 uid="uid://ckenneychar01"]
 
 [ext_resource type="PackedScene" uid="uid://cy7073gaagjrx" path="res://assets/characters/kenney/models/character_large.fbx" id="1_model"]
-[ext_resource type="Script" path="res://scripts/character_animator.gd" id="2_animator"]
+[ext_resource type="Script" uid="uid://cnjj2cy6hcj2f" path="res://scripts/character_animator.gd" id="2_animator"]
+[ext_resource type="AnimationLibrary" uid="uid://be42jt4sbolag" path="res://assets/characters/kenney/locomotion_library.res" id="3_1uay3"]
 
-[node name="KenneyCharacter" type="Node3D"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1uay3"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sjgcd"]
+animation = &"walk"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_wow8k"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_1uay3")
+blend_point_0/pos = 0.0
+blend_point_1/node = SubResource("AnimationNodeAnimation_sjgcd")
+blend_point_1/pos = 5.0
+min_space = 0.0
+max_space = 5.0
+snap = 0.05
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_s8vp2"]
+animation = &"talk"
+
+[sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_jqdkt"]
+xfade_time = 0.2
+input_0/name = "move"
+input_0/auto_advance = false
+input_0/break_loop_at_end = false
+input_0/reset = true
+input_1/name = "talk"
+input_1/auto_advance = false
+input_1/break_loop_at_end = false
+input_1/reset = true
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_6gcs4"]
+graph_offset = Vector2(-252.63722, -167.25574)
+nodes/output/position = Vector2(240, 13.333333)
+nodes/Move/node = SubResource("AnimationNodeBlendSpace1D_wow8k")
+nodes/Move/position = Vector2(-213.33333, -93.333336)
+nodes/Talk/node = SubResource("AnimationNodeAnimation_s8vp2")
+nodes/Talk/position = Vector2(-200, 146.66667)
+nodes/Transition/node = SubResource("AnimationNodeTransition_jqdkt")
+nodes/Transition/position = Vector2(26.666666, -26.666666)
+node_connections = [&"output", 0, &"Transition", &"Transition", 0, &"Move", &"Transition", 1, &"Talk"]
+
+[node name="KenneyCharacter" type="Node3D" unique_id=1612277700]
 script = ExtResource("2_animator")
 
-[node name="Root" parent="." instance=ExtResource("1_model")]
+[node name="Root" parent="." unique_id=762887953 instance=ExtResource("1_model")]
 transform = Transform3D(0.64, 0, 0, 0, 0.64, 0, 0, 0, 0.64, 0, 0, 0)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1129279803]
+libraries/ = ExtResource("3_1uay3")
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=1499154214]
+tree_root = SubResource("AnimationNodeBlendTree_6gcs4")
+anim_player = NodePath("../AnimationPlayer")
+parameters/Move/blend_position = 0.0
+parameters/Transition/current_state = "move"
+parameters/Transition/transition_request = ""
+parameters/Transition/current_index = 0
