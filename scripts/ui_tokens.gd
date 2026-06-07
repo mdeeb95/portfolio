@@ -18,6 +18,28 @@ const PROMPT_UNFOCUS := Color(0.85, 0.82, 0.72, 1.0)
 
 const THEME_PATH := "res://assets/ui/portfolio_theme.tres"
 
+## UI is authored against this base; on much smaller windows it renders tiny.
+const DESIGN_WIDTH := 1280.0
+const DESIGN_HEIGHT := 720.0
+const LARGE_FONT_SCALE := 2.2
+const SMALL_VIEWPORT_RATIO := 0.7
+
+
+## Touch devices, or a window small/portrait enough that 1280x720 UI renders tiny.
+static func use_large_fonts() -> bool:
+	if Engine.is_editor_hint():
+		return false
+	if DisplayServer.is_touchscreen_available():
+		return true
+	var win := DisplayServer.window_get_size()
+	if win.x <= 0 or win.y <= 0:
+		return false
+	return minf(win.x / DESIGN_WIDTH, win.y / DESIGN_HEIGHT) < SMALL_VIEWPORT_RATIO
+
+
+static func font_scale() -> float:
+	return LARGE_FONT_SCALE if use_large_fonts() else 1.0
+
 
 static func get_theme() -> Theme:
 	return load(THEME_PATH) as Theme

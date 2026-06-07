@@ -9,8 +9,13 @@ extends Control
 @export var deadzone: float = 0.15
 ## How far (px) a touch may move before it counts as a drag rather than a tap.
 ## Below this, releasing the touch is treated as a tap (interact); above it, the
-## touch drives movement and never interacts.
-@export var tap_slop: float = 22.0
+## touch drives movement and never interacts. High-DPI phones jitter a few px on a
+## "stationary" tap, so this is generous.
+@export var tap_slop: float = 30.0
+## A touch released within this many ms still counts as a tap (interact) even if it
+## jittered past tap_slop, as long as it settled back near the press point. Covers
+## quick taps on mobile browsers that briefly register as drags.
+@export var quick_tap_ms: int = 220
 ## When true, F5 in the editor shows the stick and maps left-click drag to movement.
 @export var simulate_mobile_in_editor: bool = true
 
@@ -23,6 +28,8 @@ var _touch_index: int = -1
 var _using_mouse_sim: bool = false
 var _origin: Vector2 = Vector2.ZERO
 var _down_pos: Vector2 = Vector2.ZERO
+var _last_pos: Vector2 = Vector2.ZERO
+var _down_time_ms: int = 0
 var _moved: bool = false
 var _active: bool = false
 
@@ -96,6 +103,8 @@ func _begin_stick(screen_pos: Vector2, index: int) -> void:
 	_touch_index = index
 	_origin = screen_pos
 	_down_pos = screen_pos
+	_last_pos = screen_pos
+	_down_time_ms = Time.get_ticks_msec()
 	_moved = false
 	_active = true
 	# Ring is shown lazily once the touch becomes a drag (see _update_stick), so a
@@ -104,11 +113,20 @@ func _begin_stick(screen_pos: Vector2, index: int) -> void:
 
 
 ## Release: a touch that never dragged past tap_slop counts as a tap and tries to
-## interact at the press point; otherwise it was movement and does nothing.
+## interact at the press point. A quick touch that jittered but settled back near the
+## press point also counts (mobile browsers can report a tap as a tiny drag).
 func _release() -> void:
-	if _active and not _moved:
+	if _active and _is_tap():
 		GameUI.try_tap_interact(_down_pos)
 	_end_stick()
+
+
+func _is_tap() -> bool:
+	if not _moved:
+		return true
+	var brief := Time.get_ticks_msec() - _down_time_ms <= quick_tap_ms
+	var settled := (_last_pos - _down_pos).length() <= tap_slop * 2.0
+	return brief and settled
 
 
 func _end_stick() -> void:
@@ -122,6 +140,7 @@ func _end_stick() -> void:
 
 
 func _update_stick(screen_pos: Vector2) -> void:
+	_last_pos = screen_pos
 	var delta := screen_pos - _origin
 	if not _moved:
 		if delta.length() <= tap_slop:

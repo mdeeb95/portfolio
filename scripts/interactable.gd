@@ -46,6 +46,8 @@ func _ready() -> void:
 	collision_mask = 2
 	_update_label()
 	_setup_assist_label()
+	_apply_label_scale()
+	_setup_label_overlay()
 	if _assist_label:
 		_assist_label.visible = false
 	_character_model = find_child("KenneyCharacter", true, false) as Node3D
@@ -116,6 +118,28 @@ func _setup_assist_label() -> void:
 		_name_label.vertical_alignment = VerticalAlignment.VERTICAL_ALIGNMENT_BOTTOM
 		_assist_label.vertical_alignment = VerticalAlignment.VERTICAL_ALIGNMENT_BOTTOM
 		_assist_label.position = _name_label.position + Vector3(0, -0.45, 0)
+
+
+## Draw the floating callouts on top of world geometry so structures never occlude them.
+func _setup_label_overlay() -> void:
+	for label: Label3D in [_name_label, _assist_label]:
+		if label == null:
+			continue
+		label.no_depth_test = true
+		label.render_priority = 1
+		label.outline_render_priority = 0
+
+
+func _apply_label_scale() -> void:
+	var s := UITokens.font_scale()
+	if is_equal_approx(s, 1.0):
+		return
+	if _name_label:
+		_name_label.font_size = roundi(_name_label.font_size * s)
+		_name_label.outline_size = roundi(_name_label.outline_size * s)
+	if _assist_label:
+		_assist_label.font_size = roundi(_assist_label.font_size * s)
+		_assist_label.outline_size = roundi(_assist_label.outline_size * s)
 
 
 func _get_assist_text() -> String:

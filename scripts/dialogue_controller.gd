@@ -483,10 +483,14 @@ func _apply_responsive_layout() -> void:
 
 	_resize_name_tag()
 	_update_body_wrap_height()
-	_speaker_label.add_theme_font_size_override("font_size", speaker_font_size + (6 if compact else 0))
-	_role_label.add_theme_font_size_override("font_size", role_font_size)
-	_body_label.add_theme_font_size_override("font_size", body_font_size + (7 if compact else 0))
-	_continue_label.add_theme_font_size_override("font_size", continue_font_size)
+	var fscale := UITokens.font_scale()
+	# The dialogue box reads better a touch larger than the world labels on mobile.
+	if fscale > 1.0:
+		fscale *= 1.25
+	_speaker_label.add_theme_font_size_override("font_size", roundi(speaker_font_size * fscale))
+	_role_label.add_theme_font_size_override("font_size", roundi(role_font_size * fscale))
+	_body_label.add_theme_font_size_override("font_size", roundi(body_font_size * fscale))
+	_continue_label.add_theme_font_size_override("font_size", roundi(continue_font_size * fscale))
 	_sync_fade_to_content()
 
 

@@ -21,11 +21,22 @@ body {
 	color: white;
 	background-color: black;
 	overflow: hidden;
+	overscroll-behavior: none;
 	touch-action: none;
+	/* iOS: stop long-press callout/magnifier, text selection and the gray tap flash. */
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	user-select: none;
+	-webkit-tap-highlight-color: transparent;
 }
 
 #canvas {
 	display: block;
+	touch-action: none;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	user-select: none;
+	-webkit-tap-highlight-color: transparent;
 }
 
 #canvas:focus {
