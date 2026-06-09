@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/station_floor.gd" id="script_floor"]
+
+[node name="StationFloor" type="Node3D"]
+script = ExtResource("script_floor")
+
+[node name="Tiles" type="MultiMeshInstance3D" parent="."]
+
+[node name="FloorBody" type="StaticBody3D" parent="."]
+collision_layer = 1
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FloorBody"]

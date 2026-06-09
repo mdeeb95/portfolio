@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/station_wall_run.gd" id="script_wall_run"]
+
+[node name="StationWallRun" type="Node3D"]
+script = ExtResource("script_wall_run")
+
+[node name="Segments" type="MultiMeshInstance3D" parent="."]

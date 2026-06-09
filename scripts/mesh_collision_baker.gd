@@ -36,6 +36,8 @@ func _bake_node(node: Node) -> void:
 
 
 func _bake_prop(prop: Node3D) -> void:
+	if prop is PhysicsBody3D:
+		return # dynamic props (e.g. PhysicsLetter) manage their own collision
 	if prop.get_node_or_null("DecoCollision") != null:
 		return
 	var meshes: Array[MeshInstance3D] = []

@@ -1,0 +1,164 @@
+[gd_scene load_steps=17 format=3]
+
+[ext_resource type="Script" path="res://scripts/wall_torch.gd" id="1_script"]
+[ext_resource type="Shader" path="res://shaders/wall_torch_glow.gdshader" id="2_glow"]
+[ext_resource type="Shader" path="res://shaders/wall_torch_flame.gdshader" id="3_flame"]
+[ext_resource type="Shader" path="res://shaders/wall_torch_halo.gdshader" id="4_halo"]
+
+[sub_resource type="StandardMaterial3D" id="Mat_mount"]
+albedo_color = Color(0.42, 0.45, 0.5, 1)
+metallic = 0.55
+roughness = 0.45
+
+[sub_resource type="BoxMesh" id="Mesh_plate"]
+material = SubResource("Mat_mount")
+size = Vector3(0.2, 0.3, 0.05)
+
+[sub_resource type="CylinderMesh" id="Mesh_arm"]
+material = SubResource("Mat_mount")
+top_radius = 0.022
+bottom_radius = 0.022
+height = 0.26
+radial_segments = 8
+rings = 0
+
+[sub_resource type="CylinderMesh" id="Mesh_bowl"]
+material = SubResource("Mat_mount")
+top_radius = 0.095
+bottom_radius = 0.045
+height = 0.11
+radial_segments = 12
+rings = 0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ember"]
+resource_local_to_scene = true
+shader = ExtResource("2_glow")
+shader_parameter/accent_color = Color(1, 0.62, 0.25, 1)
+shader_parameter/base_energy = 2.0
+shader_parameter/flicker_amount = 0.35
+shader_parameter/flicker_speed = 7.0
+
+[sub_resource type="CylinderMesh" id="Mesh_ember"]
+top_radius = 0.08
+bottom_radius = 0.08
+height = 0.02
+radial_segments = 12
+rings = 0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_flame"]
+resource_local_to_scene = true
+render_priority = 1
+shader = ExtResource("3_flame")
+shader_parameter/accent_color = Color(1, 0.62, 0.25, 1)
+shader_parameter/flame_height = 0.26
+shader_parameter/brightness = 2.2
+shader_parameter/flicker_amount = 0.35
+shader_parameter/flicker_speed = 7.0
+shader_parameter/band_count = 3.0
+shader_parameter/scroll_speed = 1.4
+shader_parameter/noise_strength = 0.22
+
+[sub_resource type="CylinderMesh" id="Mesh_flame"]
+top_radius = 0.015
+bottom_radius = 0.075
+height = 0.26
+radial_segments = 12
+rings = 1
+cap_top = false
+cap_bottom = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_halo"]
+resource_local_to_scene = true
+shader = ExtResource("4_halo")
+shader_parameter/accent_color = Color(1, 0.62, 0.25, 1)
+shader_parameter/brightness = 0.9
+shader_parameter/flicker_amount = 0.35
+shader_parameter/flicker_speed = 7.0
+
+[sub_resource type="QuadMesh" id="Mesh_halo"]
+size = Vector2(1, 1)
+
+[sub_resource type="Gradient" id="Gradient_sparks"]
+offsets = PackedFloat32Array(0, 0.2, 0.75, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0.7, 1, 1, 1, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sparks"]
+transparency = 1
+shading_mode = 0
+blend_mode = 1
+vertex_color_use_as_albedo = true
+disable_receive_shadows = true
+billboard_mode = 3
+billboard_keep_scale = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_sparks"]
+material = SubResource("StandardMaterial3D_sparks")
+size = Vector2(0.03, 0.03)
+
+[node name="WallTorchFlame" type="Node3D"]
+script = ExtResource("1_script")
+accent_color = Color(1, 0.62, 0.25, 1)
+light_energy = 1.4
+flicker_amount = 0.35
+flicker_speed = 7.0
+
+[node name="MountPlate" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.025)
+cast_shadow = 0
+mesh = SubResource("Mesh_plate")
+
+[node name="Arm" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.819152, -0.573576, 0, 0.573576, 0.819152, 0, 0.03, 0.09)
+cast_shadow = 0
+mesh = SubResource("Mesh_arm")
+
+[node name="Bowl" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.155, 0.16)
+cast_shadow = 0
+mesh = SubResource("Mesh_bowl")
+
+[node name="Ember" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0.16)
+material_override = SubResource("ShaderMaterial_ember")
+cast_shadow = 0
+mesh = SubResource("Mesh_ember")
+
+[node name="Flame" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.33, 0.16)
+material_override = SubResource("ShaderMaterial_flame")
+cast_shadow = 0
+mesh = SubResource("Mesh_flame")
+
+[node name="Sparks" type="CPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24, 0.16)
+cast_shadow = 0
+amount = 6
+lifetime = 1.4
+preprocess = 1.4
+mesh = SubResource("QuadMesh_sparks")
+emission_shape = 1
+emission_sphere_radius = 0.06
+direction = Vector3(0, 1, 0)
+spread = 12.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 0.2
+initial_velocity_max = 0.45
+color = Color(1, 0.62, 0.25, 1)
+color_ramp = SubResource("Gradient_sparks")
+
+[node name="Halo" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.32, 0.2)
+material_override = SubResource("ShaderMaterial_halo")
+cast_shadow = 0
+mesh = SubResource("Mesh_halo")
+
+[node name="Light" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.34, 0.32)
+light_color = Color(1, 0.62, 0.25, 1)
+light_energy = 1.4
+light_specular = 0.6
+distance_fade_enabled = true
+distance_fade_begin = 18.0
+distance_fade_length = 6.0
+omni_range = 4.5
+omni_attenuation = 1.2

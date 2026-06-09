@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://076m72qt4irk"]
+
+[ext_resource type="FontFile" uid="uid://cxo7trub48yey" path="res://assets/ui/fonts/BricolageGrotesque-Bold.ttf" id="font_letter"]
+[ext_resource type="Script" uid="uid://lshxebhnl06l" path="res://scripts/physics_letter.gd" id="script_letter"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_letter"]
+friction = 0.9
+bounce = 0.05
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_letter"]
+albedo_color = Color(0.909804, 0.721569, 0.294118, 1)
+metallic = 0.2
+roughness = 0.45
+
+[sub_resource type="TextMesh" id="TextMesh_letter"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_letter")
+text = "D"
+font = ExtResource("font_letter")
+font_size = 127
+pixel_size = 0.014
+curve_step = 0.3
+depth = 0.3
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_letter"]
+resource_local_to_scene = true
+size = Vector3(0.977594, 1.176, 0.3)
+
+[node name="PhysicsLetter" type="RigidBody3D" unique_id=355744095]
+collision_layer = 4
+collision_mask = 5
+mass = 2.5
+physics_material_override = SubResource("PhysicsMaterial_letter")
+gravity_scale = 1.4
+linear_damp = 0.2
+angular_damp = 2.5
+script = ExtResource("script_letter")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2027253055]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.588, 0)
+mesh = SubResource("TextMesh_letter")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1234691229]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.588, 0)
+shape = SubResource("BoxShape3D_letter")

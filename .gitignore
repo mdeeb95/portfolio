@@ -19,3 +19,6 @@ addons/godot_mcp/
 # Local Cursor MCP config (paths are machine-specific)
 .cursor/mcp.json
 .preview/
+
+# Local Claude Code state (skills symlink is machine-specific)
+.claude/

@@ -10,7 +10,7 @@ height = 1.6
 
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 collision_layer = 2
-collision_mask = 1
+collision_mask = 5
 floor_stop_on_slope = true
 floor_max_angle = 0.872665
 floor_snap_length = 0.22

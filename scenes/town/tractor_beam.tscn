@@ -1,0 +1,106 @@
+[gd_scene load_steps=12 format=3]
+
+[ext_resource type="Script" path="res://scripts/tractor_beam.gd" id="1_script"]
+[ext_resource type="Shader" path="res://shaders/tractor_beam.gdshader" id="2_beam"]
+[ext_resource type="Shader" path="res://shaders/tractor_beam_ground_glow.gdshader" id="3_glow"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_beam"]
+resource_local_to_scene = true
+render_priority = 1
+shader = ExtResource("2_beam")
+shader_parameter/beam_color = Color(0.247, 0.839, 1, 1)
+shader_parameter/beam_height = 2.1
+shader_parameter/brightness = 2.0
+shader_parameter/intensity_mul = 1.0
+shader_parameter/band_count = 6.0
+shader_parameter/scroll_speed = 0.9
+shader_parameter/bottom_fade = 0.12
+shader_parameter/top_fade = 0.18
+shader_parameter/noise_strength = 0.12
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_beam"]
+top_radius = 0.55
+bottom_radius = 0.38
+height = 2.1
+radial_segments = 24
+rings = 1
+cap_top = false
+cap_bottom = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_glow"]
+resource_local_to_scene = true
+shader = ExtResource("3_glow")
+shader_parameter/beam_color = Color(0.247, 0.839, 1, 1)
+shader_parameter/brightness = 1.2
+shader_parameter/intensity_mul = 1.0
+shader_parameter/swirl_speed = 0.25
+shader_parameter/swirl_strength = 0.35
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_glow"]
+size = Vector2(1.8, 1.8)
+
+[sub_resource type="Gradient" id="Gradient_motes"]
+offsets = PackedFloat32Array(0, 0.2, 0.75, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0.7, 1, 1, 1, 0)
+
+[sub_resource type="Curve" id="Curve_motes"]
+_data = [Vector2(0, 0.6), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.2), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_motes"]
+transparency = 1
+shading_mode = 0
+blend_mode = 1
+vertex_color_use_as_albedo = true
+disable_receive_shadows = true
+billboard_mode = 3
+billboard_keep_scale = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_motes"]
+material = SubResource("StandardMaterial3D_motes")
+size = Vector2(0.08, 0.08)
+
+[node name="TractorBeam" type="Node3D"]
+script = ExtResource("1_script")
+
+[node name="BeamMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05, 0)
+material_override = SubResource("ShaderMaterial_beam")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_beam")
+
+[node name="Motes" type="CPUParticles3D" parent="."]
+cast_shadow = 0
+amount = 24
+lifetime = 2.2
+preprocess = 2.0
+mesh = SubResource("QuadMesh_motes")
+emission_shape = 6
+emission_ring_axis = Vector3(0, 1, 0)
+emission_ring_height = 0.1
+emission_ring_radius = 0.3
+emission_ring_inner_radius = 0.12
+direction = Vector3(0, 1, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 0.75
+initial_velocity_max = 1.15
+tangential_accel_min = 0.15
+tangential_accel_max = 0.35
+scale_amount_curve = SubResource("Curve_motes")
+color = Color(0.247, 0.839, 1, 1)
+color_ramp = SubResource("Gradient_motes")
+
+[node name="GroundGlow" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.025, 0)
+material_override = SubResource("ShaderMaterial_glow")
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_glow")
+
+[node name="BeamLight" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.945, 0)
+light_color = Color(0.247, 0.839, 1, 1)
+light_energy = 1.6
+light_specular = 1.0
+omni_range = 5.5
+omni_attenuation = 1.0

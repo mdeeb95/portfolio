@@ -1,0 +1,91 @@
+[gd_scene load_steps=11 format=3]
+
+[ext_resource type="Script" path="res://scripts/wall_torch.gd" id="1_script"]
+[ext_resource type="Shader" path="res://shaders/wall_torch_glow.gdshader" id="2_glow"]
+[ext_resource type="Shader" path="res://shaders/wall_torch_halo.gdshader" id="3_halo"]
+
+[sub_resource type="StandardMaterial3D" id="Mat_mount"]
+albedo_color = Color(0.42, 0.45, 0.5, 1)
+metallic = 0.55
+roughness = 0.45
+
+[sub_resource type="StandardMaterial3D" id="Mat_trim"]
+albedo_color = Color(0.84, 0.86, 0.9, 1)
+metallic = 0.2
+roughness = 0.5
+
+[sub_resource type="BoxMesh" id="Mesh_rail"]
+material = SubResource("Mat_mount")
+size = Vector3(0.78, 0.07, 0.03)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bar"]
+resource_local_to_scene = true
+shader = ExtResource("2_glow")
+shader_parameter/accent_color = Color(1, 0.93, 0.8, 1)
+shader_parameter/base_energy = 1.6
+shader_parameter/flicker_amount = 0.06
+shader_parameter/flicker_speed = 1.2
+
+[sub_resource type="BoxMesh" id="Mesh_bar"]
+size = Vector3(0.7, 0.075, 0.06)
+
+[sub_resource type="BoxMesh" id="Mesh_cap"]
+material = SubResource("Mat_trim")
+size = Vector3(0.07, 0.11, 0.08)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_halo"]
+resource_local_to_scene = true
+shader = ExtResource("3_halo")
+shader_parameter/accent_color = Color(1, 0.93, 0.8, 1)
+shader_parameter/brightness = 0.7
+shader_parameter/flicker_amount = 0.06
+shader_parameter/flicker_speed = 1.2
+
+[sub_resource type="QuadMesh" id="Mesh_halo"]
+size = Vector2(1.6, 0.8)
+
+[node name="WallTorchBar" type="Node3D"]
+script = ExtResource("1_script")
+accent_color = Color(1, 0.93, 0.8, 1)
+light_energy = 1.1
+light_range = 5.0
+flicker_amount = 0.06
+flicker_speed = 1.2
+
+[node name="Rail" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.015)
+cast_shadow = 0
+mesh = SubResource("Mesh_rail")
+
+[node name="Bar" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.05)
+material_override = SubResource("ShaderMaterial_bar")
+cast_shadow = 0
+mesh = SubResource("Mesh_bar")
+
+[node name="CapLeft" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.375, 0, 0.045)
+cast_shadow = 0
+mesh = SubResource("Mesh_cap")
+
+[node name="CapRight" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.375, 0, 0.045)
+cast_shadow = 0
+mesh = SubResource("Mesh_cap")
+
+[node name="Halo" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.12)
+material_override = SubResource("ShaderMaterial_halo")
+cast_shadow = 0
+mesh = SubResource("Mesh_halo")
+
+[node name="Light" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.4)
+light_color = Color(1, 0.93, 0.8, 1)
+light_energy = 1.1
+light_specular = 0.6
+distance_fade_enabled = true
+distance_fade_begin = 18.0
+distance_fade_length = 6.0
+omni_range = 5.0
+omni_attenuation = 1.2

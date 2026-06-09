@@ -7,6 +7,8 @@ const _CharacterStep = preload("res://scripts/character_step.gd")
 const TURN_SPEED := 14.0
 const GRAVITY := 14.0
 const TAP_MOVE_STOP_DIST := 0.35
+## Impulse-per-second applied to RigidBody3D props per m/s of approach speed (N·s/m).
+const PROP_PUSH_STRENGTH := 10.0
 
 @onready var model: Node3D = $Model
 @onready var spring_arm: SpringArm3D = $SpringArm3D
@@ -78,7 +80,11 @@ func _physics_process(delta: float) -> void:
 
 	if is_on_floor():
 		_CharacterStep.try_step_up(self)
+	# move_and_slide() slides velocity along contacts, zeroing the into-contact
+	# component — capture it first so _push_props sees the real approach speed.
+	var pre_slide_velocity := velocity
 	move_and_slide()
+	_push_props(pre_slide_velocity, delta)
 	if not is_on_floor() and velocity.y <= 0.0:
 		apply_floor_snap()
 	_update_animation()
@@ -95,6 +101,27 @@ func _update_animation() -> void:
 		return
 	var horizontal_speed := Vector2(velocity.x, velocity.z).length()
 	_animator.update_locomotion(horizontal_speed, is_on_floor())
+
+
+func _push_props(pre_slide_velocity: Vector3, delta: float) -> void:
+	for i in get_slide_collision_count():
+		var col := get_slide_collision(i)
+		var body := col.get_collider() as RigidBody3D
+		if body == null:
+			continue
+		if body.linear_velocity.length_squared() > 36.0:
+			continue # already flying (>6 m/s); don't keep pumping energy in
+		var push_dir := -col.get_normal()
+		push_dir.y = maxf(push_dir.y, 0.0)
+		if push_dir.length_squared() < 0.001:
+			continue
+		push_dir = push_dir.normalized()
+		var approach := clampf(pre_slide_velocity.dot(push_dir), 0.0, 9.0)
+		if approach < 0.1:
+			continue
+		# Impulse at the contact point (offset from the body origin) so the hit
+		# lands above the prop's center of mass and it tumbles instead of sliding.
+		body.apply_impulse(push_dir * approach * PROP_PUSH_STRENGTH * delta, col.get_position() - body.global_position)
 
 
 func _is_movement_locked() -> bool:
