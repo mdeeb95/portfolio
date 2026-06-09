@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dfmrprgpwf4qc"]
+
+[ext_resource type="Script" uid="uid://cxvm14jy3jslk" path="res://scripts/turret_scanner.gd" id="1_script"]
+[ext_resource type="PackedScene" uid="uid://be27evmgtpvqc" path="res://assets/environment/space/turret_double.fbx" id="2_model"]
+
+[node name="TurretDoubleScanning" type="Node3D" unique_id=41336356]
+script = ExtResource("1_script")
+
+[node name="turret_double" parent="." unique_id=708838351 instance=ExtResource("2_model")]
