@@ -5,7 +5,7 @@ extends Control
 ## with whatever was under the press (so the player can always drag to move,
 ## even right next to an interactable).
 
-@export var max_radius: float = 90.0
+@export var max_radius: float = 140.0
 @export var deadzone: float = 0.15
 ## How far (px) a touch may move before it counts as a drag rather than a tap.
 ## Below this, releasing the touch is treated as a tap (interact); above it, the

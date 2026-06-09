@@ -101,14 +101,14 @@ static func _fallback_prompt_key() -> StyleBoxFlat:
 static func _fallback_joystick_base() -> StyleBoxFlat:
 	var s := StyleBoxFlat.new()
 	s.bg_color = Color(0.059, 0.078, 0.118, 0.35)
-	s.set_corner_radius_all(90)
+	s.set_corner_radius_all(140)
 	return s
 
 
 static func _fallback_joystick_knob() -> StyleBoxFlat:
 	var s := StyleBoxFlat.new()
 	s.bg_color = Color(MUSTARD_HI.r, MUSTARD_HI.g, MUSTARD_HI.b, 0.58)
-	s.set_corner_radius_all(28)
+	s.set_corner_radius_all(42)
 	return s
 
 

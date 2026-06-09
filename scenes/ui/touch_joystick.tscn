@@ -15,15 +15,15 @@ script = ExtResource("1_stick")
 [node name="Base" type="Panel" parent="."]
 visible = false
 layout_mode = 0
-offset_right = 180.0
-offset_bottom = 180.0
+offset_right = 280.0
+offset_bottom = 280.0
 mouse_filter = 2
 theme_type_variation = &"JoystickBase"
 
 [node name="Knob" type="Panel" parent="."]
 visible = false
 layout_mode = 0
-offset_right = 56.0
-offset_bottom = 56.0
+offset_right = 84.0
+offset_bottom = 84.0
 mouse_filter = 2
 theme_type_variation = &"JoystickKnob"
