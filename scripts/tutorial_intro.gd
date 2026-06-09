@@ -77,6 +77,7 @@ func _enter(uv: Vector2) -> void:
 	# (keeps in-editor F5 testing fast). On web we wait out the iris first.
 	if not _is_web:
 		_armed = true
+	Analytics.track("game_started", Analytics.tech_props())
 
 func _process(delta: float) -> void:
 	# Web: wait for the shell to report the player entered + where their finger was.
@@ -131,4 +132,5 @@ func _dismiss() -> void:
 	if _dismissing:
 		return
 	_dismissing = true
+	Analytics.track("first_move", {})
 	get_tree().paused = false  # world comes alive; colour spreads from the spotlight

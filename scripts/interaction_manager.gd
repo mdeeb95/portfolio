@@ -69,6 +69,7 @@ func _on_dialogue_ended() -> void:
 func _on_dialogue_completed_fully() -> void:
 	if _dialogue_target:
 		_dialogue_target.mark_dialogue_completed()
+		Analytics.track("dialogue_completed", {"zone": _dialogue_target.zone_key, "name": _dialogue_target.display_name})
 
 
 func _update_focus() -> void:
@@ -89,6 +90,7 @@ func _update_focus() -> void:
 		_focused = best
 		if _focused:
 			_focused.set_focused(true)
+			Analytics.track_once("zone_visited", _focused.zone_key, {"zone": _focused.zone_key, "name": _focused.display_name})
 
 
 func _can_interact_with(target: Interactable) -> bool:
@@ -102,6 +104,7 @@ func _start_interaction(target: Interactable) -> void:
 	target.set_dialogue_active(true)
 	var pages := ResumeData.get_dialogue_pages(target.zone_key)
 	Dialogue.start_dialogue(pages)
+	Analytics.track("dialogue_opened", {"zone": target.zone_key, "name": target.display_name})
 
 
 func is_interactable_at_screen(screen_pos: Vector2) -> bool:

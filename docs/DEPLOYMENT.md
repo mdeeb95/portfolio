@@ -78,7 +78,13 @@ After a green Actions run:
 | Blank page in browser | Check browser console; if using threads later, add COOP/COEP via `public/_headers` |
 | MCP missing locally | Copy addon from your zip to `addons/godot_mcp/`; not required for production |
 
-## 7. Threaded export (future)
+## 7. Analytics worker
+
+Visitor analytics are collected by a separate Cloudflare Worker deployed from
+[`analytics-worker/`](../analytics-worker/) via [`deploy-worker.yml`](../.github/workflows/deploy-worker.yml)
+(independent of the Pages deploy). Setup, event reference, and query tooling: [ANALYTICS.md](ANALYTICS.md).
+
+## 8. Threaded export (future)
 
 Current export uses `variant/thread_support=false` (no SharedArrayBuffer). To enable threads later:
 

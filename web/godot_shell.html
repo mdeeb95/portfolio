@@ -209,6 +209,63 @@ body {
 			<div id="boot-notice"></div>
 		</div>
 
+		<script>
+// First-party analytics: one tiny sender shared by the boot shell (below) and
+// the game (via JavaScriptBridge -> window.__analytics.track). Fire-and-forget
+// beacons to /api/event; analytics must never break or delay the boot.
+window.__analytics = (function () {
+	function newId() {
+		return (window.crypto && crypto.randomUUID)
+			? crypto.randomUUID()
+			: String(Date.now()) + '-' + Math.random().toString(16).slice(2);
+	}
+	const sid = newId();
+	// Persistent visitor id so return visits are recognizable. localStorage can
+	// throw (private mode, blocked storage) — then vid stays '' and the visit
+	// is simply counted as new.
+	let vid = '';
+	try {
+		vid = localStorage.getItem('deeb_vid') || '';
+		if (!vid) {
+			vid = newId();
+			localStorage.setItem('deeb_vid', vid);
+		}
+	} catch (err) { /* ignore */ }
+	const t0 = performance.now();
+	let src = '';
+	try { src = new URLSearchParams(location.search).get('src') || ''; } catch (err) { /* ignore */ }
+
+	function track(name, props) {
+		try {
+			const body = JSON.stringify({ sid: sid, vid: vid, n: name, p: props || {}, src: src, ref: document.referrer || '' });
+			if (navigator.sendBeacon) {
+				navigator.sendBeacon('/api/event', body);
+			} else {
+				fetch('/api/event', { method: 'POST', body: body, keepalive: true }).catch(function () {});
+			}
+		} catch (err) { /* never break the boot */ }
+	}
+
+	// Session duration: ping on hide/pagehide (the combo that works on iOS
+	// Safari), throttled so a flurry of tab switches doesn't spam rows.
+	// Queries take MAX(t) per session.
+	let lastPing = -10;
+	function ping() {
+		const t = Math.round((performance.now() - t0) / 1000);
+		if (t - lastPing >= 5) {
+			lastPing = t;
+			track('session_ping', { t: t });
+		}
+	}
+	window.addEventListener('pagehide', ping);
+	document.addEventListener('visibilitychange', function () {
+		if (document.visibilityState === 'hidden') { ping(); }
+	});
+
+	track('page_load', { w: window.innerWidth, h: window.innerHeight, dpr: window.devicePixelRatio || 1 });
+	return { track: track, t0: t0 };
+}());
+		</script>
 		<script src="$GODOT_URL"></script>
 		<script>
 const GODOT_CONFIG = $GODOT_CONFIG;
@@ -258,6 +315,7 @@ const engine = new Engine(GODOT_CONFIG);
 		swarm = createSwarm(fx);
 	} catch (err) {
 		console.warn('Swarm disabled:', err);
+		window.__analytics.track('boot_error', { msg: 'swarm_disabled', fatal: false });
 	}
 
 	function createSwarm(canvas) {
@@ -411,12 +469,15 @@ const engine = new Engine(GODOT_CONFIG);
 	let holdX = 0;
 	let holdY = 0;
 	let holding = false;
+	let readyAt = 0;
 
 	function enterReady() {
 		if (phase !== 'loading') { return; }
 		phase = 'ready';
 		boot.classList.add('ready');
 		boot.addEventListener('pointerdown', onPointerDown);
+		readyAt = performance.now();
+		window.__analytics.track('boot_ready', { load_ms: Math.round(readyAt - window.__analytics.t0) });
 	}
 
 	function setRingPos(x, y) {
@@ -474,6 +535,7 @@ const engine = new Engine(GODOT_CONFIG);
 		window.__deebEnterX = x / window.innerWidth;
 		window.__deebEnterY = y / window.innerHeight;
 		window.__deebStarted = true;
+		window.__analytics.track('enter_completed', { wait_ms: Math.round(performance.now() - readyAt) });
 
 		// Fade text/particles out, iris open from the finger.
 		boot.classList.add('fade-text');
@@ -528,6 +590,7 @@ const engine = new Engine(GODOT_CONFIG);
 
 	function displayFailureNotice(err) {
 		console.error(err);
+		window.__analytics.track('boot_error', { msg: String((err && err.message) || err).slice(0, 200), fatal: true });
 		if (err instanceof Error) {
 			showNotice(err.message);
 		} else if (typeof err === 'string') {

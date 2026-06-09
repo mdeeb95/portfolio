@@ -22,3 +22,7 @@ addons/godot_mcp/
 
 # Local Claude Code state (skills symlink is machine-specific)
 .claude/
+
+# Local Cloudflare credentials/config (analytics worker)
+analytics-worker/.env
+.wrangler/

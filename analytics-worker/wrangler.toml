@@ -1,0 +1,13 @@
+name = "portfolio-analytics"
+main = "src/index.js"
+compatibility_date = "2026-05-01"
+workers_dev = false
+
+routes = [
+  { pattern = "mdeeb.dev/api/*", zone_name = "mdeeb.dev" }
+]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "portfolio_analytics"
+database_id = "301e6c2c-9d16-4507-8979-996ed6cffcc7"
