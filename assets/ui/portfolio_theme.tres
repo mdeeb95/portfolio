@@ -24,6 +24,51 @@ shadow_color = Color(0, 0, 0, 0.25)
 shadow_size = 4
 shadow_offset = Vector2(0, 2)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mute_normal"]
+bg_color = Color(0.059, 0.078, 0.118, 0.78)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.784, 0.518, 0.098, 0.9)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+shadow_color = Color(0, 0, 0, 0.25)
+shadow_size = 4
+shadow_offset = Vector2(0, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mute_hover"]
+bg_color = Color(0.099, 0.128, 0.178, 0.85)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.945, 0.753, 0.396, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+shadow_color = Color(0, 0, 0, 0.25)
+shadow_size = 4
+shadow_offset = Vector2(0, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mute_pressed"]
+bg_color = Color(0.89, 0.678, 0.282, 0.95)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.604, 0.396, 0.063, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+shadow_color = Color(0, 0, 0, 0.18)
+shadow_size = 2
+shadow_offset = Vector2(0, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_prompt_key"]
 bg_color = Color(1, 1, 1, 0.92)
 corner_radius_top_left = 6
@@ -51,6 +96,17 @@ JoystickKnob/base_type = &"Panel"
 JoystickKnob/styles/panel = SubResource("StyleBoxFlat_joystick_knob")
 Label/colors/font_color = Color(1, 1, 1, 1)
 Label/fonts/font = ExtResource("1_eclipse")
+MuteButton/base_type = &"Button"
+MuteButton/colors/font_color = Color(1, 1, 1, 1)
+MuteButton/colors/font_hover_color = Color(1, 1, 1, 1)
+MuteButton/colors/font_hover_pressed_color = Color(0.169, 0.141, 0.094, 1)
+MuteButton/colors/font_pressed_color = Color(0.169, 0.141, 0.094, 1)
+MuteButton/font_sizes/font_size = 34
+MuteButton/styles/focus = SubResource("StyleBoxFlat_mute_normal")
+MuteButton/styles/hover = SubResource("StyleBoxFlat_mute_hover")
+MuteButton/styles/hover_pressed = SubResource("StyleBoxFlat_mute_pressed")
+MuteButton/styles/normal = SubResource("StyleBoxFlat_mute_normal")
+MuteButton/styles/pressed = SubResource("StyleBoxFlat_mute_pressed")
 PromptKey/base_type = &"PanelContainer"
 PromptKey/styles/panel = SubResource("StyleBoxFlat_prompt_key")
 SpeechTagDepth/base_type = &"Panel"

@@ -1,16 +1,27 @@
 extends CanvasLayer
 
 @onready var _joystick: VirtualJoystick = $TouchJoystick
+@onready var _mute_button: Button = $MuteButton
 
 
 func _ready() -> void:
 	_apply_portfolio_theme()
+	if _mute_button:
+		_mute_button.toggled.connect(_on_mute_toggled)
+
+
+func _on_mute_toggled(muted: bool) -> void:
+	AudioServer.set_bus_mute(AudioServer.get_bus_index(&"Master"), muted)
+	_mute_button.text = "UNMUTE" if muted else "MUTE"
 
 
 func _apply_portfolio_theme() -> void:
 	var portfolio_theme := UITokens.get_theme()
-	if portfolio_theme and _joystick:
-		_joystick.theme = portfolio_theme
+	if portfolio_theme:
+		if _joystick:
+			_joystick.theme = portfolio_theme
+		if _mute_button:
+			_mute_button.theme = portfolio_theme
 	if _joystick == null:
 		return
 	var base := _joystick.get_node_or_null("Base") as Panel
@@ -31,10 +42,14 @@ func is_mobile_controls() -> bool:
 	return _joystick != null and _joystick.visible
 
 
-func blocks_joystick_at(_screen_pos: Vector2) -> bool:
+func blocks_joystick_at(screen_pos: Vector2) -> bool:
 	# The joystick now claims every touch so a drag can always move; interaction
-	# happens on tap-release (see try_tap_interact). Only dialogue blocks the stick.
-	return Dialogue.is_active
+	# happens on tap-release (see try_tap_interact). Only dialogue and on-screen
+	# buttons (mute) block the stick so their taps reach the GUI.
+	if Dialogue.is_active:
+		return true
+	return _mute_button != null and _mute_button.visible \
+			and _mute_button.get_global_rect().has_point(screen_pos)
 
 
 ## Fired by the joystick when a touch is released without dragging. Returns true

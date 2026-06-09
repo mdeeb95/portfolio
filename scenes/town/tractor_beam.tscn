@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3]
+[gd_scene load_steps=13 format=3]
 
 [ext_resource type="Script" path="res://scripts/tractor_beam.gd" id="1_script"]
 [ext_resource type="Shader" path="res://shaders/tractor_beam.gdshader" id="2_beam"]
 [ext_resource type="Shader" path="res://shaders/tractor_beam_ground_glow.gdshader" id="3_glow"]
+[ext_resource type="AudioStream" path="res://assets/audio/spaceEngineLow_000.ogg" id="4_hum"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_beam"]
 resource_local_to_scene = true
@@ -104,3 +105,10 @@ light_energy = 1.6
 light_specular = 1.0
 omni_range = 5.5
 omni_attenuation = 1.0
+
+[node name="HumPlayer" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+stream = ExtResource("4_hum")
+pitch_scale = 1.35
+unit_size = 3.5
+max_distance = 20.0

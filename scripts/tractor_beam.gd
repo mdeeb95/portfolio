@@ -25,10 +25,17 @@ extends Node3D
 ## Animate the pulse while editing the scene (no F5 required).
 @export var preview_in_editor: bool = true
 
+@export_group("Sound")
+## Beam hum loudness (dB). The hum holds a steady tone — deliberately NOT
+## tied to the visual pulse, which sounded like an alarm — and only dims
+## (slow fade, no wobble) while the beam's prop is knocked off.
+@export_range(-40.0, 6.0, 0.5) var hum_volume_db: float = -18.0
+
 @onready var _beam_mesh: MeshInstance3D = $BeamMesh
 @onready var _ground_glow: MeshInstance3D = $GroundGlow
 @onready var _motes: CPUParticles3D = $Motes
 @onready var _light: OmniLight3D = $BeamLight
+@onready var _hum: AudioStreamPlayer3D = get_node_or_null("HumPlayer")
 
 var _time: float = 0.0
 var _hold_mul: float = 1.0
@@ -38,6 +45,12 @@ var _burst: float = 0.0
 
 func _ready() -> void:
 	_apply_params()
+	if not Engine.is_editor_hint() and _hum:
+		var stream := _hum.stream as AudioStreamOggVorbis
+		if stream:
+			stream.loop = true
+		# Random start offset so the two beams in town never phase-lock.
+		_hum.play(randf() * (stream.get_length() if stream else 0.0))
 
 
 ## Dim the beam while it has nothing to hold (a FloatingProp got knocked off).
@@ -61,6 +74,8 @@ func _process(delta: float) -> void:
 	var mul: float = pulse * _hold_mul * (1.0 + _burst)
 	if _light:
 		_light.light_energy = light_energy * mul
+	if not Engine.is_editor_hint() and _hum:
+		_hum.volume_db = hum_volume_db + linear_to_db(maxf(_hold_mul, 0.05))
 	_set_shader_param_both("intensity_mul", mul)
 
 

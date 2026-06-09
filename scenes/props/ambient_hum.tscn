@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/ambient_hum.gd" id="1_script"]
+[ext_resource type="AudioStream" path="res://assets/audio/spaceEngineLow_000.ogg" id="2_hum"]
+
+[node name="AmbientHum" type="AudioStreamPlayer3D"]
+stream = ExtResource("2_hum")
+volume_db = -14.0
+unit_size = 2.5
+max_distance = 14.0
+script = ExtResource("1_script")

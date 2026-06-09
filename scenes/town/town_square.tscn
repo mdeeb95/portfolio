@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://kixhp6lu4fed" path="res://assets/environment/space_station/models/container-flat-open.fbx" id="9_l6ntw"]
 [ext_resource type="PackedScene" uid="uid://fmy5o3bve7l7" path="res://assets/environment/space_station/models/container-tall.fbx" id="10_xiia2"]
 [ext_resource type="Environment" uid="uid://boa6fkdfx7nc7" path="res://resources/space_sky_environment.tres" id="12_sky_env"]
-[ext_resource type="PackedScene" uid="uid://ouuqagu2jghk" path="res://assets/environment/space_station/models/computer-wide.fbx" id="13_ytcwe"]
 [ext_resource type="PackedScene" uid="uid://cbfb1fxaiu1j3" path="res://assets/environment/space_station/models/chair-headrest.fbx" id="14_ya1m6"]
 [ext_resource type="PackedScene" uid="uid://cc8dw3ffhvixr" path="res://assets/environment/space_station/models/bed-double-cover.fbx" id="15_41oom"]
 [ext_resource type="PackedScene" uid="uid://h2w4kiojxhp" path="res://assets/environment/space_station/models/bed-single-cover.fbx" id="16_843kx"]
@@ -32,7 +31,7 @@
 [ext_resource type="Script" uid="uid://b1ymfp7i2jkwx" path="res://scripts/space_station_floor_materials.gd" id="29_floor_materials"]
 [ext_resource type="PackedScene" uid="uid://bdqohsr5i7pa8" path="res://assets/environment/space/machine_generatorLarge.fbx" id="30_qkk60"]
 [ext_resource type="PackedScene" uid="uid://gwxcm8sij7tq" path="res://assets/environment/space/machine_barrel.fbx" id="31_4c54t"]
-[ext_resource type="PackedScene" uid="uid://be27evmgtpvqc" path="res://assets/environment/space/turret_double.fbx" id="31_vvisg"]
+[ext_resource type="PackedScene" uid="uid://dfmrprgpwf4qc" path="res://scenes/props/turret_double_scanning.tscn" id="31_vvisg"]
 [ext_resource type="PackedScene" uid="uid://bcymckqcecw7e" path="res://assets/environment/space/machine_wirelessCable.fbx" id="32_jucxq"]
 [ext_resource type="PackedScene" uid="uid://dkly8v5wa88dg" path="res://assets/environment/space/machine_generator.fbx" id="33_uvjo1"]
 [ext_resource type="PackedScene" uid="uid://cphso713xbq2d" path="res://assets/environment/space/rocket_baseB.fbx" id="34_4od4m"]
@@ -48,6 +47,7 @@
 [ext_resource type="PackedScene" uid="uid://b8ixlq6tmi078" path="res://assets/environment/space_station/models/structure-barrier-high.fbx" id="47_vgn05"]
 [ext_resource type="PackedScene" uid="uid://bwe8xc0wqcyau" path="res://assets/environment/factory_kit/models/pipe-glass-large-bend.fbx" id="48_66qsf"]
 [ext_resource type="PackedScene" uid="uid://cm2xe74oowpk6" path="res://assets/environment/space_station/models/pipe-bend.fbx" id="48_k7seo"]
+[ext_resource type="PackedScene" uid="uid://btcarrje3ed44" path="res://scenes/props/computer_hacker.tscn" id="48_ol8ct"]
 [ext_resource type="PackedScene" uid="uid://dij11n5e2vjfn" path="res://assets/environment/factory_kit/models/pipe-glass-large-junction.fbx" id="49_66qsf"]
 [ext_resource type="PackedScene" uid="uid://dx5iwio4vlxn1" path="res://assets/environment/space_station/models/container-wide.fbx" id="49_d2dty"]
 [ext_resource type="PackedScene" path="res://scenes/props/station_wall_run.tscn" id="50_4p1jl"]
@@ -55,7 +55,9 @@
 [ext_resource type="PackedScene" uid="uid://d13klosyuix85" path="res://assets/environment/space_station/models/structure.fbx" id="51_d2dty"]
 [ext_resource type="PackedScene" uid="uid://dgt8pmrx036b7" path="res://assets/environment/space_station/models/container.fbx" id="53_8psgo"]
 [ext_resource type="PackedScene" uid="uid://d2ppq6wdcy4v6" path="res://assets/environment/space/machine_barrelLarge.fbx" id="54_7js5x"]
+[ext_resource type="Script" uid="uid://bci0a1fk1lu07" path="res://scripts/player.gd" id="55_llbnd"]
 [ext_resource type="PackedScene" uid="uid://ccj4vmqaaje10" path="res://assets/environment/space/hangar_smallA.fbx" id="55_qbmm8"]
+[ext_resource type="Script" uid="uid://btrb1gld0vyxy" path="res://scripts/interaction_manager.gd" id="56_lnvl4"]
 [ext_resource type="PackedScene" uid="uid://bggdb6on1ngx4" path="res://assets/environment/space/corridor_open.fbx" id="56_od34t"]
 [ext_resource type="PackedScene" uid="uid://be4exane5pmv8" path="res://assets/environment/space/satelliteDish_detailed.fbx" id="57_qbmm8"]
 [ext_resource type="PackedScene" uid="uid://deknhp680n0ne" path="res://assets/environment/factory_kit/models/crane.fbx" id="58_v2wjn"]
@@ -65,8 +67,13 @@
 [ext_resource type="PackedScene" path="res://scenes/props/wall_torch_sconce.tscn" id="70_torch_sconce"]
 [ext_resource type="PackedScene" path="res://scenes/props/wall_torch_flame.tscn" id="71_torch_flame"]
 [ext_resource type="PackedScene" path="res://scenes/props/wall_torch_bar.tscn" id="72_torch_bar"]
+[ext_resource type="PackedScene" path="res://scenes/props/ambient_hum.tscn" id="73_ambient_hum"]
 [ext_resource type="FontFile" uid="uid://c0516du3648ea" path="res://assets/ui/fonts/eclipse-foundry.ttf" id="font_eclipse"]
 [ext_resource type="PackedScene" uid="uid://b8spcdpth0001" path="res://scenes/town/space_depth.tscn" id="spacedepth_1"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_player"]
+radius = 0.35
+height = 1.6
 
 [sub_resource type="BoxMesh" id="Mesh_ground"]
 size = Vector3(36, 0.4, 36)
@@ -77,7 +84,7 @@ albedo_color = Color(0.35, 0.42, 0.32, 1)
 [sub_resource type="BoxShape3D" id="Shape_ground"]
 size = Vector3(36, 0.4, 36)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_xt2eo"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_g2gtg"]
 size = Vector3(1.4, 2.2, 1.4)
 
 [sub_resource type="BoxMesh" id="Mesh_building"]
@@ -86,25 +93,25 @@ size = Vector3(4, 3, 4)
 [sub_resource type="StandardMaterial3D" id="Mat_work"]
 albedo_color = Color(0.75, 0.25, 0.25, 1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_ol8ct"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_fpgk3"]
 size = Vector3(4, 6, 4)
 
 [sub_resource type="StandardMaterial3D" id="Mat_hobbies"]
 albedo_color = Color(0.25, 0.7, 0.35, 1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_4p1jl"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_mas3x"]
 size = Vector3(4, 6, 4)
 
 [sub_resource type="StandardMaterial3D" id="Mat_wins"]
 albedo_color = Color(0.85, 0.75, 0.2, 1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_llbnd"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_wv0ju"]
 size = Vector3(4, 6, 4)
 
 [sub_resource type="StandardMaterial3D" id="Mat_about"]
 albedo_color = Color(0.3, 0.45, 0.85, 1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_lnvl4"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_hc0um"]
 size = Vector3(7, 5, 7)
 
 [sub_resource type="BoxMesh" id="Mesh_wall_ns"]
@@ -199,14 +206,6 @@ metadata/asset_placer_res_id = "uid://kixhp6lu4fed"
 [node name="container-tall" parent="Environment/Decorations" unique_id=2023442227 instance=ExtResource("10_xiia2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25, 0, -16.25)
 metadata/asset_placer_res_id = "uid://fmy5o3bve7l7"
-
-[node name="computer-wide" parent="Environment/Decorations" unique_id=1147130460 instance=ExtResource("13_ytcwe")]
-transform = Transform3D(0.94546527, 0, 0.32572567, 0, 1, 0, -0.32572567, 0, 0.94546527, -11.078756, 0.24613309, -7.780865)
-metadata/asset_placer_res_id = "uid://ouuqagu2jghk"
-
-[node name="computer-wide (1)" parent="Environment/Decorations" unique_id=1686626652 instance=ExtResource("13_ytcwe")]
-transform = Transform3D(0.8572542, 0, -0.5148963, 0, 1, 0, 0.5148963, 0, 0.8572542, -8.366743, 0.25984454, -7.6736217)
-metadata/asset_placer_res_id = "uid://ouuqagu2jghk"
 
 [node name="chair-headrest" parent="Environment/Decorations" unique_id=911136382 instance=ExtResource("14_ya1m6")]
 transform = Transform3D(-1.000001, 0, -3.1292439e-07, 0, 1, 0, 3.1292439e-07, 0, -1.000001, -9.812228, 0, -5.249044)
@@ -316,6 +315,9 @@ metadata/asset_placer_res_id = "uid://cr4imwt74plac"
 transform = Transform3D(4.5949736, 0, 0, 0, 4.5949736, 0, 0, 0, 4.5949736, 19.342321, -9.536743e-07, 15.428511)
 metadata/asset_placer_res_id = "uid://bdqohsr5i7pa8"
 
+[node name="Hum" parent="Environment/Decorations/machine_generatorLarge" unique_id=1874435770 instance=ExtResource("73_ambient_hum")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+
 [node name="machine_barrel" parent="Environment/Decorations" unique_id=1350224279 instance=ExtResource("31_4c54t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.604357, 1.1999993, 12.307764)
 metadata/asset_placer_res_id = "uid://gwxcm8sij7tq"
@@ -327,6 +329,9 @@ metadata/asset_placer_res_id = "uid://bcymckqcecw7e"
 [node name="machine_generator" parent="Environment/Decorations" unique_id=242445870 instance=ExtResource("33_uvjo1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.0384, 1.1999993, 12.164616)
 metadata/asset_placer_res_id = "uid://dkly8v5wa88dg"
+
+[node name="Hum" parent="Environment/Decorations/machine_generator" unique_id=2006861682 instance=ExtResource("73_ambient_hum")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
 [node name="machine_barrel (1)" parent="Environment/Decorations" unique_id=106940643 instance=ExtResource("31_4c54t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.602746, 1.1999993, 11.734319)
@@ -343,6 +348,9 @@ metadata/asset_placer_res_id = "uid://cpyaprcj0c645"
 [node name="machine_generator (1)" parent="Environment/Decorations" unique_id=2139101083 instance=ExtResource("33_uvjo1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.719748, 0.39999914, 10.020919)
 metadata/asset_placer_res_id = "uid://dkly8v5wa88dg"
+
+[node name="Hum" parent="Environment/Decorations/machine_generator (1)" unique_id=1051171437 instance=ExtResource("73_ambient_hum")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
 [node name="pipe_ringHighEnd" parent="Environment/Decorations" unique_id=1850581938 instance=ExtResource("36_qew70")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.3343477, 0.39999914, 9.9378395)
@@ -366,7 +374,6 @@ metadata/asset_placer_res_id = "uid://b0c3mqd2xdby5"
 
 [node name="turret_double" parent="Environment/Decorations" unique_id=1145224810 instance=ExtResource("31_vvisg")]
 transform = Transform3D(2.2981415, 0, 2.738818, 0, 3.5752697, 0, -2.738818, 0, 2.2981415, 22.614357, 0.39999866, -1.9228029)
-metadata/asset_placer_res_id = "uid://be27evmgtpvqc"
 
 [node name="structure-panel" parent="Environment/Decorations" unique_id=390921553 instance=ExtResource("34_k7seo")]
 transform = Transform3D(1.7017545, 0, 0, 0, 1.7017545, 0, 0, 0, 1.7017545, 3.5245647, -4.7683716e-07, 8.477504)
@@ -472,6 +479,9 @@ metadata/asset_placer_res_id = "uid://bcymckqcecw7e"
 transform = Transform3D(1.21, 0, 0, 0, 1.21, 0, 0, 0, 1.21, -15.076231, 0, 10.873316)
 metadata/asset_placer_res_id = "uid://bdqohsr5i7pa8"
 
+[node name="Hum" parent="Environment/Decorations/machine_generatorLarge2" unique_id=320447569 instance=ExtResource("73_ambient_hum")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
 [node name="machine_generatorLarge (1)" parent="Environment/Decorations" unique_id=987481091 instance=ExtResource("30_qkk60")]
 transform = Transform3D(1.21, 0, 0, 0, 1.21, 0, 0, 0, 1.21, -15.099503, 4.7683716e-07, 9.320014)
 metadata/asset_placer_res_id = "uid://bdqohsr5i7pa8"
@@ -479,6 +489,9 @@ metadata/asset_placer_res_id = "uid://bdqohsr5i7pa8"
 [node name="machine_generator2" parent="Environment/Decorations" unique_id=304054983 instance=ExtResource("33_uvjo1")]
 transform = Transform3D(1.7715611, 0, 0, 0, 1.7715611, 0, 0, 0, 1.7715611, -13.142203, 0, 10.151591)
 metadata/asset_placer_res_id = "uid://dkly8v5wa88dg"
+
+[node name="Hum" parent="Environment/Decorations/machine_generator2" unique_id=761680858 instance=ExtResource("73_ambient_hum")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
 [node name="machine_wirelessCable (1)" parent="Environment/Decorations" unique_id=1186414452 instance=ExtResource("32_jucxq")]
 transform = Transform3D(3.5741022e-07, 0, 4.7340417, 0, 4.7340364, 0, -4.7340417, 0, 3.5741022e-07, -8.700582, 0, 0.11033344)
@@ -515,6 +528,13 @@ metadata/asset_placer_res_id = "uid://dij11n5e2vjfn"
 [node name="pipe-glass-large-bend (1)" parent="Environment/Decorations" unique_id=1655503797 instance=ExtResource("48_66qsf")]
 transform = Transform3D(-1.0000008, 0, 2.7567148e-07, 0, 1, 0, -2.7567148e-07, 0, -1.0000008, 4.8247566, 0.19999981, 14.509003)
 metadata/asset_placer_res_id = "uid://bwe8xc0wqcyau"
+
+[node name="ComputerHacker" parent="Environment/Decorations" unique_id=1915468968 instance=ExtResource("48_ol8ct")]
+transform = Transform3D(0.94546527, 0, 0.32572567, 0, 1, 0, -0.32572567, 0, 0.94546527, -11.078756, 0.24613309, -7.780865)
+
+[node name="ComputerHacker2" parent="Environment/Decorations" unique_id=557822221 instance=ExtResource("48_ol8ct")]
+transform = Transform3D(0.8572542, 0, -0.5148963, 0, 1, 0, 0.5148963, 0, 0.8572542, -8.366743, 0.25984454, -7.6736217)
+light_enabled = false
 
 [node name="Structures" type="Node3D" parent="Environment" unique_id=865258361]
 
@@ -583,7 +603,34 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5727272, 3.499884, -0.3391
 [node name="PlayerSpawn" type="Marker3D" parent="." unique_id=1359750423]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 5)
 
-[node name="Player" parent="PlayerSpawn" unique_id=1362294124 instance=ExtResource("5_player")]
+[node name="Player" parent="PlayerSpawn" unique_id=1362294124 groups=["player"] instance=ExtResource("5_player")]
+collision_layer = 2
+collision_mask = 5
+floor_max_angle = 0.872665
+floor_snap_length = 0.22
+safe_margin = 0.02
+script = ExtResource("55_llbnd")
+
+[node name="CollisionShape3D" parent="PlayerSpawn/Player" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+shape = SubResource("CapsuleShape3D_player")
+
+[node name="SpringArm3D" parent="PlayerSpawn/Player" index="2"]
+process_mode = 3
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 1.2, 0)
+collision_mask = 0
+spring_length = 11.0
+margin = 0.2
+
+[node name="Camera3D" parent="PlayerSpawn/Player/SpringArm3D" index="0"]
+current = true
+fov = 55.0
+
+[node name="InteractionManager" parent="PlayerSpawn/Player" index="3"]
+script = ExtResource("56_lnvl4")
+
+[node name="FootstepPlayer" parent="PlayerSpawn/Player" index="4"]
+volume_db = -15.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1823544475]
 environment = ExtResource("12_sky_env")
@@ -625,7 +672,7 @@ click_hitbox_center = Vector3(0, 1.6, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MathewDeeb" unique_id=433706470]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
-shape = SubResource("BoxShape3D_xt2eo")
+shape = SubResource("BoxShape3D_g2gtg")
 
 [node name="KenneyCharacter" parent="MathewDeeb" unique_id=184831738 instance=ExtResource("3_character")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
@@ -688,7 +735,7 @@ surface_material_override/0 = SubResource("Mat_work")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Zones/Work" unique_id=844007944]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
-shape = SubResource("BoxShape3D_ol8ct")
+shape = SubResource("BoxShape3D_fpgk3")
 
 [node name="Label3D" type="Label3D" parent="Zones/Work" unique_id=1460481138]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.2, 0)
@@ -733,7 +780,7 @@ surface_material_override/0 = SubResource("Mat_hobbies")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Zones/Hobbies" unique_id=15276740]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
-shape = SubResource("BoxShape3D_4p1jl")
+shape = SubResource("BoxShape3D_mas3x")
 
 [node name="Label3D" type="Label3D" parent="Zones/Hobbies" unique_id=1422513857]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.2, 0)
@@ -778,7 +825,7 @@ surface_material_override/0 = SubResource("Mat_wins")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Zones/Accomplishments" unique_id=489021232]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
-shape = SubResource("BoxShape3D_llbnd")
+shape = SubResource("BoxShape3D_wv0ju")
 
 [node name="Label3D" type="Label3D" parent="Zones/Accomplishments" unique_id=1749948985]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.2, 0)
@@ -825,7 +872,7 @@ surface_material_override/0 = SubResource("Mat_about")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Zones/About" unique_id=1459912318]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
-shape = SubResource("BoxShape3D_lnvl4")
+shape = SubResource("BoxShape3D_hc0um")
 
 [node name="Label3D" type="Label3D" parent="Zones/About" unique_id=1471679941]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.2, 0)
@@ -902,7 +949,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5926037, 0, 0.28959656)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.519674, 4.6396675, -47.37313)
 
 [node name="Ship" parent="SpaceShipPatrol3/Waypoints/Spawn" index="0"]
-transform = Transform3D(0.99956775, -0.0018880771, -0.029338272, 5.6144986e-09, 0.9979356, -0.06422238, 0.029398965, 0.06419462, 0.99750423, -2.4118023, -5.2797565, 82.00659)
+transform = Transform3D(0.9995678, -0.0018879371, -0.029336533, 5.614416e-09, 0.9979357, -0.064221434, 0.029397218, 0.06419368, 0.9975044, -2.4118023, -5.2797565, 82.00659)
 visible = false
 
 [node name="Exit" parent="SpaceShipPatrol3/Waypoints" index="1"]
@@ -925,7 +972,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5926037, 0, 0.28959656)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.519674, 4.6396675, -47.37313)
 
 [node name="Ship" parent="SpaceShipPatrol4/Waypoints/Spawn" index="0"]
-transform = Transform3D(0.99956775, -0.0018880771, -0.029338272, 5.6144986e-09, 0.9979356, -0.06422238, 0.029398965, 0.06419462, 0.99750423, -2.4118004, -5.2797565, 82.00659)
+transform = Transform3D(0.9995678, -0.0018879371, -0.029336533, 5.614416e-09, 0.9979357, -0.064221434, 0.029397218, 0.06419368, 0.9975044, -2.4118004, -5.2797565, 82.00659)
 visible = false
 
 [node name="Exit" parent="SpaceShipPatrol4/Waypoints" index="1"]
@@ -948,8 +995,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5926037, 0, 0.28959656)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.519674, 4.6396675, -47.37313)
 
 [node name="Ship" parent="SpaceShipPatrol5/Waypoints/Spawn" index="0"]
-transform = Transform3D(0.8594459, 0.029169343, 0.51039374, 4.9881312e-09, 0.9983709, -0.05705757, -0.5112266, 0.0490379, 0.8580458, 47.22615, -5.2797565, 79.39401)
-visible = false
+transform = Transform3D(0.8594459, 0.029170908, 0.5103937, 4.9883986e-09, 0.99837065, -0.05706063, -0.5112266, 0.04904053, 0.85804564, 19.657784, -2.1976871, 33.04759)
 
 [node name="Exit" parent="SpaceShipPatrol5/Waypoints" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.74583, -0.64008904, 32.020885)
@@ -967,8 +1013,7 @@ spin_speed_min_deg = 80.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.311077, 20, -39.210304)
 
 [node name="Ship" parent="Asteroid/Waypoints/Spawn" index="0"]
-transform = Transform3D(0.43142736, -0.78728294, -0.44051793, 0.5166715, -0.18466192, 0.8360326, -0.7395411, -0.58829033, 0.32709843, -99.52016, 4, 41.493507)
-visible = false
+transform = Transform3D(-0.03240104, 0.88574046, -0.46304864, 0.66037434, -0.32878947, -0.675132, -0.7502372, -0.3276604, -0.57426715, -47.94674, 1.9271169, 19.990707)
 
 [node name="Exit" parent="Asteroid/Waypoints" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.20908, 24, 2.2832012)
@@ -987,7 +1032,7 @@ spin_speed_min_deg = 80.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.311077, 20, -39.210304)
 
 [node name="Ship" parent="Asteroid2/Waypoints/Spawn" index="0"]
-transform = Transform3D(0.7247906, -0.054934643, 0.68677574, -0.043573957, -0.9984756, -0.03388138, 0.68759, -0.005368629, -0.7260793, -99.52016, 4, 41.493507)
+transform = Transform3D(0.5911732, 0.1863782, 0.78471494, 0.34328824, -0.9385513, -0.035703786, 0.72984076, 0.2904905, -0.61882776, -99.52016, 4, 41.493507)
 visible = false
 
 [node name="Exit" parent="Asteroid2/Waypoints" index="1"]
@@ -1006,7 +1051,8 @@ spin_speed_min_deg = 80.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.875744, 20, -27.103481)
 
 [node name="Ship" parent="Asteroid3/Waypoints/Spawn" index="0"]
-transform = Transform3D(0.38084355, 0.86103487, 0.33701205, -0.9217552, 0.38230565, 0.064881995, -0.07297595, -0.3353525, 0.9392621, 4.186163, 0.80592585, 11.666957)
+transform = Transform3D(0.8972218, 0.2853278, 0.33701792, -0.32446986, 0.9436681, 0.064882964, -0.29952013, -0.16756655, 0.93925995, 20.776917, 4, 57.90587)
+visible = false
 
 [node name="Exit" parent="Asteroid3/Waypoints" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9011736, 24, 30.802387)
@@ -1024,7 +1070,7 @@ spin_speed_min_deg = 80.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.875744, 20, -27.103481)
 
 [node name="Ship" parent="Asteroid4/Waypoints/Spawn" index="0"]
-transform = Transform3D(0.84004426, 0.03739205, 0.54122776, 0.008978422, -0.99844354, 0.055044446, 0.5424435, -0.041380398, -0.8390725, 36.424553, 3.7044816, -56.469456)
+transform = Transform3D(-0.022401901, -0.84057754, 0.54122776, -0.99655706, 0.062000636, 0.055044428, -0.07982557, -0.53813124, -0.8390725, 19.294174, 1.9622726, -29.912006)
 
 [node name="Exit" parent="Asteroid4/Waypoints" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.05412, 24.060982, -89.00726)
@@ -1095,7 +1141,6 @@ metadata/asset_placer_res_id = "uid://deknhp680n0ne"
 
 [node name="turret_double" parent="." unique_id=187248253 instance=ExtResource("31_vvisg")]
 transform = Transform3D(3.2480233, 0, 2.7254143, 0, 4.239988, 0, -2.7254143, 0, 3.2480233, -4.280631, 0.19999981, -15.793165)
-metadata/asset_placer_res_id = "uid://be27evmgtpvqc"
 
 [node name="crane-lift" parent="." unique_id=1362174316 instance=ExtResource("59_vdioa")]
 transform = Transform3D(0.7856783, 0, 0, 0, 0.7856783, 0, 0, 0, 0.7856783, 9.936128, 8.360028, -8.432515)

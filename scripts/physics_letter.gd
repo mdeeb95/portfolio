@@ -7,6 +7,20 @@ extends RigidBody3D
 ## AABB whenever `letter` changes, so the box always wraps the glyph exactly.
 
 const _MIN_GLYPH_SIZE := 0.05
+## Ignore contacts slower than this (m/s) — resting jitter, not a hit.
+const _IMPACT_MIN_SPEED := 1.0
+## Contact speed (m/s) that maps to full impact volume.
+const _IMPACT_MAX_SPEED := 8.0
+## Minimum ms between clangs so a tumble doesn't machine-gun the sound.
+const _IMPACT_COOLDOWN_MS := 150
+
+const _IMPACT_SOUNDS: Array[AudioStream] = [
+	preload("res://assets/audio/impactMetal_000.ogg"),
+	preload("res://assets/audio/impactMetal_001.ogg"),
+	preload("res://assets/audio/impactMetal_002.ogg"),
+	preload("res://assets/audio/impactMetal_003.ogg"),
+	preload("res://assets/audio/impactMetal_004.ogg"),
+]
 
 ## Character to display (first character is used, uppercased).
 @export var letter: String = "D":
@@ -31,12 +45,40 @@ const _MIN_GLYPH_SIZE := 0.05
 @onready var _collision_shape: CollisionShape3D = $CollisionShape3D
 
 var _start_transform: Transform3D
+var _impact_player: AudioStreamPlayer3D
+var _last_impact_ms: int = 0
 
 
 func _ready() -> void:
 	_apply_letter()
 	if not Engine.is_editor_hint():
 		_start_transform = global_transform
+		contact_monitor = true
+		max_contacts_reported = 4
+		body_entered.connect(_on_body_entered)
+		_impact_player = AudioStreamPlayer3D.new()
+		_impact_player.unit_size = 3.0
+		_impact_player.max_distance = 18.0
+		add_child(_impact_player)
+
+
+## Metal clang when the letter lands or gets knocked into something, scaled by
+## how hard it hit.
+func _on_body_entered(_body: Node) -> void:
+	var speed := linear_velocity.length()
+	if speed < _IMPACT_MIN_SPEED:
+		return
+	var now := Time.get_ticks_msec()
+	if now - _last_impact_ms < _IMPACT_COOLDOWN_MS:
+		return
+	_last_impact_ms = now
+	var strength := clampf(
+		(speed - _IMPACT_MIN_SPEED) / (_IMPACT_MAX_SPEED - _IMPACT_MIN_SPEED), 0.0, 1.0)
+	_impact_player.stream = _IMPACT_SOUNDS[randi() % _IMPACT_SOUNDS.size()]
+	_impact_player.volume_db = lerpf(-18.0, -4.0, strength)
+	# Bigger letters clang deeper.
+	_impact_player.pitch_scale = randf_range(0.95, 1.1) * clampf(1.35 - letter_height * 0.25, 0.7, 1.3)
+	_impact_player.play()
 
 
 func _physics_process(_delta: float) -> void:

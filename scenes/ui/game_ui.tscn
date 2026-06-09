@@ -9,3 +9,13 @@ script = ExtResource("1_ui")
 
 [node name="TouchJoystick" parent="." instance=ExtResource("2_joystick")]
 layout_mode = 3
+
+[node name="MuteButton" type="Button" parent="."]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 192.0
+offset_bottom = 106.0
+focus_mode = 0
+theme_type_variation = &"MuteButton"
+toggle_mode = true
+text = "MUTE"

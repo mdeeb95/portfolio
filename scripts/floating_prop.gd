@@ -57,11 +57,18 @@ const EDITOR_PREVIEW_NAME := "EditorPreview"
 
 @export_group("Capture")
 ## Radius of the beam column (around the hover point's vertical axis) that re-grabs the prop.
-@export_range(0.1, 5.0, 0.05) var capture_radius: float = 0.6
+@export_range(0.1, 5.0, 0.05) var capture_radius: float = 0.9
 ## How far below the hover point the column reaches (to the beam base / ground).
 @export_range(0.2, 10.0, 0.05) var capture_height: float = 1.6
 ## Don't grab objects flying through faster than this (m/s).
-@export_range(0.2, 20.0, 0.1) var capture_max_speed: float = 3.0
+@export_range(0.2, 20.0, 0.1) var capture_max_speed: float = 4.0
+## Magnetic pull: a knocked prop within this XZ radius of the beam axis gets
+## dragged toward the column, so it doesn't need to be pushed in precisely. 0 = off.
+@export_range(0.0, 8.0, 0.05) var attract_radius: float = 2.4
+## Pull acceleration (m/s²); ramps up as the prop gets closer to the axis.
+@export_range(0.0, 60.0, 0.5) var attract_strength: float = 16.0
+## The magnet ignores props flying through faster than this (m/s).
+@export_range(0.2, 20.0, 0.1) var attract_max_speed: float = 4.5
 ## Grace period after a knock before the beam tries to re-grab.
 @export_range(0.0, 10.0, 0.05) var recapture_delay: float = 1.5
 ## Stronger spring used while pulling the prop back up.
@@ -76,6 +83,9 @@ const EDITOR_PREVIEW_NAME := "EditorPreview"
 ## Goofy confetti explosion when the beam re-captures the prop. Pieces settle on
 ## the ground and stay there (single MultiMesh draw call; mobile-friendly).
 @export var confetti_enabled: bool = true
+## Cute little pop when the confetti bursts.
+@export var pop_sound: AudioStream = preload("res://assets/audio/confirmation_001.ogg")
+@export_range(-40.0, 6.0, 0.5) var pop_volume_db: float = -6.0
 @export_range(10, 400, 1) var confetti_count: int = 90
 @export_range(1.0, 12.0, 0.1) var confetti_burst_speed: float = 4.5
 @export_range(0.02, 0.3, 0.005) var confetti_piece_size: float = 0.07
@@ -100,6 +110,7 @@ var _beam: Node3D
 var _editor_preview_key: String = ""
 
 var _confetti_mmi: MultiMeshInstance3D
+var _pop_player: AudioStreamPlayer3D
 var _c_pos: PackedVector3Array
 var _c_vel: PackedVector3Array
 var _c_settle_y: PackedFloat32Array
@@ -170,9 +181,12 @@ func _physics_process(delta: float) -> void:
 				_enter_knocked()
 		State.KNOCKED:
 			_knock_timer = maxf(0.0, _knock_timer - delta)
-			if _knock_timer <= 0.0 and _is_in_beam_column(global_position) \
-					and linear_velocity.length() < capture_max_speed:
-				_enter_recapturing()
+			if _knock_timer <= 0.0:
+				if _is_in_beam_column(global_position) \
+						and linear_velocity.length() < capture_max_speed:
+					_enter_recapturing()
+				else:
+					_apply_magnet()
 		State.RECAPTURING:
 			var err: Vector3 = _hover_target() - global_position
 			apply_central_force(mass * (snap_stiffness * err - snap_damping * linear_velocity))
@@ -185,6 +199,27 @@ func _physics_process(delta: float) -> void:
 func _hover_target() -> Vector3:
 	return _hover_transform.origin \
 			+ Vector3.UP * hover_bob_amplitude * sin(_bob_time * hover_bob_speed * TAU)
+
+
+## Gentle horizontal drag toward the beam axis while knocked off and nearby —
+## a "close enough" toss rolls itself the rest of the way into the column.
+func _apply_magnet() -> void:
+	if attract_radius <= 0.0:
+		return
+	var hover: Vector3 = _hover_transform.origin
+	var to_axis := Vector3(hover.x - global_position.x, 0.0, hover.z - global_position.z)
+	var dist: float = to_axis.length()
+	if dist > attract_radius or dist < 0.001:
+		return
+	if global_position.y < hover.y - capture_height - 0.5 or global_position.y > hover.y + 0.5:
+		return
+	if linear_velocity.length() > attract_max_speed:
+		return
+	var falloff: float = 1.0 - dist / attract_radius
+	var pull: Vector3 = to_axis / dist * attract_strength * (0.35 + 0.65 * falloff)
+	# Damp sideways velocity so the prop spirals in instead of orbiting past.
+	var vel_xz := Vector3(linear_velocity.x, 0.0, linear_velocity.z)
+	apply_central_force(mass * (pull - vel_xz * 2.5))
 
 
 func _is_in_beam_column(pos: Vector3) -> bool:
@@ -438,6 +473,7 @@ func _confetti_setup() -> void:
 
 func _confetti_burst() -> void:
 	_confetti_setup()
+	_play_pop()
 	var origin: Vector3 = _hover_transform.origin
 	var ground_y: float = origin.y - capture_height
 	var space := get_world_3d().direct_space_state
@@ -466,6 +502,20 @@ func _confetti_burst() -> void:
 	_c_airborne = confetti_count
 	_c_time = 0.0
 	set_process(true)
+
+
+func _play_pop() -> void:
+	if pop_sound == null:
+		return
+	if _pop_player == null:
+		_pop_player = AudioStreamPlayer3D.new()
+		_pop_player.unit_size = 3.0
+		_pop_player.max_distance = 18.0
+		add_child(_pop_player)
+	_pop_player.stream = pop_sound
+	_pop_player.volume_db = pop_volume_db
+	_pop_player.pitch_scale = randf_range(0.95, 1.15)
+	_pop_player.play()
 
 
 func _confetti_step(delta: float) -> void:

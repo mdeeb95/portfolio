@@ -39,3 +39,9 @@ fov = 55.0
 
 [node name="InteractionManager" type="Node" parent="."]
 script = ExtResource("2_interact")
+
+[node name="FootstepPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -12.0
+
+[node name="AudioListener3D" type="AudioListener3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)

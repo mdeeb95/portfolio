@@ -10,12 +10,35 @@ const TAP_MOVE_STOP_DIST := 0.35
 ## Impulse-per-second applied to RigidBody3D props per m/s of approach speed (N·s/m).
 const PROP_PUSH_STRENGTH := 10.0
 
+const STEP_SOUNDS: Array[AudioStream] = [
+	preload("res://assets/audio/impactMetal_light_000.ogg"),
+	preload("res://assets/audio/impactMetal_light_001.ogg"),
+	preload("res://assets/audio/impactMetal_light_002.ogg"),
+	preload("res://assets/audio/impactMetal_light_003.ogg"),
+	preload("res://assets/audio/impactMetal_light_004.ogg"),
+]
+
 @onready var model: Node3D = $Model
 @onready var spring_arm: SpringArm3D = $SpringArm3D
 @onready var _animator: CharacterAnimator = $Model/KenneyCharacter
+@onready var _footsteps: AudioStreamPlayer = $FootstepPlayer
 
 var _tap_target: Vector3 = Vector3.ZERO
 var _has_tap_target: bool = false
+var _was_on_floor: bool = true
+
+
+func _ready() -> void:
+	# Hear from the character, not the camera 11 m up the spring arm. The
+	# listener sits outside the rotating Model so its yaw stays camera-aligned
+	# and stereo panning keeps matching the screen.
+	var listener := get_node_or_null("AudioListener3D") as AudioListener3D
+	if listener:
+		listener.make_current()
+	# Footsteps fire when the animation actually plants a foot (support-foot
+	# switch detection in CharacterAnimator), not on a distance estimate.
+	if _animator:
+		_animator.foot_planted.connect(_play_step)
 
 
 func _physics_process(delta: float) -> void:
@@ -87,7 +110,25 @@ func _physics_process(delta: float) -> void:
 	_push_props(pre_slide_velocity, delta)
 	if not is_on_floor() and velocity.y <= 0.0:
 		apply_floor_snap()
+	_update_footsteps()
 	_update_animation()
+
+
+## Walking steps arrive via CharacterAnimator.foot_planted; this only adds the
+## landing thud when the body comes back down onto the floor.
+func _update_footsteps() -> void:
+	if _footsteps == null:
+		return
+	var on_floor := is_on_floor()
+	if on_floor and not _was_on_floor:
+		_play_step()
+	_was_on_floor = on_floor
+
+
+func _play_step() -> void:
+	_footsteps.stream = STEP_SOUNDS[randi() % STEP_SOUNDS.size()]
+	_footsteps.pitch_scale = randf_range(0.92, 1.1)
+	_footsteps.play()
 
 
 func set_tap_target(world_pos: Vector3) -> void:

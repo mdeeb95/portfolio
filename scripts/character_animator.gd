@@ -6,6 +6,11 @@ extends Node
 ## speed; the "talk" clip is swapped in via a Transition node. The blend tree and the baked
 ## locomotion AnimationLibrary live in kenney_character.tscn (authored through Godot MCP).
 
+## A foot planted on the ground this frame (see _process: support-foot switch
+## detection). The player plays a footstep sound per emission — by construction
+## these land in sync with the animation at any locomotion blend speed.
+signal foot_planted
+
 ## AnimationTree parameter paths (pinned from the live tree in Godot 4.6).
 const BLEND_PARAM := "parameters/Move/blend_position"
 const TRANSITION_PARAM := "parameters/Transition/transition_request"
@@ -22,6 +27,13 @@ const TRANSITION_PARAM := "parameters/Transition/transition_request"
 const MOVE_THRESHOLD := 0.25
 ## blend_position damping rate (frame-rate independent); higher = snappier idle<->walk easing.
 const BLEND_DAMP := 14.0
+
+## Below this grounded speed (m/s) foot-plant detection is off (idle shuffle must not step).
+const FOOTSTEP_MIN_SPEED := 0.5
+## Vertical gap (m, world space) one foot must open over the other before it counts as the new
+## support foot. 0.012 was validated against the real blend tree at blends 1.2–5.6: clean
+## alternation, no double-fires, even where the slow-gait foot lift compresses to ~7 cm.
+@export_range(0.001, 0.05, 0.001) var foot_switch_deadband := 0.012
 
 ## Mixamo locomotion + talk clips retargeted onto the Kenney rig in Mixamo, so each FBX shares
 ## the Kenney skeleton and a single clip named "mixamo_com". These are baked into
@@ -49,6 +61,13 @@ const ANIM_TRACK_REMAP := "Root/Root/Skeleton3D"
 
 var _talking: bool = false
 
+var _skel: Skeleton3D
+var _bone_left: int = -1
+var _bone_right: int = -1
+var _grounded_speed: float = 0.0
+## Which foot is currently the support (lower) foot: -1 left, 1 right, 0 unknown/reset.
+var _lower_foot: int = 0
+
 
 func _enter_tree() -> void:
 	_apply_model_scale()
@@ -68,6 +87,12 @@ func _ready() -> void:
 	_tree.set(BLEND_PARAM, 0.0)
 	_tree.set(TRANSITION_PARAM, "move")
 	_tree.advance(0.0)
+	_skel = get_node_or_null("Root/Root/Skeleton3D") as Skeleton3D
+	if _skel:
+		_bone_left = _skel.find_bone("LeftFoot")
+		_bone_right = _skel.find_bone("RightFoot")
+	if _skel == null or _bone_left < 0 or _bone_right < 0:
+		push_warning("CharacterAnimator: foot bones not found on %s; footstep events disabled." % name)
 
 
 func _apply_model_scale() -> void:
@@ -85,11 +110,38 @@ func set_talking(talking: bool) -> void:
 
 ## Feed horizontal body speed (m/s) into the locomotion blend space. Sub-threshold speed snaps to a
 ## clean idle, and the blend is damped so idle<->walk eases instead of popping.
-func update_locomotion(horizontal_speed: float, _is_on_floor: bool) -> void:
+func update_locomotion(horizontal_speed: float, is_on_floor: bool) -> void:
+	_grounded_speed = horizontal_speed if is_on_floor else 0.0
 	var target := 0.0 if horizontal_speed < MOVE_THRESHOLD else horizontal_speed
 	var current := float(_tree.get(BLEND_PARAM))
 	var weight := 1.0 - exp(-BLEND_DAMP * get_physics_process_delta_time())
 	_tree.set(BLEND_PARAM, lerpf(current, target, weight))
+
+
+## Support-foot switch detection: a footstep is the moment the lower foot changes identity
+## (left<->right past a small deadband). Scale- and threshold-free, so it stays in sync with
+## the animation no matter how slowly or fast the locomotion blend plays. Runs on idle frames,
+## matching the AnimationTree's default process callback (the rendered pose).
+func _process(_delta: float) -> void:
+	if _skel == null or _bone_left < 0 or _bone_right < 0:
+		return
+	if _grounded_speed < FOOTSTEP_MIN_SPEED or _talking:
+		# Re-baseline on resume so a stale switch doesn't fire (also covers landings:
+		# airborne -> gate closed -> reset; the player's landing thud stays un-doubled).
+		_lower_foot = 0
+		return
+	var left_y := (_skel.global_transform * _skel.get_bone_global_pose(_bone_left)).origin.y
+	var right_y := (_skel.global_transform * _skel.get_bone_global_pose(_bone_right)).origin.y
+	var diff := left_y - right_y
+	if _lower_foot == 0:
+		if absf(diff) > foot_switch_deadband:
+			_lower_foot = -1 if diff < 0.0 else 1
+	elif _lower_foot == -1 and diff > foot_switch_deadband:
+		_lower_foot = 1
+		foot_planted.emit()
+	elif _lower_foot == 1 and diff < -foot_switch_deadband:
+		_lower_foot = -1
+		foot_planted.emit()
 
 
 func _apply_skin() -> void:
